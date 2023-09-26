@@ -1,0 +1,20 @@
+form {
+    display: grid;
+    grid-gap: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #04AA6D;
+    padding: 4vh;
+    background-color: #04AA6D;
+}
+#boutonSubmit{
+    margin-top: 2vh;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b2b2b;
+}

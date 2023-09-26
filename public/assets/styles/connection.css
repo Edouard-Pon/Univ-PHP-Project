@@ -1,20 +1,56 @@
 form {
     display: grid;
-    grid-gap: 2px;
+    grid-gap: 2vh;
     border-style: solid;
     border-radius: 20px;
-    border-color: #04AA6D;
-    padding: 4vh;
-    background-color: #04AA6D;
+    border-color: white;
+    padding: 5vh 3vh 5vh 3vh;
 }
-#boutonSubmit{
+#submitButton{
     margin-top: 2vh;
 }
-
+input[type=text]{
+    background-color: black;
+    border: none;
+    color: white;
+    outline: none;
+    border-bottom: 1px solid;
+}
+input[type=password]{
+    background-color: black;
+    border: none;
+    border-bottom: 1px solid;
+    color: white;
+    outline: none;
+}
+@keyframes animation_submitButton_out {
+    from {border-radius: 20px}
+    to {border-radius: 5px}
+}
+@keyframes animation_submitButton_in {
+    from {border-radius: 5px}
+    to {border-radius: 20px}
+}
+input[type=submit]:hover{
+    animation-name: animation_submitButton_out;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+input[type=submit]{
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 20px;
+    padding: 1vh 3vh 1vh 3vh;
+    animation-name: animation_submitButton_in;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
 body{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #2b2b2b;
+    background-color: black;
 }

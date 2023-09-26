@@ -34,6 +34,7 @@ if (isset($_POST['envoi'])) {
     <head> 
         <title>Inscription</title> 
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/public/assets/styles/connection.css"/>
     </head> 
     <body> 
         <form method="POST" action="">

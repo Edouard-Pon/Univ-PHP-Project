@@ -67,6 +67,6 @@ if(isset($_POST['envoi'])){
         <input type="submit" name="envoi">
         
     </form>
-</bodv> 
+</body> 
 </html>
 

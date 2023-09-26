@@ -41,7 +41,7 @@ if (isset($_POST['envoi'])) {
             <input type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
 
             <br/><br/>
-            <input type="submit" name="envoi">
+            <input type="submit" name="envoi" id="submitButton">
         </form>
     </body> 
 </html>

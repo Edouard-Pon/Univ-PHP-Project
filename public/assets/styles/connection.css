@@ -9,19 +9,21 @@ form {
 #submitButton{
     margin-top: 2vh;
 }
-input[type=text]{
+@keyframes animation_inputText {
+    0%{border-bottom-color: white}
+    50%{border-bottom-color: #04AA6D}
+    0%{border-bottom-color: white}
+}
+.inputText{
     background-color: black;
     border: none;
     color: white;
     outline: none;
     border-bottom: 1px solid;
 }
-input[type=password]{
-    background-color: black;
-    border: none;
-    border-bottom: 1px solid;
-    color: white;
-    outline: none;
+.inputText:focus{
+    animation-name: animation_inputText;
+    animation-duration: 0.8s;
 }
 @keyframes animation_submitButton_out {
     from {border-radius: 20px}
@@ -31,12 +33,6 @@ input[type=password]{
     from {border-radius: 5px}
     to {border-radius: 20px}
 }
-input[type=submit]:hover{
-    animation-name: animation_submitButton_out;
-    animation-duration: 0.2s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
-}
 input[type=submit]{
     background-color: #04AA6D;
     border: none;
@@ -44,8 +40,20 @@ input[type=submit]{
     padding: 1vh 3vh 1vh 3vh;
     animation-name: animation_submitButton_in;
     animation-duration: 0.2s;
+    animation-timing-function: ease;
+}
+input[type=submit]:hover{
+    animation-name: animation_submitButton_out;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
     animation-timing-function: ease;
+}
+.inputSelect{
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    appearance: none;
 }
 body{
     min-height: 100vh;

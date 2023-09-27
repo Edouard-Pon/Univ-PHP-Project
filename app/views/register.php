@@ -1,4 +1,3 @@
-
 <?php
 session_start(); // Démarre la session
 
@@ -37,14 +36,15 @@ if(isset($_POST['envoi'])){
     <head> 
         <title>Inscription</title> 
         <meta charset="utf-8">
+        <link rel="stylesheet" href="/public/assets/styles/connection.css"/>
 </head> 
 <body> 
     <form method="POST" action="">
-        <input id="username" type="text" name="name" autocomplete="off" placeholder="Pseudo"> <br/>
-        <input type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
-        <input type="email" name="email"  placeholder="Adresse Mail" autocomplete="off"> <br/>
-        <input type="tel" name="phone" id="user_phone" nputmode="numeric" placeholder="Téléphone"  pattern="[0-9]{10}"><br/>
-        <select id="user_country" name="location"> <!-- Pays -->
+        <input class="inputText" id="username" type="text" name="name" autocomplete="off" placeholder="Pseudo"> <br/>
+        <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
+        <input class="inputText" type="email" name="email"  placeholder="Adresse Mail" autocomplete="off"> <br/>
+        <input class="inputText" type="tel" name="phone" id="user_phone" nputmode="numeric" placeholder="Téléphone"  pattern="[0-9]{10}"><br/>
+        <select class="inputSelect" id="user_country" name="location"> <!-- Pays -->
         <option value=""> ---Choisissez un pays---</option>
         <option value="Fr"> France</option>
         <option value="Ua"> Ukraine</option>
@@ -56,7 +56,7 @@ if(isset($_POST['envoi'])){
         <option value="Ai"> Aix-En-Provence</option>
         <option value="Iu"> IUT</option>
     </select> <br>
-    <select id="user_sexe" name="gender"> <!-- sexe -->
+    <select class="inputSelect" id="user_sexe" name="gender"> <!-- sexe -->
         <option value=""> --Choisissez un sexe--</option>
         <option value="M">Homme</option>
         <option value="F">Femme</option>

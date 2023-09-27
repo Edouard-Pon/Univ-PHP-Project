@@ -38,8 +38,8 @@ if (isset($_POST['envoi'])) {
     </head> 
     <body> 
         <form method="POST" action="">
-            <input id="username" type="text" name="name" autocomplete="off" placeholder="Nom d'utilisateur"> <br/>
-            <input type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
+            <input class="inputText" id="username" type="text" name="name" autocomplete="off" placeholder="Nom d'utilisateur"> <br/>
+            <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
 
             <br/><br/>
             <input type="submit" name="envoi" id="submitButton">

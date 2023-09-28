@@ -1,14 +1,20 @@
 <?php
 session_start();
 if (!isset($_SESSION['password'])){
-    header ('Location: connection.php');
+    start_page('PasX');
     exit;
 }
 $name = isset($_SESSION['name']) ? $_SESSION['name'] : '';
 echo $_SESSION ['name'];
+log_out();
+?>
+
+<?php
+function log_out()
+{
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <title>Home</title>
     <meta charset="utf-8">
@@ -19,3 +25,45 @@ echo $_SESSION ['name'];
     </a>
 </body> 
 </html>
+<?php
+}
+?>
+
+
+<?php
+function start_page($title)
+{
+?><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="/public/assets/styles/main.css">
+    <link rel="stylesheet" href="/public/assets/styles/homepage.css">
+
+    <link rel="shortcut icon" type="image/jpg" href="/public/assets/images/logoblanc.png"/>
+</head>
+<body class="body">
+<header></header>
+<div class="page-content">
+    <div class="flex-container">
+        <div class="logo"><img src="/public/assets/images/logoblanc.png" class="image" alt=""></div>
+        <div class="interface">
+            <p class="bigtext"><b>Nous aussi on <br>peut le faire</b></p>
+            <p class="medtext"><b>Rejoignez dès aujourd'hui</b></p>
+            <button class="signup"><b>Create account</b></button>
+            <p class="minitext">By signing up you agree to the Terms of Service and Privacy<br> Policy including Cookie Use.</p>
+            <p class="medtext"><b>Déja un compte?</b></p>
+            <button class="signin"><b>Sign in</b></button>
+        </div>
+    </div>
+    <footer id="footer">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">À propos</a>
+        <a href="https://www.univ-amu.fr/">IUT Aix-Marseille</a>
+        <a href="https://github.com/Edouard-Pon/Univ-PHP-Project">Développeurs</a>
+        <a>© 2023 Notre Equipe</a>
+    </footer>
+</div>
+</body>
+<?php
+}
+?>

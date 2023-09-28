@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
+
+.body {
+    font-family: "Source Code Pro", serif;
+    background-color: black;
+    background-size: 100%;
+    background-attachment: fixed;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.page-content{
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+}
+
+.flex-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.interface{
+    margin-top: 5rem;
+    height: 80%;
+    display: grid;
+    grid-gap: 2.5rem;
+    text-align: left;
+}
+
+#footer {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    display: inline-block;
+    padding: 0 0.5rem;
+    color: darkgray;
+}
+
+#footer a{
+    color: darkgray;
+    text-decoration: underline;
+}
+
+.logo {
+    pointer-events: none;
+    user-select: none;
+    margin-right: 18rem;
+    margin-top: 8rem;
+    width: 25%;
+}
+
+.signup{
+    font-size: 1rem;
+    height: 3rem;
+    width: 20rem;
+    background-color: palegreen;
+    border-radius: 10px;
+    border-width: 0;
+    color: black;
+    transition: 0.3s;
+}
+.signup:hover{
+    background-color: seagreen;
+    color: palegreen;
+}
+
+
+.signin{
+    font-size: 1rem;
+    height: 3rem;
+    width: 20rem;
+    background-color: black;
+    border-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    color: white;
+    transition: 0.3s;
+}
+
+.signin:hover{
+    background-color: white;
+    color: black;
+}
+
+.bigtext {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.medtext {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.minitext{
+    font-size: 0.8rem;
+}

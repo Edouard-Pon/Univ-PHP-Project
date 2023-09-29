@@ -83,7 +83,7 @@ if (isset($_POST["submit"])) {
 <div class="phppot-container">
     <h1>Créez votre post</h1>
     <form action="upload" method="post" enctype="multipart/form-data">
-        <textarea name = "titre" placeholder="Entrez un titre"></textarea>
+        <textarea name = "titre" placeholder="Titre"></textarea>
         <br>
         <textarea name="message" placeholder="Votre message..."></textarea>
         <div class="row">

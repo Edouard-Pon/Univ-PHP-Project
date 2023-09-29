@@ -1,7 +1,10 @@
 <?php
 session_start(); // Démarre la session
-
-$bdd = new PDO('dsn', 'username', 'password');
+$config = parse_ini_file('../../config/db.ini');
+if ($config === false) {
+    die("Error loading configuration file.");
+}
+$bdd = new PDO($config['dsn'], $config['username'], $config['password']);
 
 if(isset($_POST['envoi'])){
     $errorMessage ="";

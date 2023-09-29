@@ -50,10 +50,10 @@ function start_page($title)
         <div class="interface">
             <p class="bigtext"><b>Nous aussi on <br>peut le faire</b></p>
             <p class="medtext"><b>Rejoignez dès aujourd'hui</b></p>
-            <button class="signup"><b>Create account</b></button>
-            <p class="minitext">By signing up you agree to the Terms of Service and Privacy<br> Policy including Cookie Use.</p>
+            <button class="signup"><b>Créer un compte</b></button>
+            <p class="minitext">En vous inscrivant, vous acceptez les conditions d'utilisation et de confidentialité<br> Politique incluant l'utilisation des cookies.</p>
             <p class="medtext"><b>Déja un compte?</b></p>
-            <button class="signin"><b>Sign in</b></button>
+            <button class="signin"><b>Se connecter</b></button>
         </div>
     </div>
     <footer id="footer">

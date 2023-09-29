@@ -34,19 +34,35 @@ if (isset($_POST['envoi'])) {
 }
 ?>
 <!DOCTYPE html>
-<html> 
-    <head> 
-        <title>Connexion</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="/public/assets/styles/connection.css"/>
-    </head> 
-    <body> 
-        <form method="POST" action="">
-            <img src="/public/assets/images/logoblanc.png" width="50" height="50">
-            <input class="inputText" id="username" type="text" name="name" autocomplete="off" placeholder="Nom d'utilisateur"> <br/>
-            <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
-            <br/><br/>
-            <input type="submit" name="envoi" id="submitButton">
-        </form>
-    </body> 
+<html>
+<head>
+    <title>Inscription</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/public/assets/styles/main.css">
+    <link rel="stylesheet" href="/public/assets/styles/connection.css"/>
+</head>
+<body>
+    <div class="page-content">
+        <div class="flex-container">
+            <form method="POST" action="">
+                <div class="logo"><img src="/public/assets/images/logoblanc.png" class="image" alt=""></div>
+
+                <label for="username">Nom d'utilisateur:</label>
+                <input class="inputText" id="username" type="text" name="name" autocomplete="off" placeholder="Entrez votre nom d'utilisateur">
+
+                <label for="password">Mot de passe:</label>
+                <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Entrez votre mot de passe">
+
+                <a href="register.php">Créer un compte</a>
+                <input type="submit" name="envoi" id="submitButton">
+            </form>
+        </div>
+        <footer>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">À propos</a>
+            <a href="https://www.univ-amu.fr/">IUT Aix-Marseille</a>
+            <a href="https://github.com/Edouard-Pon/Univ-PHP-Project">Développeurs</a>
+            <a>© 2023 Notre Equipe</a>
+        </footer>
+    </div>
+</body>
 </html>

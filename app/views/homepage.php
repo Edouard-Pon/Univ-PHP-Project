@@ -42,7 +42,7 @@ function start_page($title)
 
     <link rel="shortcut icon" type="image/jpg" href="/public/assets/images/logoblanc.png"/>
 </head>
-<body class="body">
+<body>
 <header></header>
 <div class="page-content">
     <div class="flex-container">
@@ -56,7 +56,7 @@ function start_page($title)
             <button class="signin"><b>Se connecter</b></button>
         </div>
     </div>
-    <footer id="footer">
+    <footer>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">À propos</a>
         <a href="https://www.univ-amu.fr/">IUT Aix-Marseille</a>
         <a href="https://github.com/Edouard-Pon/Univ-PHP-Project">Développeurs</a>

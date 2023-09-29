@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
 
-.body {
+body {
     font-family: "Source Code Pro", serif;
     background-color: black;
     background-size: 100%;
@@ -38,7 +38,7 @@
     text-align: left;
 }
 
-#footer {
+footer {
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -51,7 +51,7 @@
     color: darkgray;
 }
 
-#footer a{
+footer a{
     color: darkgray;
     text-decoration: underline;
 }

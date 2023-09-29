@@ -36,15 +36,15 @@ if (isset($_POST['envoi'])) {
 <!DOCTYPE html>
 <html> 
     <head> 
-        <title>Inscription</title> 
+        <title>Connexion</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/public/assets/styles/connection.css"/>
     </head> 
     <body> 
         <form method="POST" action="">
+            <img src="/public/assets/images/logoblanc.png" width="50" height="50">
             <input class="inputText" id="username" type="text" name="name" autocomplete="off" placeholder="Nom d'utilisateur"> <br/>
             <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
-
             <br/><br/>
             <input type="submit" name="envoi" id="submitButton">
         </form>

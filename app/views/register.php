@@ -40,6 +40,7 @@ if(isset($_POST['envoi'])){
 </head> 
 <body> 
     <form method="POST" action="">
+        <img src="/public/assets/images/logoblanc.png" width="50" height="50">
         <input class="inputText" id="username" type="text" name="name" autocomplete="off" placeholder="Pseudo"> <br/>
         <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Mot de passe"><br/>
         <input class="inputText" type="email" name="email"  placeholder="Adresse Mail" autocomplete="off"> <br/>

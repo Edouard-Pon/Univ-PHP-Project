@@ -6,6 +6,9 @@ form {
     border-color: white;
     padding: 5vh 3vh 5vh 3vh;
 }
+img{
+    justify-self: center;
+}
 #submitButton{
     margin-top: 2vh;
 }

@@ -4,7 +4,7 @@ session_start(); // Démarre la session
 $bdd = new PDO('dsn', 'username', 'password');
 
 if(isset($_POST['envoi'])){
-    if(!empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['email'] )){
+    if(!empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['email'])&& !empty($_POST['phone'])&& !empty($_POST['gender'])&& !empty($_POST['location'])){
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
         $phone = htmlspecialchars($_POST['phone']);
@@ -21,10 +21,10 @@ if(isset($_POST['envoi'])){
             $_SESSION['password'] = $password;
             $_SESSION['id'] = $recupUser->fetch()['id'];
             header('Location: connexion.php');
-
-        } else {
-            echo "Ce champ est requis";
         }
+    }
+    else {
+        $errorMessage = "Veuillez remplir tous les champs";
     }
 }
 

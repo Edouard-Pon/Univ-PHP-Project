@@ -8,6 +8,7 @@ $bdd = new PDO($config['dsn'], $config['username'], $config['password']);
 
 // Validation du formulaire
 if (isset($_POST['envoi'])) {
+    $error_message = "";
     if (!empty($_POST['name']) && !empty($_POST['password'])) {
         $name = htmlspecialchars($_POST['name']);
         $password = sha1($_POST['password']);
@@ -26,10 +27,10 @@ if (isset($_POST['envoi'])) {
 
             header('Location: index.php');
         } else {
-            echo "Votre mot de passe ou nom d'utilisateur est incorrect...";
+            $message = "Votre mot de passe ou nom d'utilisateur est incorrect...";
         }
     } else {
-        echo "Veuillez compléter tous les champs...";
+        $message = "Veuillez compléter tous les champs...";
     }
 }
 ?>
@@ -55,6 +56,7 @@ if (isset($_POST['envoi'])) {
 
                 <a href="register.php">Créer un compte</a>
                 <input type="submit" name="envoi" id="submitButton">
+                <p id="errorMessage"> <?php echo $message ?></p>
             </form>
         </div>
         <footer>

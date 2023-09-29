@@ -4,6 +4,7 @@ session_start(); // Démarre la session
 $bdd = new PDO('dsn', 'username', 'password');
 
 if(isset($_POST['envoi'])){
+    $errorMessage ="";
     if(!empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['email'])&& !empty($_POST['phone'])&& !empty($_POST['gender'])&& !empty($_POST['location'])){
         $name = htmlspecialchars($_POST['name']);
         $email = htmlspecialchars($_POST['email']);
@@ -24,7 +25,7 @@ if(isset($_POST['envoi'])){
         }
     }
     else {
-        $errorMessage = "Veuillez remplir tous les champs";
+        $errorMessage = "Veuillez remplir tous les champs...";
     }
 }
 
@@ -80,6 +81,7 @@ if(isset($_POST['envoi'])){
             </select>
 
             <input type="submit" name="envoi">
+            <p><?php echo $errorMessage ?></p>
         </form>
     </div>
     <footer>

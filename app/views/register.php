@@ -21,7 +21,7 @@ if(isset($_POST['envoi'])){
             $_SESSION['name'] = $name;
             $_SESSION['password'] = $password;
             $_SESSION['id'] = $recupUser->fetch()['id'];
-            header('Location: connexion.php');
+            header('Location: /app/views/connexion.php');
         }
     }
     else {

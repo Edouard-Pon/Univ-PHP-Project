@@ -25,7 +25,7 @@ if (isset($_POST['envoi'])) {
             $actuDate = $bdd->prepare('UPDATE user SET lastco = NOW() WHERE id = ?');
             $actuDate->execute(array($_SESSION['id']));
 
-            header('Location: index.php');
+            header('Location: /app/views/homepage.php');
         } else {
             $message = "Votre mot de passe ou nom d'utilisateur est incorrect...";
         }

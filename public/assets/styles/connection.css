@@ -115,3 +115,15 @@ footer a{
     user-select: none;
     width: 5%;
 }
+
+form a:visited{
+    color: #04AA6D;
+}
+
+form a{
+    color: #04AA6D;
+}
+
+form a:hover{
+    color: #048a5a;
+}

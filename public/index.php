@@ -1,5 +1,5 @@
 <?php
-include '../app/controllers/welcome.php';
+include_once '../config/autoloader.php';
 
 try {
     if (isset($_SERVER['REQUEST_URI'])) {

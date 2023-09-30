@@ -1,6 +1,4 @@
 <?php
-include '../app/views/layout.php';
-
 class WelcomeView
 {
     public function show(): void

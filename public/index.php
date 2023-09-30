@@ -10,7 +10,7 @@ try {
                 (new WelcomeController())->execute();
                 break;
             default:
-                error_log('404 Not Found');
+                (new ErrorsController())->not_found_execute();
         }
     }
 } catch (Exception) {

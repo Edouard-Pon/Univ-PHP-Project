@@ -1,7 +1,7 @@
 <?php
 include '../app/views/layout.php';
 
-class LoginView
+class WelcomeView
 {
     public function show(): void
     {
@@ -27,7 +27,7 @@ class LoginView
             </footer>
         </div>
         <?php
-        (new Layout('PasX', ob_get_clean(), 'login'))->show();
+        (new Layout('PasX', ob_get_clean(), 'welcome'))->show();
     }
 }
 ?>

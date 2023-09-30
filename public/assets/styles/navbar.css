@@ -1,39 +1,20 @@
-.body {
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
+
+div{
+    display: grid;
+    justify-content: center;
     background-color: black;
-    background-size: 100%;
-    background-attachment: fixed;
-    width: 100%;
-    min-height: 100vh;
 }
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: white;
-    border: 1px solid #555;
-}
-
-
-li a {
+p a {
+    font-family: "Source Code Pro", serif;
     display: block;
-    color: #000;
+    color: white;
     padding: 8px 16px;
     text-decoration: none;
-    text-align: center;
-    border-bottom: 1px solid #555;
+    border-bottom: 2px solid white;
 }
-
-li:last-child {
-    border-bottom: none;
-}
-
-
-.logo {
+#logo {
     pointer-events: none;
     user-select: none;
+    justify-self: center;
 }
-
-

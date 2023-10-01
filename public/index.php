@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include_once '../config/autoloader.php';
 
 try {
@@ -11,6 +13,9 @@ try {
                 break;
             case '/signup':
                 (new SignupController())->execute();
+                break;
+            case '/login':
+                (new LoginController())->execute();
                 break;
             default:
                 (new ErrorsController())->not_found_execute();

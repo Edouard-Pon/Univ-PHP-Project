@@ -9,8 +9,12 @@ try {
             case '/':
                 (new WelcomeController())->execute();
                 break;
+            case '/signup':
+                (new SignupController())->execute();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
+                break;
         }
     }
 } catch (Exception) {

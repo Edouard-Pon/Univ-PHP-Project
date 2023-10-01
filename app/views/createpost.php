@@ -10,17 +10,16 @@ if (isset($_SESSION['name'])) {
     $username = $_SESSION['name'];
     echo "Connecté en tant que: " . $username. '<br><a href="disconnection.php">Se déconnecter<a/>' ;;
 } else {
-    echo "Vous n'êtes actuellment pas connecté. ". '<br><a href="connection.php">Se connecter<a/>' ;
+    echo "Vous n'êtes actuellment pas connecté. ". '<br><a href="connection.php">Connectez-vous pour poster<a/>' ;
 }
 
-if (isset($_POST["submit"])) {
+if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {
 
     if (isset($_FILES["image"])) {
-        $targetDir = "uploads/";
+        $targetDir = "../../public/posts/";
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
         $check = getimagesize($_FILES["image"]["tmp_name"]);
         if ($check !== false) {
             echo "Le fichier doit être une image - " . $check["mime"] . ".";
@@ -56,14 +55,13 @@ if (isset($_POST["submit"])) {
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
             echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
-            $id = htmlspecialchars($_POST['id']);
             $titre = htmlspecialchars($_POST['titre']);
             $message = htmlspecialchars($_POST['message']);
-            $date = htmlspecialchars($_POST['date']);
-            $auteur = htmlspecialchars($_POST['auteur']);
-            $imagepath = sha1($_POST['imagepath']); // Utilisation de sha1 pour le hachage du mot de passe
-            $insertpost = $bdd->prepare('INSERT INTO posts (id, titre, message, date, auteur, imagepath) VALUES (?, ?, ?, ?, ?, ?, NOW())');
-            $insertpost->execute(array($id, $titre, $message, $date, $auteur, $imagepath));
+            $date = date('Y-m-d h:i:s a', time());
+            $auteur = htmlspecialchars($_SESSION['name']);
+            //$post_img = base64_encode($targetFile);
+            $insertpost = $bdd->prepare('INSERT INTO posts (titre, message, date, auteur/*, post_img*/) VALUES (?, ?, ?, ?/*?*/)');
+            $insertpost->execute(array($titre, $message, $date, $auteur/*, $post_img*/));
             $recuppost = $bdd->prepare('SELECT * FROM posts WHERE id = ? ');
         } else {
             echo "Sorry, there was an error uploading your file.";
@@ -82,23 +80,25 @@ if (isset($_POST["submit"])) {
 <body>
 <div class="phppot-container">
     <h1>Créez votre post</h1>
-    <form action="upload" method="post" enctype="multipart/form-data">
+    <?php if (isset($_SESSION['name']))
+        echo '<form action="" method="post" enctype="multipart/form-data">
         <textarea name = "titre" placeholder="Titre"></textarea>
         <br>
-        <textarea name="message" placeholder="Votre message..."></textarea>
+        <textarea name="message" placeholder="Votre message... (optionnel)"></textarea>
         <div class="row">
             <input type="file" name="image" required>
             <input type="submit" name="submit" value="Upload">
         </div>
-    </form>
+    </form>' ?>
 
-    <h1>Display uploaded Image:</h1>
     <?php if (isset($_FILES["image"]) && $uploadOk == 1) : ?>
+        <h1>Image uploadée:</h1>
         <img src="<?php echo $targetFile; ?>" alt="Uploaded Image">
     <?php endif; ?>
 </div>
-<a href="postspage.php">Voir tous les posts</a>
+<a href="postpage.php">Voir tous les posts</a>
 
 </body>
 
 </html>
+

@@ -38,7 +38,7 @@ function start_page($title)
 <head>
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="/public/assets/styles/main.css">
-    <link rel="stylesheet" href="/public/assets/styles/login.css">
+    <link rel="stylesheet" href="/public/assets/styles/welcome.css">
 
     <link rel="shortcut icon" type="image/jpg" href="/public/assets/images/logoblanc.png"/>
 </head>

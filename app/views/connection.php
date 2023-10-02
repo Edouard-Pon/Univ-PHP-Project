@@ -24,7 +24,7 @@ if (isset($_POST['envoi'])) {
             // Mettre à jour la date de dernière connexion
             $actuDate = $bdd->prepare('UPDATE user SET lastco = NOW() WHERE id = ?');
             $actuDate->execute(array($_SESSION['id']));
-if ($recupAdmin->rowCount() > 0) {
+            if ($recupAdmin->rowCount() > 0) {
                 $adminValue = $recupAdmin->fetch()['admin'];
                 
                 if ($adminValue == 1) {

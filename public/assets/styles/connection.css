@@ -11,11 +11,7 @@ form {
 #submitButton{
     margin-top: 2vh;
 }
-@keyframes animation_inputText {
-    0%{border-bottom-color: white}
-    50%{border-bottom-color: #04AA6D}
-    0%{border-bottom-color: white}
-}
+
 .inputText{
     background-color: black;
     border: none;
@@ -24,8 +20,8 @@ form {
     border-bottom: 1px solid;
 }
 .inputText:focus{
-    animation-name: animation_inputText;
     animation-duration: 0.8s;
+    border-bottom-color: #04AA6D;
 }
 @keyframes animation_submitButton_out {
     from {border-radius: 20px}
@@ -47,6 +43,7 @@ input[type=submit]{
 input[type=submit]:hover{
     animation-name: animation_submitButton_out;
     animation-duration: 0.2s;
+    border-radius: 20px;
     animation-fill-mode: forwards;
     animation-timing-function: ease;
 }

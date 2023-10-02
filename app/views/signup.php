@@ -42,6 +42,7 @@ class SignupView
                 <option value="Helico_de_combat">Hélicoptère de combat</option>
                 <option value="Adaptateur_Usb">Adaptateur USB</option>
             </select>
+            <a href="/login">Déjà un compte?</a>
             <input type="submit" name="signup">
         </form>
     </div>

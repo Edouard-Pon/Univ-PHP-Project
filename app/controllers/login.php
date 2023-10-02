@@ -19,12 +19,13 @@ class LoginController
         $user = new User($this->PDO);
         if (!empty($username) && !empty($password))
         {
-            $user = $user->getUser($username, $password);
-            if ($user !== null)
+            $userData = $user->getUser($username, $password);
+            if ($userData !== null)
             {
-                $_SESSION['username'] = $user['name'];
-                $_SESSION['password'] = $user['password'];
-                $_SESSION['id'] = $user['id'];
+                $_SESSION['username'] = $userData['name'];
+                $_SESSION['password'] = $userData['password'];
+                $_SESSION['id'] = $userData['id'];
+                $user->setLastConnection();
                 header('Location: /home');
                 exit();
             } else {

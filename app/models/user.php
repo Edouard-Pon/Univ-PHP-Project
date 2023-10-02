@@ -17,5 +17,16 @@ class User
 
         return $user ?: null;
     }
+
+    public function setLastConnection(): void
+    {
+        $query = 'UPDATE user SET lastco = NOW() WHERE id = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute([$_SESSION['id']]);
+    }
 }
 ?>

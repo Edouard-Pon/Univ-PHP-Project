@@ -13,6 +13,7 @@ class HomeView
     Location: <?php echo $data['location'] ?>
     Gender: <?php echo $data['gender'] ?>
     Admin Status: <?php echo $data['admin'] ?>
+    Last connection: <?php echo $data['lastco'] ?>
 </p>
 <?php
     }

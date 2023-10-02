@@ -58,16 +58,6 @@ input[type=submit]:hover{
     appearance: none;
 }
 
-.page-content{
-    position: relative;
-    min-height: 100vh;
-    width: 100vh;
-    padding-bottom: 2.5rem;
-    padding-top: 2.5rem;
-    justify-content: center;
-    align-items: center;
-}
-
 body {
     font-family: "Source Code Pro", serif;
     background-color: black;
@@ -80,6 +70,9 @@ body {
     justify-content: center;
     width: 100%;
     min-height: 100vh;
+    position: relative;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
 }
 
 footer {

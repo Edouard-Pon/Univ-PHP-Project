@@ -12,13 +12,8 @@ body {
     justify-content: center;
     width: 100%;
     min-height: 100vh;
-}
-
-.page-content{
     position: relative;
-    min-height: 100vh;
-    padding-bottom: 2.5rem;
-    padding-top: 2.5rem;
+    padding-bottom: 5rem;
 }
 
 .flex-container{
@@ -36,24 +31,6 @@ body {
     display: grid;
     grid-gap: 2.5rem;
     text-align: left;
-}
-
-footer {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-    display: inline-block;
-    padding: 0 0.5rem;
-    color: darkgray;
-}
-
-footer a{
-    color: darkgray;
-    text-decoration: underline;
 }
 
 .logo {

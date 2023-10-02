@@ -24,14 +24,22 @@ if (isset($_POST['envoi'])) {
             // Mettre à jour la date de dernière connexion
             $actuDate = $bdd->prepare('UPDATE user SET lastco = NOW() WHERE id = ?');
             $actuDate->execute(array($_SESSION['id']));
-
-            header('Location: /app/views/homepage.php');
-        } else {
+if ($recupAdmin->rowCount() > 0) {
+                $adminValue = $recupAdmin->fetch()['admin'];
+                
+                if ($adminValue == 1) {
+                    header('Location: /app/views/adminpage.php');
+                } elseif ($adminValue == 0) {
+                    header('Location: /app/views/homepage.php');
+            }    
+        }
+         else {
             $message = "Votre mot de passe ou nom d'utilisateur est incorrect...";
         }
     } else {
         $message = "Veuillez compléter tous les champs...";
     }
+}
 }
 ?>
 <!DOCTYPE html>

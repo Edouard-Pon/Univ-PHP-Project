@@ -10,7 +10,7 @@ class SignupView
         <form method="POST" action="">
             <div class="logo"><img src="assets/images/logoblanc.png" class="image" alt=""></div>
             <label for="username">Pseudo:</label>
-            <input class="inputText" id="username" type="text" name="name" autocomplete="off" placeholder="Entrez votre pseudo">
+            <input class="inputText" id="username" type="text" name="username" autocomplete="off" placeholder="Entrez votre pseudo">
 
             <label for="password">Mot de passe:</label>
             <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Entrez votre mot de passe">

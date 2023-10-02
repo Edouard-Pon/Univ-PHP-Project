@@ -1,0 +1,13 @@
+body{
+    display: flex;
+}
+#navbar{
+    justify-self: left;
+}
+#posts{
+    justify-self: center;
+    max-width: 60%;
+}
+#margin{
+    min-width: 20%;
+}

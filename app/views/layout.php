@@ -1,7 +1,7 @@
 <?php
 class Layout
 {
-    public function __construct(private string $title, private string $content, private string $stylesheet) {}
+    public function __construct(private string $title, private string $content, private string $stylesheet = '') {}
     public function show(): void
     {
 ?>
@@ -14,7 +14,7 @@ class Layout
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $this->title ?></title>
     <link rel="stylesheet" href="assets/styles/main.css">
-<?php if ($this->stylesheet !== 'null') { ?>
+<?php if ($this->stylesheet !== '') { ?>
     <link rel="stylesheet" href="assets/styles/<?= $this->stylesheet ?>.css">
 <?php } ?>
     <link rel="shortcut icon" type="image/jpg" href="assets/images/logoblanc.png"/>

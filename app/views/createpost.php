@@ -6,6 +6,7 @@ if ($config === false) {
 }
 $bdd = new PDO($config['dsn'], $config['username'], $config['password']);
 
+
 if (isset($_SESSION['name'])) {
     $username = $_SESSION['name'];
     echo "Connecté en tant que: " . $username. '<br><a href="disconnection.php">Se déconnecter<a/>' ;;
@@ -16,7 +17,14 @@ if (isset($_SESSION['name'])) {
 if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {
 
     if (isset($_FILES["image"])) {
-        $targetDir = "../../public/posts/";
+        $targetDir = '../../public/posts/'.$username.'/';
+
+        // Checking whether file exists or not
+        if (!file_exists($targetDir)) {
+
+            // Create a new file or direcotry
+            mkdir($targetDir, 0777, true);
+        }
         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -59,9 +67,14 @@ if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {
             $message = htmlspecialchars($_POST['message']);
             $date = date('Y-m-d h:i:s a', time());
             $auteur = htmlspecialchars($_SESSION['name']);
-            //$post_img = base64_encode($targetFile);
-            $insertpost = $bdd->prepare('INSERT INTO posts (titre, message, date, auteur/*, post_img*/) VALUES (?, ?, ?, ?/*?*/)');
-            $insertpost->execute(array($titre, $message, $date, $auteur/*, $post_img*/));
+            $post_path = $targetFile;
+            $insertpost = $bdd->prepare('INSERT INTO posts (titre, message, date, auteur, post_path) VALUES (?, ?, ?, ?, ?)');
+            $insertpost->bindParam(1, $titre);
+            $insertpost->bindParam(2, $message);
+            $insertpost->bindParam(3, $date);
+            $insertpost->bindParam(4, $auteur);
+            $insertpost->bindParam(5, $post_path, PDO::PARAM_LOB);
+            $insertpost->execute();
             $recuppost = $bdd->prepare('SELECT * FROM posts WHERE id = ? ');
         } else {
             echo "Sorry, there was an error uploading your file.";
@@ -92,8 +105,8 @@ if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {
     </form>' ?>
 
     <?php if (isset($_FILES["image"]) && $uploadOk == 1) : ?>
-        <h1>Image uploadée:</h1>
-        <img src="<?php echo $targetFile; ?>" alt="Uploaded Image">
+        <h1>Image uploadée: <?php echo $post_path?></h1>
+        <img src="<?php echo $post_path; ?>" alt="Uploaded Image">
     <?php endif; ?>
 </div>
 <a href="postpage.php">Voir tous les posts</a>

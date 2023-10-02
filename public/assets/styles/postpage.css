@@ -1,0 +1,17 @@
+/* Define a class for the red square container */
+.image-container {
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid black; /* Add a border if desired */
+}
+
+/* Style the images within the red square */
+.image-container img {
+    max-width: 100%; /* Ensure the image fits within the container */
+    max-height: 100%; /* Ensure the image fits within the container */
+    display: block; /* Remove any extra spacing below the image */
+}

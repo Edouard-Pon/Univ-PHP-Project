@@ -28,5 +28,21 @@ class User
         }
         $statement->execute([$_SESSION['id']]);
     }
+
+    public function isAdmin(): bool
+    {
+        if (isset($_SESSION['admin']))
+        {
+            return $_SESSION['admin'];
+        }
+        $query = 'SELECT admin FROM user WHERE id = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return false;
+        }
+        $statement->execute([$_SESSION['id']]);
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        return $user['admin'];
+    }
 }
-?>

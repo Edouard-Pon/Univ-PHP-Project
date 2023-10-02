@@ -5,9 +5,9 @@ class ErrorsView
     {
         ob_start();
         ?>
-        <div>
+        <p>
             404 - Page Not Found!
-        </div>
+        </p>
         <?php
         (new Layout('PasX - 404 Not Found', ob_get_clean(), 'null'))->show();
     }

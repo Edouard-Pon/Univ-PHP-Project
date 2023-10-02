@@ -25,6 +25,7 @@ class LoginController
                 $_SESSION['username'] = $userData['name'];
                 $_SESSION['password'] = $userData['password'];
                 $_SESSION['id'] = $userData['id'];
+                $_SESSION['admin'] = $userData['admin'];
                 $user->setLastConnection();
                 header('Location: /home');
                 exit();

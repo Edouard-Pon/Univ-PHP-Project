@@ -20,6 +20,9 @@ try {
             case '/home':
                 (new HomeController())->execute();
                 break;
+            case '/admin':
+                (new AdminController())->execute();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;

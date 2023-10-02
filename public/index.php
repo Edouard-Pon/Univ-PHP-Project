@@ -17,11 +17,23 @@ try {
             case '/login':
                 (new LoginController())->execute();
                 break;
+            case '/home':
+                (new HomeController())->execute();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;
         }
     }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+        $data = [
+            'username' => htmlspecialchars($_POST['username']),
+            'password' => sha1($_POST['password'])
+        ];
+        (new LoginController())->login($data['username'], $data['password']);
+    }
+
 } catch (Exception) {
 
 }

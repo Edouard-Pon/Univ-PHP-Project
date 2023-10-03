@@ -1,7 +1,7 @@
 <?php
 class LoginView
 {
-    public function show(string $errorMessage = ''): void
+    public function show(): void
     {
         ob_start();
 ?>
@@ -17,9 +17,9 @@ class LoginView
 
         <a href="/signup">Créer un compte</a>
         <input type="submit" name="login" id="submitButton">
-        <?php if ($errorMessage !== '') { ?>
-        <p id="errorMessage"> <?php echo $errorMessage ?></p>
-        <?php } ?>
+        <?php if (isset($_SESSION['errorMessage'])) { ?>
+        <p id="errorMessage"> <?php echo $_SESSION['errorMessage'] ?></p>
+        <?php unset($_SESSION['errorMessage']); } ?>
     </form>
 </div>
 <?php

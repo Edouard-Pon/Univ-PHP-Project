@@ -31,11 +31,11 @@ class LoginController
                 exit();
             } else {
                 $errorMessage = 'Votre mot de passe ou nom d\'utilisateur est incorrect...';
-                (new LoginView())->show($errorMessage);
+                $_SESSION['errorMessage'] = $errorMessage;
             }
         } else {
             $errorMessage = 'Veuillez compléter tous les champs...';
-            (new LoginView())->show($errorMessage);
+            $_SESSION['errorMessage'] = $errorMessage;
         }
     }
 }

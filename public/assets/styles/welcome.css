@@ -1,5 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
 
+@media screen and (max-width: 1000px){
+
+    .logo {
+        justify-self: center;
+    }
+
+    .signup{
+        justify-self: center;
+    }
+
+    .signin{
+        justify-self: center;
+    }
+
+    .bigtext {
+        display: none;
+    }
+
+    .medtext {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        justify-self: center;
+    }
+
+    .minitext{
+        font-size: 0.5rem;
+        text-align: center;
+        max-width: 80%;
+        justify-self: center;
+    }
+}
+@media screen and (min-width: 1001px){
+
+    .logo{
+        margin-right: 18rem;
+        margin-top: 8rem;
+    }
+    .signup:hover{
+        cursor: pointer;
+        background-color: #048a5a;
+    }
+
+    .signin:hover{
+        background-color: white;
+        color: black;
+    }
+
+    .bigtext {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .medtext {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .minitext{
+        font-size: 0.8rem;
+    }
+
+}
+
+.signin{
+    font-size: 1rem;
+    height: 3rem;
+    width: 20rem;
+    background-color: black;
+    border-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.signup{
+    font-size: 1rem;
+    height: 3rem;
+    width: 20rem;
+    background-color: #04AA6D;
+    border-radius: 10px;
+    border-width: 0;
+    color: black;
+    transition: 0.3s;
+}
+.logo {
+    pointer-events: none;
+    user-select: none;
+    width: 25%;
+}
 body {
     font-family: "Source Code Pro", serif;
     background-color: black;
@@ -15,16 +105,6 @@ body {
     position: relative;
     padding-bottom: 5rem;
 }
-
-.flex-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    color: white;
-}
-
 .interface{
     margin-top: 5rem;
     height: 80%;
@@ -32,59 +112,11 @@ body {
     grid-gap: 2.5rem;
     text-align: left;
 }
-
-.logo {
-    pointer-events: none;
-    user-select: none;
-    margin-right: 18rem;
-    margin-top: 8rem;
-    width: 25%;
-}
-
-.signup{
-    font-size: 1rem;
-    height: 3rem;
-    width: 20rem;
-    background-color: #04AA6D;
-    border-radius: 10px;
-    border-width: 0;
-    color: black;
-    transition: 0.3s;
-}
-.signup:hover{
-    cursor: pointer;
-    background-color: #048a5a;
-}
-
-
-.signin{
-    font-size: 1rem;
-    height: 3rem;
-    width: 20rem;
-    background-color: black;
-    border-color: white;
-    border-radius: 10px;
-    border-width: 2px;
+.flex-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     color: white;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.signin:hover{
-    background-color: white;
-    color: black;
-}
-
-.bigtext {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.medtext {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.minitext{
-    font-size: 0.8rem;
 }

@@ -1,12 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
 
-form {
-    display: grid;
-    grid-gap: 2vh;
-    border-style: solid;
-    border-radius: 20px;
-    border-color: white;
-    padding: 5vh 3vh 5vh 3vh;
+@media screen and (max-width: 1000px){
+    form {
+        display: grid;
+        grid-gap: 2vh;
+        padding: 5vh;
+    }
+    .logo {
+        pointer-events: none;
+        user-select: none;
+        width: 10%;
+        justify-self: center;
+    }
+}
+@media screen and (min-width: 1001px){
+    form {
+        display: grid;
+        grid-gap: 2vh;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: white;
+        padding: 5vh 3vh 5vh 3vh;
+    }
+    .logo {
+        pointer-events: none;
+        user-select: none;
+        width: 5%;
+    }
 }
 #submitButton{
     margin-top: 2vh;
@@ -98,12 +118,6 @@ footer {
 footer a{
     color: darkgray;
     text-decoration: underline;
-}
-
-.logo {
-    pointer-events: none;
-    user-select: none;
-    width: 5%;
 }
 
 form a:visited{

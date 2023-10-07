@@ -65,6 +65,9 @@ class HomeView
             photo de profil du mec
             <?php echo $data['name']?>
             <?php include('partials/navbar.php')?>
+            <a href="disconnection.php">
+                <button>Disconnect</button>
+            </a>
         </div>
         </body>
         <?php

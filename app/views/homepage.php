@@ -63,18 +63,18 @@ $name = isset($_SESSION['name']) ? $_SESSION['name'] : '';
 </body>
 </html>
 <?php
-//function log_out()
-//{
-//?>
-<!--<body>-->
-<!--    <a href="disconnection.php">-->
-<!--        <button>Se déconnecter</button>-->
-<!--    </a>-->
-<!--</body>-->
-<!--</html>-->
-<?php
-//}
-//?>
+function log_out()
+{
+    ?>
+    <body>
+    <a href="disconnection.php">
+        <button>Se déconnecter</button>
+    </a>
+    </body>
+    </html>
+    <?php
+}
+?>
 
 
 <?php

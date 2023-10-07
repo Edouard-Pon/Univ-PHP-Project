@@ -3,6 +3,7 @@ body{
     font-family: "Source Code Pro", serif;
     background-color: black ;
     display: flex;
+    color: white;
 }
 #right_informations{
     position: fixed;
@@ -10,7 +11,12 @@ body{
     padding-left: 80%;
     color: white;
     justify-items: center;
-
+}
+#right_informations button{
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 5px;
+    padding: 1vh;
 }
 #center{
     justify-self: center;
@@ -27,7 +33,4 @@ body{
 }
 #marginLeft{
     min-width: 25%;
-}
-p{
-    color: white;
 }

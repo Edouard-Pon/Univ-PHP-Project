@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
+@import "navbar.css";
+
 body{
     font-family: "Source Code Pro", serif;
     background-color: black ;
@@ -11,13 +13,9 @@ body{
     padding-left: 80%;
     color: white;
     justify-items: center;
+    height: 10vh;
 }
-#right_informations button{
-    background-color: #04AA6D;
-    border: none;
-    border-radius: 5px;
-    padding: 1vh;
-}
+
 #center{
     justify-self: center;
     max-width: 45%;

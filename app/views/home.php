@@ -16,12 +16,9 @@ class HomeView
         <!--    Last connection: --><?php //echo $data['lastco'] ?>
         <!--</p>-->
         <div id="right_informations">
-            photo de profil du mec
+<!--            photo de profil du mec-->
             <?php echo $data['name']?>
             <?php include('partials/navbar.php')?>
-            <a href="disconnection.php">
-                <button>Disconnect</button>
-            </a>
         </div>
         <?php
         foreach ($posts as $post) {

@@ -1,23 +1,16 @@
 <?php
-session_start();
-$config = parse_ini_file('../../config/db.ini');
-if ($config === false) {
-    die("Error loading configuration file.");
-}
-$bdd = new PDO($config['dsn'], $config['username'], $config['password']);
-
 
 if (isset($_SESSION['name'])) {
     $username = $_SESSION['name'];
     echo "Connecté en tant que: " . $username. '<br><a href="disconnection.php">Se déconnecter<a/>' ;;
 } else {
-    echo "Vous n'êtes actuellment pas connecté. ". '<br><a href="connection.php">Connectez-vous pour poster<a/>' ;
+    echo "Vous n'êtes actuellment pas connecté. ". '<br><a href="/login">Connectez-vous pour poster<a/>' ;
 }
 
 if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {
 
     if (isset($_FILES["image"])) {
-        $targetDir = '../../public/posts/'.$username.'/';
+        $targetDir = 'posts/'.$username.'/';
 
         // Checking whether file exists or not
         if (!file_exists($targetDir)) {
@@ -83,6 +76,14 @@ if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {
 }
 ?>
 
+<?php
+class CreatePostView
+{
+public function show(): void
+{
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -114,4 +115,11 @@ if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {
 </body>
 
 </html>
+
+        <?php
+        include 'partials/footer.php';
+        (new Layout('PasX', ob_get_clean(), 'welcome'))->show();
+    }
+}
+?>
 

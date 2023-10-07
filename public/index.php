@@ -26,6 +26,9 @@ try {
             case '/termsofuse':
                 (new TermsOfUseController())->execute();
                 break;
+            case '/create':
+                (new CreatePost())->execute();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;

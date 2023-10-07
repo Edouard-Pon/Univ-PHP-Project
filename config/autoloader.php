@@ -6,6 +6,7 @@ include_once '../app/views/signup.php';
 include_once '../app/views/login.php';
 include_once '../app/views/home.php';
 include_once '../app/views/admin.php';
+include_once '../app/views/createpost.php';
 include_once '../app/views/termsOfUse.php';
 
 include_once '../app/controllers/welcome.php';

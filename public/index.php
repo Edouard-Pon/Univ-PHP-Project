@@ -23,6 +23,9 @@ try {
             case '/admin':
                 (new AdminController())->execute();
                 break;
+            case '/termsofuse':
+                (new TermsOfUseController())->execute();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;

@@ -12,10 +12,18 @@ body{
     justify-items: center;
 
 }
-#posts{
+#center{
     justify-self: center;
     max-width: 45%;
     min-width: 45%;
+    display: grid;
+    justify-items: center;
+}
+#center img{
+    position: fixed;
+}
+#center #posts{
+    padding-top: 10vh;
 }
 #marginLeft{
     min-width: 25%;

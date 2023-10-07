@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
-
 #navbar_self{
     display: grid;
     justify-content: center;
     background-color: black;
 }
 p a {
-    font-family: "Source Code Pro", serif;
     display: block;
     color: white;
     padding: 8px 16px;

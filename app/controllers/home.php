@@ -11,13 +11,15 @@ class HomeController
     public function execute(): void
     {
         $user = new User($this->PDO);
+        $post = new Post($this->PDO);
         if (!isset($_SESSION['password']))
         {
             header('Location: /');
             exit();
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
-            (new HomeView())->show($user);
+            $post = $post->getPosts();
+            (new HomeView())->show($user, $post);
         }
     }
 }

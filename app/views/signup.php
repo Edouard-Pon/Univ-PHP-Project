@@ -49,7 +49,7 @@ class SignupView
 </div>
 <?php
 include 'partials/footer.php';
-        (new Layout('PasX - Sig Up', ob_get_clean(), 'connection'))->show();
+        (new Layout('PasX - Sign Up', ob_get_clean(), 'connection'))->show();
     }
 }
 ?>

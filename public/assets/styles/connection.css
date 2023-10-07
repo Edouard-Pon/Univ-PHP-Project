@@ -40,8 +40,15 @@
     border-bottom: 1px solid;
 }
 .inputText:focus{
+    animation-name: animation_focus_text;
     animation-duration: 0.8s;
     border-bottom-color: #04AA6D;
+}
+
+@keyframes animation_focus_text {
+    0%{border-bottom-color: white;}
+    50%{border-bottom-color: #04AA6D;}
+    100%{border-bottom-color: white;}
 }
 @keyframes animation_submitButton_out {
     from {border-radius: 20px}

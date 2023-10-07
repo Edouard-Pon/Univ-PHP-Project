@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="/public/assets/styles/navbar.css">
 <div id="navbar_self">
-    <a href="/">
+    <a href="/home">
         <div>
             <img src="assets/images/acceuilX.png" alt="Image Acceuil">
             <span>Accueil</span>
         </div>
     </a>
-    <a href="/">
+    <a href="/explorer">
         <div>
             <img src="assets/images/explorerX.png" alt="Image Rechercher">
             <span>Explorer</span>

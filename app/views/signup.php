@@ -44,6 +44,9 @@ class SignupView
             </select>
             <a href="/login">Déjà un compte?</a>
             <input type="submit" name="signup">
+            <?php if (isset($_SESSION['errorMessage'])) { ?>
+            <p id="errorMessage"> <?php echo $_SESSION['errorMessage'] ?></p>
+            <?php unset($_SESSION['errorMessage']); } ?>
         </form>
     </div>
 </div>

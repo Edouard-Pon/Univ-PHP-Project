@@ -43,6 +43,18 @@ try {
         (new LoginController())->login($data['username'], $data['password']);
     }
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
+        $data = [
+            'username' => htmlspecialchars($_POST['username']),
+            'password' => sha1($_POST['password']),
+            'email' => htmlspecialchars($_POST['email']),
+            'number' => htmlspecialchars($_POST['number']),
+            'location' => htmlspecialchars($_POST['location']),
+            'gender' => htmlspecialchars($_POST['gender']),
+        ];
+        (new SignupController())->signup($data);
+    }
+
 } catch (Exception) {
 
 }

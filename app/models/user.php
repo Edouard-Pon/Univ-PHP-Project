@@ -18,6 +18,17 @@ class User
         return $user ?: null;
     }
 
+    public function setUser($data): void
+    {
+        $query = 'INSERT INTO user (name, password, email, phone, location, gender, firstco) VALUES (?, ?, ?, ?, ?, ?, NOW())';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute(array($data['username'], $data['password'], $data['email'], $data['number'], $data['location'], $data['gender']));
+    }
+
     public function setLastConnection(): void
     {
         $query = 'UPDATE user SET lastco = NOW() WHERE id = ?';

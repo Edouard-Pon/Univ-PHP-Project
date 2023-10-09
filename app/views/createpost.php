@@ -2,9 +2,9 @@
 
 if (isset($_SESSION['name'])) {
     $username = $_SESSION['name'];
-    echo "Connecté en tant que: " . $username. '<br><a href="disconnection.php">Se déconnecter<a/>' ;;
+//    echo "Connecté en tant que: " . $username. '<br><a href="disconnection.php">Se déconnecter<a/>' ;;
 } else {
-    echo "Vous n'êtes actuellment pas connecté. ". '<br><a href="/login">Connectez-vous pour poster<a/>' ;
+//    echo "Vous n'êtes actuellment pas connecté. ". '<br><a href="/login">Connectez-vous pour poster<a/>' ;
 }
 
 if ((isset($_POST["submit"])) && (isset($_SESSION['name']))) {

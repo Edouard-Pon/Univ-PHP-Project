@@ -18,7 +18,7 @@
             <span>Profil</span>
         </div>
     </a>
-    <a href="disconnection.php">
+    <a href="/logout">
         <button>Disconnect</button>
     </a>
 </div>

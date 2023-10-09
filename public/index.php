@@ -29,6 +29,9 @@ try {
             case '/create':
                 (new CreatePost())->execute();
                 break;
+            case '/logout':
+                (new LogoutController())->execute();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;

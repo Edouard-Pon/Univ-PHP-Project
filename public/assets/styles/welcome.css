@@ -40,7 +40,53 @@
         grid-gap: 2vh;
     }
 }
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 1001px) and (max-width: 1120px){
+    #body{
+        display: flex;
+        gap: 5vh;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        padding-top: 5%;
+
+    }
+    #interface{
+        display: grid;
+        grid-gap: 2vh;
+        padding-right: 4vh;
+    }
+    #bigtext{
+        font-size: 6vh;
+    }
+    #medtext{
+        font-size: 3vh;
+    }
+    #minitext{
+        color: darkgrey;
+        font-size: 1.5vh;
+    }
+    #signin{
+        background-color: black;
+        color: white;
+        padding: 1vh 10vh 1vh 10vh;
+        border-radius: 20px;
+    }
+    #signin:hover{
+        cursor: pointer;
+    }
+    #signup{
+        background-color: #04AA6D;
+        color: white;
+        padding: 1vh 10vh 1vh 10vh;
+        border-radius: 20px;
+        border: none;
+    }
+    #signup:hover{
+        cursor: pointer;
+    }
+}
+@media screen and (min-width: 1121px){
     #body{
         display: flex;
         gap: 5vh;
@@ -53,6 +99,7 @@
     #interface{
         display: grid;
         grid-gap: 2vh;
+        padding-right: 4vh;
     }
     #img{
         width: 10px;

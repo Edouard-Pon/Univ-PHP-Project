@@ -5,16 +5,15 @@ class WelcomeView
     {
         ob_start();
 ?>
-<div class="flex-container">
-    <div class="logo"><img src="assets/images/logoblanc.png" class="image" alt=""></div>
-    <div class="interface">
-        <p class="bigtext"><b>Nous aussi on <br>peut le faire</b></p>
-        <p class="medtext"><b>Rejoignez dès aujourd'hui</b></p>
-        <button class="signup" onclick="window.location.href='/signup'"><b>Créer un compte</b></button>
-        <p class="minitext">En vous inscrivant, vous acceptez les <a href="/termsofuse">conditions d'utilisation et de confidentialité. </a>
-            <br> Politique incluant l'utilisation des cookies.  </p>
-        <p class="medtext"><b>Déja un compte?</b></p>
-        <button class="signin" onclick="window.location.href='/login'"><b>Se connecter</b></button>
+<div id="body">
+    <img src="assets/images/logoblanc.png" class="image" alt="Logo Z blanc" width="400">
+    <div id="interface">
+        <p id="bigtext"><b>Nous aussi on peut le faire</b></p>
+        <p id="medtext"><b>Rejoignez dès aujourd'hui</b></p>
+        <button id="signup" onclick="window.location.href='/signup'"><b>Créer un compte</b></button>
+        <p id="minitext">En vous inscrivant, vous acceptez les conditions d'utilisation et de confidentialité<br> Politique incluant <a href="/termsofuse"> l'utilisation des cookies.</a></p>
+        <p id="medtext"><b>Déja un compte?</b></p>
+        <button id="signin" onclick="window.location.href='/login'"><b>Se connecter</b></button>
     </div>
 </div>
 <?php

@@ -14,8 +14,10 @@ class LoginController
         (new LoginView())->show();
     }
 
-    public function login(string $username, string $password): void
+    public function login(array $postData): void
     {
+        $username = htmlspecialchars($postData['username']);
+        $password = sha1($postData['password']);
         $user = new User($this->PDO);
         if (!empty($username) && !empty($password))
         {

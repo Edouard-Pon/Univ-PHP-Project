@@ -13,8 +13,16 @@ class SignupController
         (new SignupView())->show();
     }
 
-    public function signup($data): void
+    public function signup(array $postData): void
     {
+        $data = [
+            'username' => htmlspecialchars($postData['username']),
+            'password' => sha1($postData['password']),
+            'email' => htmlspecialchars($postData['email']),
+            'number' => htmlspecialchars($postData['number']),
+            'location' => htmlspecialchars($postData['location']),
+            'gender' => htmlspecialchars($postData['gender']),
+        ];
         $user = new User($this->PDO);
         if (!empty($data['username']) &&
             !empty($data['password']) &&

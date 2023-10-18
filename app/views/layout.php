@@ -13,6 +13,7 @@ class Layout
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $this->title ?></title>
+    <script defer src="assets/scripts/post.js"></script>
     <link rel="stylesheet" href="assets/styles/main.css">
 <?php if ($this->stylesheet !== '') { ?>
     <link rel="stylesheet" href="assets/styles/<?= $this->stylesheet ?>.css">

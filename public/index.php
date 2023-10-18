@@ -46,6 +46,11 @@ try {
         (new SignupController())->signup($_POST);
     }
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post']))
+    {
+        (new NewPost())->execute($_POST, $_FILES);
+    }
+
 } catch (Exception) {
 
 }

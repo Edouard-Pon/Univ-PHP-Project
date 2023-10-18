@@ -1,12 +1,15 @@
 <div id="newPostForm">
-    <h1>Créez votre post</h1>
+    <h1>Create a new post</h1>
     <form method="POST" action="" enctype="multipart/form-data">
-        <textarea name = "text" placeholder="Texte"></textarea>
-        <input type="text" name="title">
-        <input type="file" name="image" required>
+        <input type="text" name="title" placeholder="Title">
+        <textarea name = "text" placeholder="Text"></textarea>
+        <label class="postButton">
+            <input type="file" name="image" required>
+            Choose a picture
+        </label>
         <div>
-            <button type="reset" onclick="hideNewPostForm();">Cancel</button>
-            <button type="submit" name="post">Upload</button>
+            <button class="postButton" type="reset" onclick="hideNewPostForm();">Cancel</button>
+            <button class="postButton" type="submit" name="post">Upload</button>
         </div>
     </form>
 </div>

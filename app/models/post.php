@@ -23,4 +23,16 @@ class Post
 
         return $posts ?: null;
     }
+
+    public function addPost($data): void
+    {
+        $query = 'INSERT INTO posts (titre, message, date, auteur, post_path) VALUES (?, ?, ?, ?, ?)';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+
+        $statement->execute(array($data['post_title'], $data['post_text'], $data['post_date'], $data['post_author'], $data['dir'] . $data['file_name']));
+    }
 }

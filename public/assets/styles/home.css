@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
 @import "navbar.css";
+@import "shared/post.css";
 
 body{
     font-family: "Source Code Pro", serif;

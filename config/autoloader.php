@@ -17,6 +17,7 @@ include_once '../app/controllers/home.php';
 include_once '../app/controllers/admin.php';
 include_once '../app/controllers/termsOfUse.php';
 include_once '../app/controllers/logout.php';
+include_once '../app/controllers/NewPost.php';
 
 include_once '../app/models/user.php';
 include_once '../app/models/post.php';

@@ -32,6 +32,9 @@ try {
             case '/logout':
                 (new LogoutController())->execute();
                 break;
+            case '/profil':
+                (new ProfilController())->execute();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;

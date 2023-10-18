@@ -12,7 +12,7 @@
             <span>Explorer</span>
         </div>
     </a>
-    <a href="/profile">
+    <a href="/profil">
         <div>
             <img src="assets/images/profilX.png" alt="Image Profil">
             <span>Profil</span>

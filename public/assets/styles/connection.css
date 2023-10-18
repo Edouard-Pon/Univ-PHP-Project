@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 650px){
     form {
         display: grid;
         grid-gap: 2vh;
@@ -13,7 +13,7 @@
         justify-self: center;
     }
 }
-@media screen and (min-width: 1001px){
+@media screen and (min-width: 651px){
     form {
         display: grid;
         grid-gap: 2vh;

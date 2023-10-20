@@ -1,7 +1,19 @@
 <?php
-session_start();
 
-include_once '../config/autoloader.php';
+require_once '../config/autoloader.php';
+
+use app\controllers\AdminController;
+use app\controllers\ErrorsController;
+use app\controllers\HomeController;
+use app\controllers\LoginController;
+use app\controllers\LogoutController;
+use app\controllers\NewPostController;
+use app\controllers\ProfileController;
+use app\controllers\SignupController;
+use app\controllers\TOSController;
+use app\controllers\WelcomeController;
+
+session_start();
 
 try {
     if (isset($_SERVER['REQUEST_URI'])) {
@@ -23,17 +35,14 @@ try {
             case '/admin':
                 (new AdminController())->execute();
                 break;
-            case '/termsofuse':
-                (new TermsOfUseController())->execute();
-                break;
-            case '/create':
-                (new CreatePost())->execute();
+            case '/tos':
+                (new TOSController())->execute();
                 break;
             case '/logout':
                 (new LogoutController())->execute();
                 break;
-            case '/profil':
-                (new ProfilController())->execute();
+            case '/profile':
+                (new ProfileController())->execute();
                 break;
             default:
                 (new ErrorsController())->not_found_execute();
@@ -51,7 +60,7 @@ try {
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post']))
     {
-        (new NewPost())->execute($_POST, $_FILES);
+        (new NewPostController())->execute($_POST, $_FILES);
     }
 
 } catch (Exception) {

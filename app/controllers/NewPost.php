@@ -1,6 +1,15 @@
 <?php
-class NewPost
+
+namespace app\controllers;
+
+use app\models\PostModel;
+use config\DataBase;
+use PDO;
+
+class NewPostController
 {
+
+    private PDO $PDO;
 
     public function __construct()
     {
@@ -54,7 +63,7 @@ class NewPost
                 $_SESSION['errorMessage'] = $errorMessage;
             } else {
                 if (move_uploaded_file($fileData['image']['tmp_name'], $data['dir'] . $data['file_name'])) {
-                    $post = new Post($this->PDO);
+                    $post = new PostModel($this->PDO);
                     $post->addPost($data);
                     header('Location: /home');
                     exit();

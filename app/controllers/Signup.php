@@ -1,4 +1,12 @@
 <?php
+
+namespace app\controllers;
+
+use app\models\UserModel;
+use app\views\SignupView;
+use config\DataBase;
+use PDO;
+
 class SignupController
 {
     private PDO $PDO;
@@ -23,7 +31,7 @@ class SignupController
             'location' => htmlspecialchars($postData['location']),
             'gender' => htmlspecialchars($postData['gender']),
         ];
-        $user = new User($this->PDO);
+        $user = new UserModel($this->PDO);
         if (!empty($data['username']) &&
             !empty($data['password']) &&
             !empty($data['email']) &&
@@ -53,4 +61,3 @@ class SignupController
         }
     }
 }
-?>

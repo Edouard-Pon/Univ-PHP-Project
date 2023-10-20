@@ -1,4 +1,9 @@
 <?php
+
+namespace app\controllers;
+
+use app\views\WelcomeView;
+
 class WelcomeController
 {
     public function execute(): void
@@ -6,4 +11,3 @@ class WelcomeController
         (new WelcomeView())->show();
     }
 }
-?>

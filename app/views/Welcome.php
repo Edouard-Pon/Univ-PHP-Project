@@ -1,4 +1,7 @@
 <?php
+
+namespace app\views;
+
 class WelcomeView
 {
     public function show(): void

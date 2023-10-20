@@ -1,4 +1,7 @@
 <?php
+
+namespace app\views;
+
 class LoginView
 {
     public function show(): void

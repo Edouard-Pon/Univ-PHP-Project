@@ -1,4 +1,7 @@
 <?php
+
+namespace app\views;
+
 class AdminView
 {
     public function show(): void

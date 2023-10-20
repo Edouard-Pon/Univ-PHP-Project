@@ -1,5 +1,8 @@
 <?php
-class ProfilView
+
+namespace app\views;
+
+class ProfileView
 {
     public function show(): void
     {

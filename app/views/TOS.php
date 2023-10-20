@@ -1,5 +1,8 @@
 <?php
-class TermsOfUseView
+
+namespace app\views;
+
+class TOSView
 {
     public function show(): void
     {

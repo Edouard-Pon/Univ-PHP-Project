@@ -1,5 +1,10 @@
 <?php
-class User
+
+namespace app\models;
+
+use PDO;
+
+class UserModel
 {
     public function __construct(private PDO $connection) {}
 

@@ -1,5 +1,12 @@
 <?php
-class ProfilController
+
+namespace app\controllers;
+
+use app\views\ProfileView;
+use config\DataBase;
+use PDO;
+
+class ProfileController
 {
     private PDO $PDO;
 
@@ -10,6 +17,6 @@ class ProfilController
 
     public function execute(): void
     {
-        (new ProfilView())->show();
+        (new ProfileView())->show();
     }
 }

@@ -1,4 +1,12 @@
 <?php
+
+namespace app\controllers;
+
+use app\models\UserModel;
+use app\views\LoginView;
+use config\DataBase;
+use PDO;
+
 class LoginController
 {
 
@@ -18,7 +26,7 @@ class LoginController
     {
         $username = htmlspecialchars($postData['username']);
         $password = sha1($postData['password']);
-        $user = new User($this->PDO);
+        $user = new UserModel($this->PDO);
         if (!empty($username) && !empty($password))
         {
             $userData = $user->getUser($username, $password);

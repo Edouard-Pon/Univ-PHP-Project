@@ -1,4 +1,7 @@
 <?php
+
+namespace app\views;
+
 class SignupView
 {
     public function show(): void

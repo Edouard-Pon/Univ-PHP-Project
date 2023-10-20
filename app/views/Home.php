@@ -1,5 +1,7 @@
 <?php
 
+namespace app\views;
+
 class HomeView
 {
     public function show($data, $posts): void

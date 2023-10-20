@@ -1,25 +1,14 @@
 <?php
-include_once '../app/views/layout.php';
-include_once '../app/views/welcome.php';
-include_once '../app/views/errors.php';
-include_once '../app/views/signup.php';
-include_once '../app/views/login.php';
-include_once '../app/views/home.php';
-include_once '../app/views/admin.php';
-include_once '../app/views/termsOfUse.php';
 
-include_once '../app/controllers/welcome.php';
-include_once '../app/controllers/errors.php';
-include_once '../app/controllers/signup.php';
-include_once '../app/controllers/login.php';
-include_once '../app/controllers/home.php';
-include_once '../app/controllers/admin.php';
-include_once '../app/controllers/termsOfUse.php';
-include_once '../app/controllers/logout.php';
-include_once '../app/controllers/NewPost.php';
+function autoloader($class): void
+{
+    $classPath = str_replace('\\', '/', $class);
+    $classPath = str_replace(['Controller', 'Model', 'View'], '', $classPath);
+    $file = '../' . $classPath . '.php';
 
-include_once '../app/models/user.php';
-include_once '../app/models/post.php';
+    if (file_exists($file)) {
+        require $file;
+    }
+}
 
-include_once '../config/database.php'
-?>
+spl_autoload_register('autoloader');

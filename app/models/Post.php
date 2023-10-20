@@ -1,6 +1,10 @@
 <?php
 
-class Post
+namespace app\models;
+
+use PDO;
+
+class PostModel
 {
     public function __construct(private PDO $connection) {}
 

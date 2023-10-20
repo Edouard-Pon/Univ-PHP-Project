@@ -1,4 +1,13 @@
 <?php
+
+namespace app\controllers;
+
+use app\models\PostModel;
+use app\models\UserModel;
+use app\views\HomeView;
+use config\DataBase;
+use PDO;
+
 class HomeController
 {
     private PDO $PDO;
@@ -10,8 +19,8 @@ class HomeController
 
     public function execute(): void
     {
-        $user = new User($this->PDO);
-        $post = new Post($this->PDO);
+        $user = new UserModel($this->PDO);
+        $post = new PostModel($this->PDO);
         if (!isset($_SESSION['password']))
         {
             header('Location: /');

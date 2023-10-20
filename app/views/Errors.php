@@ -1,4 +1,7 @@
 <?php
+
+namespace app\views;
+
 class ErrorsView
 {
     public function not_found_show(): void

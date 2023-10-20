@@ -17,8 +17,10 @@
             <span>Profil</span>
         </div>
     </a>
+    <a>
+        <button onclick="showNewPostForm()">New Post</button>
+    </a>
     <a href="/logout">
         <button>Disconnect</button>
     </a>
-    <button onclick="showNewPostForm()">New Post</button>
 </div>

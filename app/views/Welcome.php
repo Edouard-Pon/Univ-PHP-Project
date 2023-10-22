@@ -8,15 +8,15 @@ class WelcomeView
     {
         ob_start();
 ?>
-<div id="body">
-    <img src="assets/images/logoblanc.png" class="image" alt="Logo Z blanc" width="400">
-    <div id="interface">
-        <p id="bigtext"><b>Nous aussi on <br> peut le faire</b></p>
-        <p id="medtext"><b>Rejoignez dès aujourd'hui</b></p>
-        <button id="signup" onclick="window.location.href='/signup'"><b>Créer un compte</b></button>
-        <p id="minitext">En vous inscrivant, vous acceptez les conditions d'utilisation et de confidentialité<br> Politique incluant <a href="/termsofuse"> l'utilisation des cookies.</a></p>
-        <p id="medtext"><b>Déja un compte?</b></p>
-        <button id="signin" onclick="window.location.href='/login'"><b>Se connecter</b></button>
+<div class="flex-container">
+    <div class="logo"><img src="assets/images/logoblanc.png" class="image" alt=""></div>
+    <div class="interface">
+        <p class="title">Nous aussi on <br>peut le faire</p>
+        <p class="subtitle">Rejoignez dès aujourd'hui</p>
+        <a class="btn signup" href='/signup'>Créer un compte</a>
+        <p class="text">En vous inscrivant, vous acceptez les conditions d'utilisation et de confidentialité<br>Politique incluant l'utilisation des cookies.</p>
+        <p class="subtitle">Déja un compte?</p>
+        <a class="btn login" href='/login'">Se connecter</a>
     </div>
 </div>
 <?php

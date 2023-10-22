@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/public/assets/styles/navbar.css">
+<link rel="stylesheet" href="assets/styles/navbar.css">
 <div id="navbar_self">
     <a href="/home">
         <div>
@@ -12,7 +12,7 @@
             <span>Explorer</span>
         </div>
     </a>
-    <a href="/profil">
+    <a href="/profile">
         <div>
             <img src="assets/images/profilX.png" alt="Image Profil">
             <span>Profil</span>

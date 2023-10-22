@@ -25,13 +25,13 @@ class UserModel
 
     public function setUser($data): void
     {
-        $query = 'INSERT INTO user (name, password, email, phone, location, gender, firstco) VALUES (?, ?, ?, ?, ?, ?, NOW())';
+        $query = 'INSERT INTO user (name, password, email, phone, location, gender, profile_picture, firstco) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())';
         $statement = $this->connection->prepare($query);
         if (!$statement) {
             error_log('Failed to prepare statement');
             return;
         }
-        $statement->execute(array($data['username'], $data['password'], $data['email'], $data['number'], $data['location'], $data['gender']));
+        $statement->execute(array($data['username'], $data['password'], $data['email'], $data['number'], $data['location'], $data['profile_picture'], $data['gender']));
     }
 
     public function setLastConnection(): void

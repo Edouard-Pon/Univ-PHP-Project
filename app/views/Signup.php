@@ -44,6 +44,13 @@ class SignupView
                 <option value="F">Femme</option>
                 <option value="Helico_de_combat">Hélicoptère de combat</option>
                 <option value="Adaptateur_Usb">Adaptateur USB</option>
+                <option value="Matraque_Telescopique">Matraque téléscopique</option>
+                <option value="Stroboscope_Lumineux">Stroboscope lumineux</option>
+                <option value="Astronaute_En_Perdition">Astronaute en perdition</option>
+                <option value="Casque_VR">Casque VR</option>
+                <option value="Flaque_De_Couleur">Flaque de couleur</option>
+                <option value="Elexir_De_Rage">Elexir de rage</option>
+                <option value="Géant_Des_Collines">Géant des collines</option>
             </select>
             <a href="/login">Déjà un compte?</a>
             <input type="submit" name="signup">

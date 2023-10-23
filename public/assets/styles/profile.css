@@ -4,3 +4,12 @@
 body {
     display: flex;
 }
+.feed div {
+    display: grid;
+    grid-gap: 20px;
+}
+p{
+    border: solid #04AA6D;
+    border-radius: 10px;
+    padding: 5px;
+}

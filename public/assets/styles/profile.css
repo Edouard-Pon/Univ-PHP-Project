@@ -1,0 +1,6 @@
+@import "navbar.css";
+@import "shared/post.css";
+
+body {
+    display: flex;
+}

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="assets/styles/navbar.css">
 <div id="navbar_self">
     <a href="/home">
         <div>

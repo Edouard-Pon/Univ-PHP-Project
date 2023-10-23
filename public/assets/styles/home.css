@@ -1,35 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;700&display=swap');
 @import "navbar.css";
 @import "shared/post.css";
 
-body{
-    font-family: "Source Code Pro", serif;
-    background-color: black ;
+body {
     display: flex;
-    color: white;
-}
-#right_informations{
-    position: fixed;
-    display: grid;
-    padding-left: 80%;
-    color: white;
-    justify-items: center;
-    height: 10vh;
-}
-
-#center{
-    justify-self: center;
-    max-width: 45%;
-    min-width: 45%;
-    display: grid;
-    justify-items: center;
-}
-#center img{
-    position: fixed;
-}
-#center #posts{
-    padding-top: 10vh;
-}
-#marginLeft{
-    min-width: 25%;
 }

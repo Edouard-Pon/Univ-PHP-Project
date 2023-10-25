@@ -25,6 +25,7 @@ class SignupController
     {
         $data = [
             'username' => htmlspecialchars($postData['username']),
+            'nickname' => htmlspecialchars($postData['nickname']),
             'password' => sha1($postData['password']),
             'email' => htmlspecialchars($postData['email']),
             'number' => htmlspecialchars($postData['number']),
@@ -33,6 +34,7 @@ class SignupController
         ];
         $user = new UserModel($this->PDO);
         if (!empty($data['username']) &&
+            !empty($data['nickname']) &&
             !empty($data['password']) &&
             !empty($data['email']) &&
             !empty($data['number']) &&

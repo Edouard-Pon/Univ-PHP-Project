@@ -12,8 +12,12 @@ class SignupView
     <div class="flex-container">
         <form method="POST" action="">
             <div class="logo"><img src="assets/images/logoblanc.png" class="image" alt=""></div>
+
             <label for="username">Pseudo:</label>
             <input class="inputText" id="username" type="text" name="username" autocomplete="off" placeholder="Entrez votre pseudo">
+
+            <label for="nickname">Surnom:</label>
+            <input class="inputText" id="nickname" type="text" name="nickname" autocomplete="off" placeholder="Entrez votre surnom">
 
             <label for="password">Mot de passe:</label>
             <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Entrez votre mot de passe">

@@ -11,7 +11,7 @@ class PostModel
     public function getPosts($authorName = null): ?array
     {
         if ($authorName) {
-            $query = 'SELECT post_path, titre, auteur, message, id FROM posts WHERE auteur = ?';
+            $query = 'SELECT post_path, post_title, post_author, post_text, id FROM posts WHERE post_author = ?';
             $statement = $this->connection->prepare($query);
             if (!$statement) {
                 error_log('Failed to prepare statement');
@@ -20,7 +20,7 @@ class PostModel
 
             $statement->execute([$authorName]);
         } else {
-            $query = 'SELECT post_path, titre, auteur, message, id FROM posts';
+            $query = 'SELECT post_path, post_title, post_author, post_text, id FROM posts';
             $statement = $this->connection->prepare($query);
             if (!$statement) {
                 error_log('Failed to prepare statement');
@@ -41,7 +41,7 @@ class PostModel
 
     public function addPost($data): void
     {
-        $query = 'INSERT INTO posts (titre, message, date, auteur, post_path) VALUES (?, ?, ?, ?, ?)';
+        $query = 'INSERT INTO posts (post_title, post_text, post_date, post_author, post_path) VALUES (?, ?, ?, ?, ?)';
         $statement = $this->connection->prepare($query);
         if (!$statement) {
             error_log('Failed to prepare statement');

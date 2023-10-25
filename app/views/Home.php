@@ -24,7 +24,7 @@ foreach ($posts as $post) {
 ?>
 </div>
 <div class="navbar">
-    <?= $data['name'] ?>
+    <?= $data['username'] ?>
     <?php include('partials/navbar.php') ?>
 </div>
 <?php

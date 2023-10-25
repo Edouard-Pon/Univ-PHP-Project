@@ -32,7 +32,7 @@ class LoginController
             $userData = $user->getUser($username, $password);
             if ($userData !== null)
             {
-                $_SESSION['username'] = $userData['name'];
+                $_SESSION['username'] = $userData['username'];
                 $_SESSION['password'] = $userData['password'];
                 $_SESSION['id'] = $userData['id'];
                 $_SESSION['admin'] = $userData['admin'];

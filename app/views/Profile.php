@@ -17,9 +17,10 @@ class ProfileView
                 <h1>User Profile</h1>
 
                 <!-- Display user information here -->
-                <p>Name: <?php echo $data['name']; ?></p>
+                <p>Name: <?php echo $data['username']; ?></p>
+                <p>Nickname: <?php echo $data['nickname']; ?></p>
                 <p>Email: <?php echo $data['email']; ?></p>
-                <p>Phone: <?php echo $data['phone']; ?></p>
+                <p>Phone: <?php echo $data['number']; ?></p>
                 <p>Location: <?php echo $data['location']; ?></p>
                 <p>Gender: <?php echo $data['gender']; ?></p>
                 <p>Last Login: <?php echo $data['lastco']; ?></p>
@@ -36,7 +37,7 @@ class ProfileView
         </div>
 
         <div class="navbar">
-            <?= $data['name'] ?>
+            <?= $data['username'] ?>
             <?php include('partials/navbar.php') ?>
         </div>
         <?php

@@ -187,7 +187,6 @@ body {
     background-color: var(--btn-primary-color-light);
     color: var(--text-color-dark);
 }
-
 .signup:hover {
     background-color: var(--btn-primary-color-dark);
     color: var(--text-color-light);

@@ -11,10 +11,10 @@ if (file_exists($post['post_path'])) {
         <div class="pfp">
             <img src="" alt="Profile picture">
         </div>
-        <p>@<?= htmlspecialchars($post['auteur']) ?></p>
+        <p>@<?= htmlspecialchars($post['post_author']) ?></p>
     </div>
-    <h2 class="title"><?= htmlspecialchars($post['titre']) ?></h2>
-    <p class="text"><?= htmlspecialchars($post['message']) ?></p>
+    <h2 class="title"><?= htmlspecialchars($post['post_title']) ?></h2>
+    <p class="text"><?= htmlspecialchars($post['post_text']) ?></p>
     <?php if ($image) { ?>
     <div class="image-container <?= $vertical ? 'vertical' : 'horizontal' ?>">
         <img src="<?= $post['post_path'] ?>" alt="Image">

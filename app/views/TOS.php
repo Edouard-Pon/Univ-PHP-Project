@@ -2,6 +2,8 @@
 
 namespace app\views;
 
+use app\views\partials\Footer;
+
 class TOS
 {
     public function show(): void
@@ -28,7 +30,7 @@ class TOS
                 Veuillez également noter que ces Conditions intègrent notre Politique de confidentialité ainsi que d'autres conditions applicables à votre utilisation des Services et à votre Contenu. Enfin, ces conditions peuvent varier en fonction de l'endroit où vous habitez, mais vous devez quoi qu'il en soit avoir au moins 13 ans pour utiliser Z.</p>
         </div>
         <?php
-        include 'partials/footer.php';
+        echo (new Footer())->show();
         (new Layout('PasX', ob_get_clean(), 'termsOfUse'))->show();
     }
 }

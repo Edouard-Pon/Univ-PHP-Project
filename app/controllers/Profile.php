@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\models\Post as PostModel;
 use app\models\User as UserModel;
-use app\views\Profile as ProfileView;
+use app\views\profile\Profile as ProfileView;
 use config\DataBase;
 use PDO;
 

@@ -2,6 +2,8 @@
 
 namespace app\views;
 
+use app\views\partials\Footer;
+
 class Login
 {
     public function show(): void
@@ -26,7 +28,7 @@ class Login
     </form>
 </div>
 <?php
-include 'partials/footer.php';
+echo (new Footer())->show();
         (new Layout('PasX - Login', ob_get_clean(), 'connection'))->show();
     }
 }

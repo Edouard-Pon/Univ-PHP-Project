@@ -2,6 +2,8 @@
 
 namespace app\views;
 
+use app\views\partials\Footer;
+
 class Welcome
 {
     public function show(): void
@@ -20,7 +22,7 @@ class Welcome
     </div>
 </div>
 <?php
-include 'partials/footer.php';
+echo (new Footer())->show();
         (new Layout('PasX', ob_get_clean(), 'welcome'))->show();
     }
 }

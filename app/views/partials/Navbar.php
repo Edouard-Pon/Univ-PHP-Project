@@ -1,3 +1,13 @@
+<?php
+
+namespace app\views\partials;
+
+class Navbar
+{
+    public function show(): string
+    {
+        ob_start();
+?>
 <div id="navbar_self">
     <a href="/home">
         <div>
@@ -24,3 +34,9 @@
         <button>Disconnect</button>
     </a>
 </div>
+<?php
+        return ob_get_clean();
+    }
+}
+?>
+

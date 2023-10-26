@@ -1,6 +1,10 @@
 <?php
 
-namespace app\views;
+namespace app\views\profile;
+
+use app\views\Layout;
+use app\views\partials\Navbar;
+use app\views\posts\Post;
 
 class Profile
 {
@@ -31,14 +35,14 @@ class Profile
             <h3>Your posts</h3>
             <?php
             foreach ($posts as $post) {
-                include('posts/post.php');
+                echo (new Post())->show($post);
             }
             ?>
         </div>
 
         <div class="navbar">
             <?= $data['username'] ?>
-            <?php include('partials/navbar.php') ?>
+            <?= (new Navbar())->show() ?>
         </div>
         <?php
         (new Layout('PasX - Profil', ob_get_clean(), 'profile'))->show();

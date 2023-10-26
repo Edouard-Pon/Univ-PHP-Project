@@ -2,6 +2,8 @@
 
 namespace app\views;
 
+use app\views\partials\Footer;
+
 class Signup
 {
     public function show(): void
@@ -65,7 +67,7 @@ class Signup
     </div>
 </div>
 <?php
-include 'partials/footer.php';
+echo (new Footer())->show();
         (new Layout('PasX - Sign Up', ob_get_clean(), 'connection'))->show();
     }
 }

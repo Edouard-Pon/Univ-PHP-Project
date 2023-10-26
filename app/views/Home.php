@@ -2,6 +2,10 @@
 
 namespace app\views;
 
+use app\views\partials\Navbar;
+use app\views\posts\NewPost;
+use app\views\posts\Post;
+
 class Home
 {
     public function show($data, $posts): void
@@ -17,15 +21,15 @@ class Home
 </div>
 <div class="feed">
 <?php
-include('posts/new.php');
+echo (new NewPost())->show();
 foreach ($posts as $post) {
-    include('posts/post.php');
+    echo (new Post())->show($post);
 }
 ?>
 </div>
 <div class="navbar">
     <?= $data['username'] ?>
-    <?php include('partials/navbar.php') ?>
+    <?= (new Navbar())->show() ?>
 </div>
 <?php
         (new Layout('PasX - Home', ob_get_clean(), 'home'))->show();

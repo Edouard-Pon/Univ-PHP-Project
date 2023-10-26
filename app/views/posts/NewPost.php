@@ -1,3 +1,13 @@
+<?php
+
+namespace app\views\posts;
+
+class NewPost
+{
+    public function show(): string
+    {
+        ob_start();
+?>
 <div id="newPostForm">
     <h1>Create a new post</h1>
     <form method="POST" action="" enctype="multipart/form-data">
@@ -13,3 +23,9 @@
         </div>
     </form>
 </div>
+<?php
+        return ob_get_clean();
+    }
+}
+?>
+

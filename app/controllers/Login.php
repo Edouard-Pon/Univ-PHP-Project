@@ -2,12 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\UserModel;
-use app\views\LoginView;
-use config\DataBase;
+use app\models\User as UserModel;
+use app\views\Login as LoginView;
+use config\DataBase as DataBase;
 use PDO;
 
-class LoginController
+class Login
 {
 
     private PDO $PDO;

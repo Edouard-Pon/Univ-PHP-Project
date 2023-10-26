@@ -1,17 +1,17 @@
 <?php
 
-require_once '../config/autoloader.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-use app\controllers\AdminController;
-use app\controllers\ErrorsController;
-use app\controllers\HomeController;
-use app\controllers\LoginController;
-use app\controllers\LogoutController;
-use app\controllers\NewPostController;
-use app\controllers\ProfileController;
-use app\controllers\SignupController;
-use app\controllers\TOSController;
-use app\controllers\WelcomeController;
+use app\controllers\Admin as AdminController;
+use app\controllers\Errors as ErrorsController;
+use app\controllers\Home as HomeController;
+use app\controllers\Login as LoginController;
+use app\controllers\Logout as LogoutController;
+use app\controllers\NewPost as NewPostController;
+use app\controllers\Profile as ProfileController;
+use app\controllers\Signup as SignupController;
+use app\controllers\TOS as TOSController;
+use app\controllers\Welcome as WelcomeController;
 
 session_start();
 

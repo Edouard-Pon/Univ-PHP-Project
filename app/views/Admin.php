@@ -2,7 +2,7 @@
 
 namespace app\views;
 
-class AdminView
+class Admin
 {
     public function show(): void
     {

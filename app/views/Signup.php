@@ -2,7 +2,7 @@
 
 namespace app\views;
 
-class SignupView
+class Signup
 {
     public function show(): void
     {

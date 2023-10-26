@@ -2,7 +2,7 @@
 
 namespace app\views;
 
-class TOSView
+class TOS
 {
     public function show(): void
     {

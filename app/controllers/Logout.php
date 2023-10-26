@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-class LogoutController
+class Logout
 {
     public function execute(): void
     {

@@ -2,7 +2,7 @@
 
 namespace app\views;
 
-class WelcomeView
+class Welcome
 {
     public function show(): void
     {

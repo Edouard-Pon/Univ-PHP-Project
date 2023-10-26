@@ -4,7 +4,7 @@ namespace app\models;
 
 use PDO;
 
-class PostModel
+class Post
 {
     public function __construct(private PDO $connection) {}
 

@@ -2,11 +2,11 @@
 
 namespace app\controllers;
 
-use app\models\PostModel;
+use app\models\Post as PostModel;
 use config\DataBase;
 use PDO;
 
-class NewPostController
+class NewPost
 {
 
     private PDO $PDO;

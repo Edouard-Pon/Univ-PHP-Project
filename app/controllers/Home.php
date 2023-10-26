@@ -2,13 +2,13 @@
 
 namespace app\controllers;
 
-use app\models\PostModel;
-use app\models\UserModel;
-use app\views\HomeView;
+use app\models\Post as PostModel;
+use app\models\User as UserModel;
+use app\views\Home as HomeView;
 use config\DataBase;
 use PDO;
 
-class HomeController
+class Home
 {
     private PDO $PDO;
 

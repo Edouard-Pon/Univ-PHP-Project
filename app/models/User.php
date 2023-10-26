@@ -4,7 +4,7 @@ namespace app\models;
 
 use PDO;
 
-class UserModel
+class User
 {
     public function __construct(private PDO $connection) {}
 

@@ -2,13 +2,13 @@
 
 namespace app\controllers;
 
-use app\models\PostModel;
-use app\models\UserModel;
-use app\views\ProfileView;
+use app\models\Post as PostModel;
+use app\models\User as UserModel;
+use app\views\Profile as ProfileView;
 use config\DataBase;
 use PDO;
 
-class ProfileController
+class Profile
 {
     private PDO $PDO;
 

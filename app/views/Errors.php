@@ -2,7 +2,7 @@
 
 namespace app\views;
 
-class ErrorsView
+class Errors
 {
     public function not_found_show(): void
     {

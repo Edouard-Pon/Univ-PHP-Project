@@ -2,7 +2,7 @@
 
 namespace app\views;
 
-class LoginView
+class Login
 {
     public function show(): void
     {

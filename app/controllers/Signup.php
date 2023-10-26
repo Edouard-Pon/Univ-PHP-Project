@@ -2,12 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\UserModel;
-use app\views\SignupView;
+use app\models\User as UserModel;
+use app\views\Signup as SignupView;
 use config\DataBase;
 use PDO;
 
-class SignupController
+class Signup
 {
     private PDO $PDO;
 

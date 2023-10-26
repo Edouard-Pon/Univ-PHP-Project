@@ -2,7 +2,7 @@
 
 namespace app\views;
 
-class ProfileView
+class Profile
 {
     public function show($data, $posts): void
     {

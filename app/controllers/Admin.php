@@ -2,12 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\UserModel;
-use app\views\AdminView;
+use app\models\User as UserModel;
+use app\views\Admin as AdminView;
 use config\DataBase;
 use PDO;
 
-class AdminController
+class Admin
 {
     private PDO $PDO;
 

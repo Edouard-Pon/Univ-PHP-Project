@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
-use app\views\ErrorsView;
+use app\views\Errors as ErrorsView;
 
-class ErrorsController
+class Errors
 {
     public function not_found_execute(): void
     {

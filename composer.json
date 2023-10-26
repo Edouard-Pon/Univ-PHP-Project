@@ -1,0 +1,17 @@
+{
+  "name": "zed/univ-php-project",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "edouard"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/",
+      "config\\": "config/"
+    }
+  }
+}

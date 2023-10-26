@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
-use app\views\WelcomeView;
+use app\views\Welcome as WelcomeView;
 
-class WelcomeController
+class Welcome
 {
     public function execute(): void
     {

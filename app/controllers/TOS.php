@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
-use app\views\TOSView;
+use app\views\TOS as TOSView;
 
-class TOSController
+class TOS
 {
     public function execute(): void
     {

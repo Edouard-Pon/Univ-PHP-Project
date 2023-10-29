@@ -25,7 +25,7 @@ class User
 
     public function setUser($data): void
     {
-        $query = 'INSERT INTO user (username, nickname, password, email, number, location gender,  firstco) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())';
+        $query = 'INSERT INTO user (username, nickname, password, email, number, location, gender, firstco) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())';
         $statement = $this->connection->prepare($query);
         if (!$statement) {
             error_log('Failed to prepare statement');
@@ -48,5 +48,16 @@ class User
     public function isAdmin(): bool
     {
         return $_SESSION['admin'] ?? false;
+    }
+
+    public function update($data): void
+    {
+        $query = 'UPDATE user SET username = ?, profile_picture = ? WHERE username = ? AND password = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute(array($data['username'], $data['filePath'], $_SESSION['username'], $_SESSION['password']));
     }
 }

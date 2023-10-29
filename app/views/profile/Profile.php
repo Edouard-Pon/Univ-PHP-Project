@@ -8,7 +8,7 @@ use app\views\posts\Post;
 
 class Profile
 {
-    public function show($data, $posts): void
+    public function show($data, $posts, bool $edit = false): void
     {
         ob_start();
         ?>
@@ -16,6 +16,9 @@ class Profile
             WIP
         </div>
         <div class="feed">
+
+            <?php if ($edit) echo (new Edit())->show() ?>
+
             <div>
                 <title>User Profile</title>
                 <h1>User Profile</h1>
@@ -35,7 +38,7 @@ class Profile
             <h3>Your posts</h3>
             <?php
             foreach ($posts as $post) {
-                echo (new Post())->show($post);
+                echo (new Post())->show($post, $data);
             }
             ?>
         </div>

@@ -13,3 +13,22 @@ p{
     border-radius: 10px;
     padding: 5px;
 }
+
+#image-con {
+    position: relative;
+    background-color: wheat;
+}
+
+#image {
+    width: 100%;
+    height: auto;
+}
+
+#crop-box {
+    position: absolute;
+    border: 1px solid #ff0000;
+    box-sizing: border-box;
+    min-width: 50px;
+    min-height: 50px;
+}
+

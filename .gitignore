@@ -1,4 +1,5 @@
 .idea
 config/db.ini
 public/posts
+public/profiles
 vendor

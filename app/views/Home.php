@@ -23,7 +23,7 @@ class Home
 <?php
 echo (new NewPost())->show();
 foreach ($posts as $post) {
-    echo (new Post())->show($post);
+    echo (new Post())->show($post, $data);
 }
 ?>
 </div>

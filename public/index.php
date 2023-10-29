@@ -44,6 +44,9 @@ try {
             case '/profile':
                 (new ProfileController())->execute();
                 break;
+            case '/profile/edit':
+                (new ProfileController())->edit();
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;
@@ -61,6 +64,11 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post']))
     {
         (new NewPostController())->execute($_POST, $_FILES);
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save-profile']))
+    {
+        (new ProfileController())->save($_POST, $_FILES);
     }
 
 } catch (Exception) {

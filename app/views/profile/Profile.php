@@ -19,23 +19,27 @@ class Profile
 
             <?php if ($edit) echo (new Edit())->show() ?>
 
-            <div>
-                <title>User Profile</title>
-                <h1>User Profile</h1>
-
-                <!-- Display user information here -->
-                <p>Name: <?php echo $data['username']; ?></p>
-                <p>Nickname: <?php echo $data['nickname']; ?></p>
-                <p>Email: <?php echo $data['email']; ?></p>
-                <p>Phone: <?php echo $data['number']; ?></p>
-                <p>Location: <?php echo $data['location']; ?></p>
-                <p>Gender: <?php echo $data['gender']; ?></p>
-                <p>Last Login: <?php echo $data['lastco']; ?></p>
-
-                <h2>Profile picture</h2>
-                <img src="<?= $data['profile_picture'] ?>" alt="Image">
+            <div class="profile">
+                <div>
+                    <div class="bg-pfp">
+                        <img src="profiles/test/testbg.jpeg" alt="Background profile picture">
+                    </div>
+                    <div class="profile-top">
+                        <img class="pfp" src="<?= $data['profile_picture'] ?: '/profiles/default/default.png' ?>" alt="Image">
+                        <a class="btn" href="/profile/edit">Edit Profile</a>
+                    </div>
+                </div>
+                <ul class="name">
+                    <li class="nickname"><?= $data['nickname'] ?></li>
+                    <li class="username">@<?= $data['username'] ?></li>
+                </ul>
+                <ul class="other">
+                    <li>Gender: <?= $data['gender'] ?></li>
+                    <li>Location: <?= $data['location'] ?></li>
+                    <li>Last connection: <?= $data['lastco'] ?></li>
+                </ul>
             </div>
-            <h3>Your posts</h3>
+
             <?php
             foreach ($posts as $post) {
                 echo (new Post())->show($post);

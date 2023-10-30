@@ -1,0 +1,10 @@
+.btn {
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-family), Serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+}

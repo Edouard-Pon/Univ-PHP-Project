@@ -39,7 +39,7 @@ a span {
 a button{
     background-color: #04AA6D;
     border: none;
-    border-radius: 2.5vh;
+    border-radius: 20px;
     padding: 1vh;
     width: 80%;
     margin-left: 1rem;

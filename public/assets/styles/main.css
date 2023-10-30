@@ -12,8 +12,9 @@
     --btn-danger-color-light: #ff4444;
     --btn-danger-color-dark: #882222;
     --accent-color: #B2E6D4;
+    --font-family: "Source Code Pro";
 
-    font-family: "Source Code Pro", serif;
+    font-family: var(--font-family), Serif;
     font-size: 100%;
     background-color: var(--bg-color);
     color: var(--text-color-light);

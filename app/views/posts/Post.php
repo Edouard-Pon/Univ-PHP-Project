@@ -20,7 +20,7 @@ class Post
 ?>
 <div class="post-container">
     <div class="user-info">
-        <div class="pfp">
+        <div class="post-pfp">
             <img src="<?= $pfp ?>" alt="Profile picture">
         </div>
         <p>@<?= htmlspecialchars($post['post_author']) ?></p>

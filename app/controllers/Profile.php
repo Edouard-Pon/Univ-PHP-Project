@@ -63,7 +63,7 @@ class Profile
         if (isset($fileData['image']) && $fileData['image']['error'] === UPLOAD_ERR_OK) {
 
             $file_type = pathinfo($fileData['image']['name'], PATHINFO_EXTENSION);
-            $file_name = $_SESSION['username'] . count(glob('profile/' . $_SESSION['username'] . '/*')) + 1;
+            $file_name = $_SESSION['username'];
             $file_size = $fileData['image']['size'];
 
             $data = [
@@ -76,8 +76,11 @@ class Profile
             ];
 
             if (!is_dir($data['dir'])) {
-                error_log('Making dir!');
                 mkdir($data['dir'], 0777, true);
+            }
+
+            if (file_exists($data['filePath'])) {
+                unlink($data['filePath']);
             }
 
             if (!in_array(strtolower($data['file_type']), $allowedImageFormats)) {
@@ -90,7 +93,6 @@ class Profile
 
             if (!empty($errorMessage)) {
                 $_SESSION['errorMessage'] = $errorMessage;
-                error_log($errorMessage);
             } else {
                 $image = imagecreatefromstring(file_get_contents($fileData['image']['tmp_name']));
 

@@ -4,8 +4,9 @@ namespace app\views\posts;
 
 class Post
 {
-    public function show($post, $user): string
+    public function show($post): string
     {
+        $pfp = '/profiles/' . $post['post_author'] . '/' . $post['post_author'] . '.jpg';
         $image = false;
         if (file_exists($post['post_path'])) {
             $image = true;
@@ -17,7 +18,7 @@ class Post
 <div class="post-container">
     <div class="user-info">
         <div class="pfp">
-            <img src="<?= $user['profile_picture'] ?>" alt="Profile picture">
+            <img src="<?= $pfp ?>" alt="Profile picture">
         </div>
         <p>@<?= htmlspecialchars($post['post_author']) ?></p>
     </div>

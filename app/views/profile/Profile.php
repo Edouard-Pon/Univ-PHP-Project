@@ -38,7 +38,7 @@ class Profile
             <h3>Your posts</h3>
             <?php
             foreach ($posts as $post) {
-                echo (new Post())->show($post, $data);
+                echo (new Post())->show($post);
             }
             ?>
         </div>

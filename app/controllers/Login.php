@@ -24,6 +24,10 @@ class Login
 
     public function login(array $postData): void
     {
+        if (isset($_SESSION['password'])) {
+            header('Location: /home');
+            exit();
+        }
         $username = htmlspecialchars($postData['username']);
         $password = sha1($postData['password']);
         $user = new UserModel($this->PDO);

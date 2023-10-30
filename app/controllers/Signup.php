@@ -18,6 +18,10 @@ class Signup
 
     public function execute(): void
     {
+        if (isset($_SESSION['password'])) {
+            header('Location: /home');
+            exit();
+        }
         (new SignupView())->show();
     }
 

@@ -6,7 +6,10 @@ class Post
 {
     public function show($post): string
     {
-        $pfp = '/profiles/' . $post['post_author'] . '/' . $post['post_author'] . '.jpg';
+        $pfp = 'profiles/' . $post['post_author'] . '/' . $post['post_author'] . '.jpg';
+        if (!file_exists($pfp)) {
+            $pfp = 'profiles/default/default.png';
+        }
         $image = false;
         if (file_exists($post['post_path'])) {
             $image = true;

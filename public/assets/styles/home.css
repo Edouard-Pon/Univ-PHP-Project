@@ -1,5 +1,6 @@
 @import "navbar.css";
 @import "shared/post.css";
+@import "shared/buttons.css";
 
 body {
     display: flex;

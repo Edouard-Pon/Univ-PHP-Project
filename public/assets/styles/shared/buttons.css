@@ -8,3 +8,25 @@
     text-align: center;
     justify-content: center;
 }
+
+.btn-primary {
+    color: var(--text-color-dark);
+    background-color: var(--btn-primary-color-light);
+}
+
+.btn-primary:hover {
+    color: var(--text-color-light);
+    background-color: var(--btn-primary-color-dark);
+    transition: .3s;
+}
+
+.btn-danger {
+    color: var(--text-color-dark);
+    background-color: var(--btn-danger-color-light);
+}
+
+.btn-danger:hover {
+    color: var(--text-color-light);
+    background-color: var(--btn-danger-color-dark);
+    transition: .3s;
+}

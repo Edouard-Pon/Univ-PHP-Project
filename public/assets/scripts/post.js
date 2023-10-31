@@ -1,7 +1,7 @@
 const newPostForm = document.getElementById('newPostForm')
 
 function showNewPostForm() {
-    newPostForm.style.display = 'grid'
+    newPostForm.style.display = 'block'
 }
 
 function hideNewPostForm() {

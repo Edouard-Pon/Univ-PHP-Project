@@ -1,67 +1,82 @@
-/*#newPostForm {*/
-/*    font-family: inherit;*/
-/*    color: white;*/
-/*    display: none;*/
-/*    position: fixed;*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*    background-color: black;*/
-/*    padding: 20px;*/
-/*    z-index: 1;*/
-/*    justify-items: center;*/
-/*    justify-content: center;*/
-/*    border-radius: 20px;*/
-/*    border: solid #04AA6D 5px;*/
-/*    grid-gap: 1vh;*/
-/*}*/
-/*form{*/
-/*    display: inherit;*/
-/*    grid-gap: inherit;*/
-/*}*/
-/*textarea{*/
-/*    resize: none;*/
-/*    border: none;*/
-/*    border-bottom: solid white 2px;*/
-/*    background-color: black;*/
-/*    color: white;*/
-/*    outline: none;*/
-/*}*/
-/*textarea:focus{*/
-/*    border-bottom: solid #04AA6D 2px;*/
-/*}*/
-/*input[type=text]{*/
-/*    background-color: black;*/
-/*    border: none;*/
-/*    border-bottom: solid white 1px;*/
-/*    color: white;*/
-/*    outline: none;*/
-/*}*/
-/*input[type=text]:focus{*/
-/*    border-bottom: solid #04AA6D 1px;*/
-/*}*/
-/*input[type=file]{*/
-/*    opacity: 0;*/
-/*    z-index: -1;*/
-/*    position: absolute;*/
-/*    overflow: hidden;*/
-/*    height: 0.1px;*/
-/*    width: 0.1px;*/
-/*}*/
-/*.postButton{*/
-/*    background-color: #04AA6D;*/
-/*    border-radius: 50px;*/
-/*    border: none;*/
-/*    padding: 2px 2vh 2px 2vh;*/
-/*    color: black;*/
-/*    outline: none;*/
-/*}*/
-/*.postButton:hover{*/
-/*    background-color: #048a5a;*/
-/*}*/
-/*.postButton:focus{*/
-/*    background-color: #048a5a;*/
-/*}*/
+#newPostForm {
+    color: white;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color-dark);
+    padding: 20px;
+    border-radius: 25px;
+    border: solid var(--accent-color) 2px;
+    width: 30%;
+    z-index: 1;
+}
+
+#newPostForm h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#newPostForm form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 25px;
+}
+
+.btn {
+    height: 30px;
+    width: 110px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#uploadImageBtn {
+    width: 180px;
+    display: flex;
+    align-items: center;
+}
+
+#uploadImage {
+    position: absolute;
+    z-index: -1;
+    display: none;
+}
+
+#newPostForm textarea {
+    resize: none;
+    border: none;
+    border-bottom: solid var(--bg-color-light) 2px;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    outline: none;
+    transition: .3s;
+    width: 100%;
+}
+
+#newPostForm textarea:focus {
+    border-bottom: solid var(--accent-color) 2px;
+}
+
+.post-title {
+    border: none;
+    border-bottom: solid var(--bg-color-light) 2px;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    outline: none;
+    transition: .3s;
+    width: 40%;
+}
+
+.post-title:focus {
+    border-bottom: solid var(--accent-color) 2px;
+}
 
 .category-feed {
     width: 30%;

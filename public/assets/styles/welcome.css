@@ -185,6 +185,7 @@ button{
 .signup:focus{
     outline: none;
     box-shadow: inset 20rem 0 0 0 var(--btn-primary-color-dark);
+    cursor: pointer;
 }
 .login{
     background-color: var(--bg-color-dark);
@@ -195,6 +196,7 @@ button{
     outline: none;
     box-shadow: inset 20rem 0 0 0 white;
     color: var(--text-color-dark);
+    cursor: pointer;
 }
 
 .title {

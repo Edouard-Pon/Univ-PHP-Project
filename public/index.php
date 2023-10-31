@@ -17,35 +17,40 @@ session_start();
 
 try {
     if (isset($_SERVER['REQUEST_URI'])) {
-        $route = $_SERVER['REQUEST_URI'];
+        $route = ($_SERVER['REQUEST_URI'] === '/') ? '/' : explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 
-        switch ($route) {
+        switch ($route[0]) {
             case '/':
                 (new WelcomeController())->execute();
                 break;
-            case '/signup':
+            case 'signup':
                 (new SignupController())->execute();
                 break;
-            case '/login':
+            case 'login':
                 (new LoginController())->execute();
                 break;
-            case '/home':
+            case 'home':
                 (new HomeController())->execute();
                 break;
-            case '/admin':
+            case 'admin':
                 (new AdminController())->execute();
                 break;
-            case '/tos':
+            case 'tos':
                 (new TOSController())->execute();
                 break;
-            case '/logout':
+            case 'logout':
                 (new LogoutController())->execute();
                 break;
-            case '/profile':
-                (new ProfileController())->execute();
-                break;
-            case '/profile/edit':
-                (new ProfileController())->edit();
+            case 'profile':
+                if (!isset($route[1])) {
+                    (new ProfileController())->execute();
+                    break;
+                }
+                if ($route[1] === 'edit') {
+                    (new ProfileController())->edit();
+                    break;
+                }
+                (new ProfileController())->user($route[1]);
                 break;
             default:
                 (new ErrorsController())->not_found_execute();

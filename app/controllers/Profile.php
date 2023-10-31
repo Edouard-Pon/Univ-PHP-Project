@@ -28,7 +28,7 @@ class Profile
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts($_SESSION['username']);
-            (new ProfileView())->show($user, $post);
+            (new ProfileView())->show($user, $post, false, true);
         }
     }
 
@@ -122,6 +122,23 @@ class Profile
                     $_SESSION['errorMessage'] = $errorMessage;
                 }
             }
+        }
+    }
+
+    public function user(string $username): void
+    {
+        $user = new UserModel($this->PDO);
+        $posts = new PostModel($this->PDO);
+        if (!isset($_SESSION['password']))
+        {
+            header('Location: /');
+            exit();
+        } else {
+            $user = $user->getUserPublic($username);
+            $posts = $posts->getPosts($username);
+            $isOwner = false;
+            if ($username === $_SESSION['username']) $isOwner = true;
+            (new ProfileView())->show($user, $posts, false, $isOwner);
         }
     }
 }

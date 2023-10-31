@@ -60,4 +60,19 @@ class User
         }
         $statement->execute(array($data['username'], $data['filePath'], $_SESSION['username'], $_SESSION['password']));
     }
+
+    public function getUserPublic(string $username)
+    {
+        $query = 'SELECT username, nickname, gender, location, lastco, profile_picture FROM user WHERE username = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute([$username]);
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $user ?: null;
+    }
 }

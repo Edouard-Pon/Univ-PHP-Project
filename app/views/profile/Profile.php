@@ -8,7 +8,7 @@ use app\views\posts\Post;
 
 class Profile
 {
-    public function show($data, $posts, bool $edit = false): void
+    public function show($data, $posts, bool $edit = false, bool $isOwner = false): void
     {
         ob_start();
         ?>
@@ -22,11 +22,13 @@ class Profile
             <div class="profile">
                 <div>
                     <div class="bg-pfp">
-                        <img src="profiles/test/testbg.jpeg" alt="Background profile picture">
+                        <img src="/profiles/test/testbg.jpeg" alt="Background profile picture">
                     </div>
                     <div class="profile-top">
                         <img class="pfp" src="<?= $data['profile_picture'] ?: '/profiles/default/default.png' ?>" alt="Image">
+                        <?php if ($isOwner) { ?>
                         <a class="btn" href="/profile/edit">Edit Profile</a>
+                        <?php } ?>
                     </div>
                 </div>
                 <ul class="name">

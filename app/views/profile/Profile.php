@@ -27,7 +27,7 @@ class Profile
                         <img src="/profiles/test/testbg.jpeg" alt="Background profile picture">
                     </div>
                     <div class="profile-top">
-                        <img class="pfp" src="<?= $data['profile_picture'] ?: '/profiles/default/default.png' ?>" alt="Image">
+                        <img class="pfp" src="/<?= $data['profile_picture'] ?: 'profiles/default/default.png' ?>" alt="Image">
                         <?php if ($isOwner) { ?>
                         <a class="btn btn-primary btn-edit" href="/profile/edit">Edit Profile</a>
                         <?php } ?>

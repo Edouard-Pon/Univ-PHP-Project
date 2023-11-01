@@ -7,11 +7,12 @@ use app\controllers\Errors as ErrorsController;
 use app\controllers\Home as HomeController;
 use app\controllers\Login as LoginController;
 use app\controllers\Logout as LogoutController;
-use app\controllers\NewPost as NewPostController;
+use app\controllers\Post as NewPostController;
 use app\controllers\Profile as ProfileController;
 use app\controllers\Signup as SignupController;
 use app\controllers\TOS as TOSController;
 use app\controllers\Welcome as WelcomeController;
+use app\controllers\Post as PostController;
 
 session_start();
 
@@ -48,6 +49,10 @@ try {
                 }
                 if ($route[1] === 'edit') {
                     (new ProfileController())->edit();
+                    break;
+                }
+                if (isset($route[4]) && $route[4] === 'delete') {
+                    (new PostController())->delete($route);
                     break;
                 }
                 (new ProfileController())->user($route[1]);

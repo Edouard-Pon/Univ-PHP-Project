@@ -140,3 +140,13 @@
     font-size: 1.4rem;
     font-weight: bold;
 }
+
+.post-top {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete-form {
+    display: flex;
+    align-items: center;
+}

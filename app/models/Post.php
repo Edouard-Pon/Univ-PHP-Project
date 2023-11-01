@@ -51,7 +51,7 @@ class Post
         $statement->execute(array($data['post_title'], $data['post_text'], $data['post_date'], $data['post_author'], $data['dir'] . $data['file_name']));
     }
 
-/*    public function RemovePost($data): void
+    public function deletePost($id): void
     {
         $query = 'DELETE FROM posts WHERE id=?';
         $statement = $this->connection->prepare($query);
@@ -60,6 +60,22 @@ class Post
             return;
         }
 
-        $statement->execute(array($data['post_title'], $data['post_text'], $data['post_date'], $data['post_author'], $data['dir'] . $data['file_name']));
-    }*/
+        $statement->execute([$id]);
+    }
+
+    public function getPostImage($id): ?array
+    {
+        $query = 'SELECT post_path FROM posts WHERE id = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute([$id]);
+
+        $post = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $post ?: null;
+    }
 }

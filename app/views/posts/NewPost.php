@@ -13,7 +13,7 @@ class NewPost
     <form method="POST" action="" enctype="multipart/form-data">
         <input class="post-title" type="text" name="title" placeholder="Title">
         <label class="btn btn-primary" id="uploadImageBtn" for="uploadImage">Upload Image</label>
-        <input id="uploadImage" type="file" name="image" required>
+        <input id="uploadImage" type="file" name="image">
         <textarea name="text" placeholder="Text"></textarea>
         <div class="buttons">
             <button class="btn btn-danger" type="reset" onclick="hideNewPostForm();">Cancel</button>

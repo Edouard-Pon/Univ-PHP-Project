@@ -19,14 +19,24 @@ class Post
         ob_start();
 ?>
 <div class="post-container">
-    <div class="user-info">
-        <div class="post-pfp">
-            <img src="/<?= $pfp ?>" alt="Profile picture">
+    <div class="post-top">
+        <div class="user-info">
+            <div class="post-pfp">
+                <img src="/<?= $pfp ?>" alt="Profile picture">
+            </div>
+            <a href="/profile/<?= htmlspecialchars($post['post_author']) ?>">@<?= htmlspecialchars($post['post_author']) ?></a>
         </div>
-        <a href="/profile/<?= htmlspecialchars($post['post_author']) ?>">@<?= htmlspecialchars($post['post_author']) ?></a>
+
+        <?php if ($post['post_author'] === $_SESSION['username']) { ?>
+        <button class="btn btn-danger" onclick="location.href = '/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>/delete'" type="submit">Delete</button>
+        <?php } ?>
     </div>
+    <?php if (!empty($post['post_title'])) { ?>
     <h2 class="title"><?= htmlspecialchars($post['post_title']) ?></h2>
+    <?php } ?>
+    <?php if (!empty($post['post_text'])) { ?>
     <p class="text"><?= htmlspecialchars($post['post_text']) ?></p>
+    <?php } ?>
     <?php if ($image) { ?>
         <div class="image-container <?= $vertical ? 'vertical' : 'horizontal' ?>">
             <img src="/<?= $post['post_path'] ?>" alt="Image">

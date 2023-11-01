@@ -12,12 +12,11 @@ class Home
     {
         ob_start();
         ?>
-<?php if (isset($_SESSION['errorMessage'])) { ?>
-<p id="errorMessage"> <?= $_SESSION['errorMessage'] ?></p>
-<?php unset($_SESSION['errorMessage']);
-} ?>
 <div class="category-feed">
     WIP
+    <?php if (isset($_SESSION['errorMessage'])) { ?>
+    <p id="errorMessage"> <?= $_SESSION['errorMessage'] ?></p>
+    <?php unset($_SESSION['errorMessage']); } ?>
 </div>
 <div class="feed">
 <?php

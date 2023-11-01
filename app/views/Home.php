@@ -8,7 +8,7 @@ use app\views\posts\Post;
 
 class Home
 {
-    public function show($data, $posts): void
+    public function show($data, $posts, $comments): void
     {
         ob_start();
         ?>
@@ -22,7 +22,7 @@ class Home
 <?php
 echo (new NewPost())->show();
 foreach ($posts as $post) {
-    echo (new Post())->show($post);
+    echo (new Post())->show($post, $comments);
 }
 ?>
 </div>

@@ -4,8 +4,9 @@ namespace app\views\posts;
 
 class Post
 {
-    public function show($post): string
+    public function show($post, $comments): string
     {
+        $comments = $comments->getComments($post["id"]);
         $pfp = 'profiles/' . $post['post_author'] . '/' . $post['post_author'] . '.jpg';
         if (!file_exists($pfp)) {
             $pfp = 'profiles/default/default.png';
@@ -42,6 +43,8 @@ class Post
             <img src="/<?= $post['post_path'] ?>" alt="Image">
         </div>
     <?php } ?>
+    <?php echo (new NewComment())->show();?>
+    <?php echo (new Comment())->show($comments); ?>
 </div>
 <?php
         return ob_get_clean();

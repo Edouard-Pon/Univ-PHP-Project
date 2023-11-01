@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+//use app\models\Comment as CommentModel;
 use app\models\Post as PostModel;
 use app\models\User as UserModel;
 use app\views\profile\Profile as ProfileView;
@@ -19,6 +20,7 @@ class Profile
 
     public function execute(): void
     {
+//        $comments = new CommentModel($this->PDO);
         $user = new UserModel($this->PDO);
         $post = new PostModel($this->PDO);
         if (!isset($_SESSION['password']))
@@ -28,6 +30,7 @@ class Profile
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts($_SESSION['username']);
+//            $comments = $comments->getComments();
             (new ProfileView())->show($user, $post, false, true);
         }
     }

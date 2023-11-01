@@ -9,7 +9,7 @@ use app\views\posts\Post;
 
 class Profile
 {
-    public function show($data, $posts, bool $edit = false, bool $isOwner = false): void
+    public function show($data, $posts, bool $edit = false, bool $isOwner = false, $comments = null): void
     {
         ob_start();
         echo (new NewPost())->show();
@@ -46,7 +46,7 @@ class Profile
 
             <?php
             foreach ($posts as $post) {
-                echo (new Post())->show($post);
+                    echo (new Post())->show($post, $comments);
             }
             ?>
         </div>

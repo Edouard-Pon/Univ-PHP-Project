@@ -13,5 +13,9 @@
       "app\\": "app/",
       "config\\": "config/"
     }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "ext-gd": "*"
   }
 }

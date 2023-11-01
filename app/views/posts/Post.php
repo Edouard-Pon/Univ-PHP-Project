@@ -27,7 +27,7 @@ class Post
             <a href="/profile/<?= htmlspecialchars($post['post_author']) ?>">@<?= htmlspecialchars($post['post_author']) ?></a>
         </div>
 
-        <?php if ($post['post_author'] === $_SESSION['username']) { ?>
+        <?php if ($post['post_author'] === $_SESSION['username'] || isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
         <button class="btn btn-danger" onclick="location.href = '/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>/delete'" type="submit">Delete</button>
         <?php } ?>
     </div>

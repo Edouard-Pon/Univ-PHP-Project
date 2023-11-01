@@ -93,7 +93,9 @@ class Post
 
     public function delete($route): void
     {
-        if (isset($_SESSION['username']) && $_SESSION['username'] === $route[1] && $route[2] === 'post') {
+        if (isset($_SESSION['username']) && $_SESSION['username'] === $route[1] && $route[2] === 'post' ||
+            isset($_SESSION['admin']) && $_SESSION['admin'] && $route[2] === 'post') {
+
             $post = new PostModel($this->PDO);
             $postImage = $post->getPostImage($route[3]);
 
@@ -108,8 +110,8 @@ class Post
             exit();
         } else {
             $_SESSION['errorMessage'] = 'You cannot delete this post!';
-            header('Location: /home');
-            exit();
         }
+        header('Location: /home');
+        exit();
     }
 }

@@ -3,6 +3,7 @@
 namespace app\controllers\posts;
 
 use app\models\Post as PostModel;
+use app\models\Comment as CommentModel;
 use config\DataBase;
 use PDO;
 
@@ -93,10 +94,17 @@ class Post
 
     public function delete($route): void
     {
-        if (isset($_SESSION['username']) && $_SESSION['username'] === $route[1] && $route[2] === 'post' ||
-            isset($_SESSION['admin']) && $_SESSION['admin'] && $route[2] === 'post') {
+        if (isset($_SESSION['username']) && $_SESSION['username'] === $route[1] && $route[2] === 'post' && isset($route[3]) ||
+            isset($_SESSION['admin']) && $_SESSION['admin'] && $route[2] === 'post' && isset($route[3])) {
 
             $post = new PostModel($this->PDO);
+            $comment = new CommentModel($this->PDO);
+            $commentsCount = $comment->getCommentsCount($route[3]);
+
+            if ($commentsCount !== 0) {
+                $comment->deleteAllPostComments($route[3]);
+            }
+
             $postImage = $post->getPostImage($route[3]);
 
             if (!empty($postImage['post_path'])) {

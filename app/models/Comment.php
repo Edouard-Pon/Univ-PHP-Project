@@ -28,7 +28,7 @@ class Comment
         return $comments ?: null;
     }
 
-    public function getCommentNbforPost($postID = null): ?int
+    public function getCommentsCount($postID): ?int
     {
         $query = 'SELECT count(*) FROM comments WHERE post_id = ?';
         $statement = $this->connection->prepare($query);
@@ -39,11 +39,10 @@ class Comment
         }
 
         $statement->execute([$postID]);
-        $comments = 0;
 
-        $comments[] = $statement->fetch(PDO::FETCH_ASSOC);
+        $comments = $statement->fetch(PDO::FETCH_ASSOC);
 
-        return $comments ?: null;
+        return $comments['count(*)'] ?: 0;
     }
 
     public function addComment($data): void
@@ -69,5 +68,17 @@ class Comment
         }
 
         $statement->execute([$id]);
+    }
+
+    public function deleteAllPostComments($postID): void
+    {
+        $query = 'DELETE FROM comments WHERE post_id = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+
+        $statement->execute([$postID]);
     }
 }

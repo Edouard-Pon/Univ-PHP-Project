@@ -1,9 +1,9 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\admin;
 
 use app\models\User as UserModel;
-use app\views\Admin as AdminView;
+use app\views\admin\Admin as AdminView;
 use config\DataBase;
 use PDO;
 

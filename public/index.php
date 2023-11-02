@@ -2,17 +2,17 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use app\controllers\Admin as AdminController;
-use app\controllers\Errors as ErrorsController;
-use app\controllers\Home as HomeController;
-use app\controllers\Login as LoginController;
-use app\controllers\Logout as LogoutController;
-use app\controllers\Post as NewPostController;
-use app\controllers\Profile as ProfileController;
-use app\controllers\Signup as SignupController;
-use app\controllers\TOS as TOSController;
-use app\controllers\Welcome as WelcomeController;
-use app\controllers\Post as PostController;
+use app\controllers\admin\Admin as AdminController;
+use app\controllers\connections\Login as LoginController;
+use app\controllers\connections\Logout as LogoutController;
+use app\controllers\connections\Signup as SignupController;
+use app\controllers\connections\Welcome as WelcomeController;
+use app\controllers\errors\Errors as ErrorsController;
+use app\controllers\home\Home as HomeController;
+use app\controllers\posts\Post as NewPostController;
+use app\controllers\posts\Post as PostController;
+use app\controllers\profile\Profile as ProfileController;
+use app\controllers\tos\TOS as TOSController;
 
 session_start();
 

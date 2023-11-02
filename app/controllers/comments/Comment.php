@@ -1,9 +1,9 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\comments;
 
-use app\models\Post as PostModel;
 use app\models\Comment as CommentModel;
+use app\models\Post as PostModel;
 use config\DataBase;
 use PDO;
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace app\views;
+namespace app\views\connections;
 
+use app\views\layouts\Layout;
 use app\views\partials\Footer;
 
 class Welcome

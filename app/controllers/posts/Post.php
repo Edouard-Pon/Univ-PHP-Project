@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\posts;
 
 use app\models\Post as PostModel;
 use config\DataBase;

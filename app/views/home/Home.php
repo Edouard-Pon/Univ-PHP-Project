@@ -1,14 +1,15 @@
 <?php
 
-namespace app\views;
+namespace app\views\home;
 
+use app\views\layouts\Layout;
 use app\views\partials\Navbar;
 use app\views\posts\NewPost;
 use app\views\posts\Post;
 
 class Home
 {
-    public function show($data, $posts, $comments): void
+    public function show($data, $posts): void
     {
         ob_start();
         ?>
@@ -22,7 +23,7 @@ class Home
 <?php
 echo (new NewPost())->show();
 foreach ($posts as $post) {
-    echo (new Post())->show($post, $comments);
+    echo (new Post())->show($post);
 }
 ?>
 </div>

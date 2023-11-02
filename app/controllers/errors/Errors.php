@@ -1,8 +1,8 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\errors;
 
-use app\views\Errors as ErrorsView;
+use app\views\errors\Errors as ErrorsView;
 
 class Errors
 {

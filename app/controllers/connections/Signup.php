@@ -1,9 +1,9 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\connections;
 
 use app\models\User as UserModel;
-use app\views\Signup as SignupView;
+use app\views\connections\Signup as SignupView;
 use config\DataBase;
 use PDO;
 

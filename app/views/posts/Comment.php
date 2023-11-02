@@ -2,8 +2,6 @@
 
 namespace app\views\posts;
 
-use app\views\Layout;
-
 class Comment
 {
     public function show($comments = null): string

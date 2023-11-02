@@ -1,8 +1,8 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\tos;
 
-use app\views\TOS as TOSView;
+use app\views\tos\TOS as TOSView;
 
 class TOS
 {

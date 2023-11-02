@@ -2,14 +2,14 @@
 
 namespace app\views\profile;
 
-use app\views\Layout;
+use app\views\layouts\Layout;
 use app\views\partials\Navbar;
 use app\views\posts\NewPost;
 use app\views\posts\Post;
 
 class Profile
 {
-    public function show($data, $posts, bool $edit = false, bool $isOwner = false, $comments = null): void
+    public function show($data, $posts, bool $edit = false, bool $isOwner = false): void
     {
         ob_start();
         echo (new NewPost())->show();
@@ -46,7 +46,7 @@ class Profile
 
             <?php
             foreach ($posts as $post) {
-                    echo (new Post())->show($post, $comments);
+                echo (new Post())->show($post);
             }
             ?>
         </div>

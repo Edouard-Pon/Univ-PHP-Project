@@ -1,11 +1,10 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\home;
 
-use app\models\Comment as CommentModel;
 use app\models\Post as PostModel;
 use app\models\User as UserModel;
-use app\views\Home as HomeView;
+use app\views\home\Home as HomeView;
 use config\DataBase;
 use PDO;
 
@@ -22,7 +21,6 @@ class Home
     {
         $user = new UserModel($this->PDO);
         $post = new PostModel($this->PDO);
-        $comments = new CommentModel($this->PDO);
         if (!isset($_SESSION['password']))
         {
             header('Location: /');
@@ -30,7 +28,7 @@ class Home
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts();
-            (new HomeView())->show($user, $post, $comments);
+            (new HomeView())->show($user, $post);
         }
     }
 }

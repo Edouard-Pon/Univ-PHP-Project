@@ -1,8 +1,8 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\connections;
 
-use app\views\Welcome as WelcomeView;
+use app\views\connections\Welcome as WelcomeView;
 
 class Welcome
 {

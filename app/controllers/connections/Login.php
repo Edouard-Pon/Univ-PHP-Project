@@ -1,9 +1,9 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\connections;
 
 use app\models\User as UserModel;
-use app\views\Login as LoginView;
+use app\views\connections\Login as LoginView;
 use config\DataBase as DataBase;
 use PDO;
 

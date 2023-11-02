@@ -53,8 +53,12 @@ try {
                     (new ProfileController())->edit();
                     break;
                 }
-                if (isset($route[4]) && $route[4] === 'delete') {
+                if (isset($route[4]) && $route[4] === 'delete' && $route[2] === 'post') {
                     (new PostController())->delete($route);
+                    break;
+                }
+                if (isset($route[4]) && $route[4] === 'delete' && $route[2] === 'comment') {
+                    (new CommentController())->delete($route);
                     break;
                 }
                 if (isset($route[2]) && $route[2] === 'post') {

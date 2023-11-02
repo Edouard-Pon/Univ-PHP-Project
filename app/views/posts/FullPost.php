@@ -24,7 +24,7 @@ echo (new NewPost())->show();
 <div class="comments-feed">
 <?php
 foreach ($comments as $comment) {
-    echo (new Comment())->show($comment);
+    echo (new Comment())->show($comment, $post['post_author']);
 }
 ?>
 </div>

@@ -46,4 +46,24 @@ class Comment
         }
     }
 
+    public function delete(array $route): void
+    {
+        $post = new PostModel($this->PDO);
+        $postAuthor = '';
+        if (isset($route[5])) $postAuthor = $post->getPost($route[5])['post_author'];
+        if (isset($_SESSION['username']) && $_SESSION['username'] === $route[1] && $route[2] === 'comment' ||
+            isset($_SESSION['admin']) && $_SESSION['admin'] && $route[2] === 'comment' ||
+            isset($_SESSION['username']) && $postAuthor !== '' && $postAuthor === $_SESSION['username']) {
+
+            $comment = new CommentModel($this->PDO);
+            $comment->deleteCommentByID($route[3]);
+
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit();
+        } else {
+            $_SESSION['errorMessage'] = 'You cannot delete this comment!';
+        }
+        header('Location: /home');
+        exit();
+    }
 }

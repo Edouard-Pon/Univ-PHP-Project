@@ -4,7 +4,7 @@ namespace app\views\comments;
 
 class Comment
 {
-    public function show(array $comment): string
+    public function show(array $comment, string $postAuthor): string
     {
         $pfp = 'profiles/' . $comment['comment_author'] . '/' . $comment['comment_author'] . '.jpg';
         if (!file_exists($pfp)) {
@@ -20,8 +20,8 @@ class Comment
             </div>
             <a href="/profile/<?= htmlspecialchars($comment['comment_author']) ?>">@<?= htmlspecialchars($comment['comment_author']) ?></a>
         </div>
-        <?php if ($comment['comment_author'] === $_SESSION['username'] || isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
-            <button class="btn btn-danger" onclick="location.href = '/profile/delete-comment-WIP'" type="submit">Delete</button>
+        <?php if ($comment['comment_author'] === $_SESSION['username'] || isset($_SESSION['admin']) && $_SESSION['admin'] || $postAuthor === $_SESSION['username']) { ?>
+            <button class="btn btn-danger" onclick="location.href = '/profile/<?= $comment['comment_author'] ?>/comment/<?= $comment['comment_id'] ?>/delete/<?= $comment['post_id'] ?>'" type="submit">Delete</button>
         <?php } ?>
     </div>
     <p class="comment-text">

@@ -58,4 +58,16 @@ class Comment
 
         $statement->execute([$data['post_id'], $data['username'], $data['comment_text'], $data['timestamp']]);
     }
+
+    public function deleteCommentByID($id): void
+    {
+        $query = 'DELETE FROM comments WHERE comment_id = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+
+        $statement->execute([$id]);
+    }
 }

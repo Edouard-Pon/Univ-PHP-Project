@@ -1,0 +1,26 @@
+.popup {
+    color: var(--text-color-light);
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color-dark);
+    padding: 20px;
+    border-radius: 25px;
+    border: solid var(--accent-color) 2px;
+    min-width: 30%;
+    max-width: 30%;
+    z-index: 1;
+}
+
+.popup h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.uploadImgBtn {
+    width: 180px;
+    display: flex;
+    align-items: center;
+}

@@ -8,10 +8,12 @@ class Edit
     {
         ob_start();
 ?>
-<div>
+<a id="close" href="/profile"></a>
+<div class="popup" id="editProfile">
     <h1>Profile Settings</h1>
-    <form method="POST" action="" enctype="multipart/form-data">
-        <input type="text" name="username" value="<?= $_SESSION['username'] ?>">
+    <form method="POST" action="/profile" enctype="multipart/form-data">
+        <input type="text" id="username" name="username" value="<?= $_SESSION['username'] ?>">
+        <label class="btn btn-primary uploadImgBtn" for="image-input">Profile Picture</label>
         <input type="file" id="image-input" name="image" accept="image/*" onchange="loadImage()">
 
         <input type="hidden" name="crop-x" id="crop-x">
@@ -20,15 +22,20 @@ class Edit
         <input type="hidden" name="image-w" id="image-w">
         <input type="hidden" name="image-h" id="image-h">
 
-        <button type="submit" name="save-profile">Save</button>
+        <div class="buttons">
+            <a class="btn btn-primary" href="/profile">Cancel</a>
+            <button class="btn btn-danger" type="submit" name="save-profile">Save</button>
+        </div>
     </form>
-    <div>
+    <div id="cropper-window">
         <div id="image-con">
             <img id="image" alt="Image">
             <div id="crop-box"></div>
         </div>
-        <button id="zoom-in">Zoom In</button>
-        <button id="zoom-out">Zoom Out</button>
+        <div class="buttons">
+            <button class="btn btn-primary" id="zoom-in">Zoom In</button>
+            <button class="btn btn-primary" id="zoom-out">Zoom Out</button>
+        </div>
 
         <script defer src="/assets/scripts/cropper.js"></script>
     </div>

@@ -1,6 +1,7 @@
 @import "navbar.css";
 @import "shared/post.css";
 @import "shared/buttons.css";
+@import "shared/popupWindow.css";
 @import "shared/postForm.css";
 
 body {

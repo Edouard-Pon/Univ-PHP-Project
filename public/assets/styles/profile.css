@@ -1,7 +1,9 @@
 @import "navbar.css";
 @import "shared/buttons.css";
 @import "shared/post.css";
+@import "shared/popupWindow.css";
 @import "shared/postForm.css";
+@import "shared/editProfile.css";
 
 body {
     display: flex;
@@ -15,14 +17,6 @@ body {
 #image {
     width: 100%;
     height: auto;
-}
-
-#crop-box {
-    position: absolute;
-    border: 1px solid #ff0000;
-    box-sizing: border-box;
-    min-width: 50px;
-    min-height: 50px;
 }
 
 .pfp {

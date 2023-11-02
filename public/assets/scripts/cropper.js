@@ -1,19 +1,35 @@
 const imageInput = document.getElementById('image-input')
+const cropperWindow = document.getElementById('cropper-window')
 let imageCon, imageConW, imageConH
 function loadImage() {
-    const selectedFile = imageInput.files[0]
+    const selectedFile = imageInput.files[0];
 
     if (selectedFile) {
         if (selectedFile.type.startsWith('image/')) {
-            const reader = new FileReader()
+            const reader = new FileReader();
 
             reader.onload = function (e) {
-                image.src = e.target.result
-            }
+                const img = new Image();
+                img.src = e.target.result;
 
-            reader.readAsDataURL(selectedFile)
+                img.onload = function () {
+                    const width = img.width;
+                    const height = img.height;
+
+                    const vertical = (height > width)
+
+                    const imageC = document.getElementById('image-con')
+                    imageC.classList.toggle('crop-vertical', vertical);
+                    imageC.classList.toggle('crop-horizontal', !vertical);
+
+                    image.src = e.target.result;
+                };
+            };
+
+            reader.readAsDataURL(selectedFile);
+            cropperWindow.style.display = 'flex';
         } else {
-            alert("Please select an image file.")
+            alert("Please select an image file.");
         }
     }
 }

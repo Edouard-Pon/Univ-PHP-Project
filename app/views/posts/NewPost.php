@@ -8,11 +8,11 @@ class NewPost
     {
         ob_start();
 ?>
-<div id="newPostForm">
+<div class="popup" id="newPostForm">
     <h1>Create a new post</h1>
     <form method="POST" action="" enctype="multipart/form-data">
         <input class="post-title" type="text" name="title" placeholder="Title">
-        <label class="btn btn-primary" id="uploadImageBtn" for="uploadImage">Upload Image</label>
+        <label class="btn btn-primary uploadImgBtn" for="uploadImage">Upload Image</label>
         <input id="uploadImage" type="file" name="image">
         <textarea name="text" placeholder="Text"></textarea>
         <div class="buttons">

@@ -51,7 +51,7 @@ class Profile
         </div>
 
         <div class="navbar-feed">
-            <?= (new Navbar())->show($data) ?>
+            <?= (new Navbar())->show() ?>
         </div>
         <?php
         (new Layout('PasX - Profil', ob_get_clean(), 'profile'))->show();

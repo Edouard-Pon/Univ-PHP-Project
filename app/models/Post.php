@@ -78,4 +78,20 @@ class Post
 
         return $post ?: null;
     }
+
+    public function getPost($id): ?array
+    {
+        $query = 'SELECT * FROM posts WHERE id = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute([$id]);
+
+        $post = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $post ?: null;
+    }
 }

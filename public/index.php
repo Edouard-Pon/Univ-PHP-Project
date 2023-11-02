@@ -13,6 +13,7 @@ use app\controllers\posts\Post as NewPostController;
 use app\controllers\posts\Post as PostController;
 use app\controllers\profile\Profile as ProfileController;
 use app\controllers\tos\TOS as TOSController;
+use app\controllers\posts\FullPost as FullPostController;
 
 session_start();
 
@@ -53,6 +54,10 @@ try {
                 }
                 if (isset($route[4]) && $route[4] === 'delete') {
                     (new PostController())->delete($route);
+                    break;
+                }
+                if (isset($route[2]) && $route[2] === 'post') {
+                    (new FullPostController())->execute($route);
                     break;
                 }
                 (new ProfileController())->user($route[1]);

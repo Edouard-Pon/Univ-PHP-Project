@@ -27,7 +27,7 @@ foreach ($posts as $post) {
 ?>
 </div>
 <div class="navbar-feed">
-    <?= (new Navbar())->show($data) ?>
+    <?= (new Navbar())->show() ?>
 </div>
 <?php
         (new Layout('PasX - Home', ob_get_clean(), 'home'))->show();

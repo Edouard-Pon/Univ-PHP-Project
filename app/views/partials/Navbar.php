@@ -4,17 +4,18 @@ namespace app\views\partials;
 
 class Navbar
 {
-    public function show($data): string
+    public function show(): string
     {
-        if (!file_exists($data['profile_picture'])) {
-            $data['profile_picture'] = 'profiles/default/default.png';
+        $pfp = $_SESSION['profile_picture'];
+        if (!file_exists($pfp)) {
+            $pfp = 'profiles/default/default.png';
         }
         ob_start();
 ?>
 <nav class="navbar">
-    <a href="/profile/<?= $data['username'] ?>">
-        <img class="post-pfp" src="/<?= $data['profile_picture'] ?>" alt="Profile picture">
-        <span class="nav-username">@<?= $data['username'] ?></span >
+    <a href="/profile/<?= $_SESSION['username'] ?>">
+        <img class="post-pfp" src="/<?= $pfp ?>" alt="Profile picture">
+        <span class="nav-username">@<?= $_SESSION['username'] ?></span >
     </a>
     <a href="/home">
         <img class="nav-logo" src="/assets/images/acceuilX.png" alt="Image Acceuil">

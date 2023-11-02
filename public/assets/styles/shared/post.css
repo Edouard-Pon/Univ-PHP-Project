@@ -1,6 +1,7 @@
 .btn {
     height: 30px;
     width: 110px;
+    z-index: 1;
 }
 
 .buttons {
@@ -11,11 +12,13 @@
 
 .post-container {
     display: grid;
+    position: relative;
     border: 2px solid var(--bg-color-light);
     border-radius: 25px;
     padding: 1.2rem;
     width: 100%;
     gap: 10px;
+    z-index: 0;
 }
 
 .image-container {
@@ -26,6 +29,7 @@
     align-items: center;
     overflow: hidden;
     border-radius: 15px;
+    z-index: 0;
 }
 
 .vertical {
@@ -43,6 +47,7 @@
     width: 50px;
     border-radius: 50%;
     overflow: hidden;
+    z-index: 1;
 }
 
 .user-info {
@@ -51,11 +56,13 @@
     align-items: center;
     font-weight: bold;
     width: 100%;
+    z-index: 1;
 }
 
 .title {
     font-size: 1.4rem;
     font-weight: bold;
+    z-index: 1;
 }
 
 .post-top {
@@ -71,4 +78,18 @@
 .post-container a {
     text-decoration: none;
     color: var(--text-color-light);
+}
+
+.text {
+    z-index: 1;
+}
+
+.close {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: var(--bg-color-light);
+    z-index: 1;
+    cursor: pointer;
 }

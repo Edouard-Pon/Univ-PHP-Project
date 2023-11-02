@@ -19,6 +19,7 @@ class Post
         ob_start();
 ?>
 <div class="post-container">
+    <a class="close" href="/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>"></a>
     <div class="post-top">
         <div class="user-info">
             <div class="post-pfp">

@@ -40,6 +40,7 @@ class Login
                 $_SESSION['password'] = $userData['password'];
                 $_SESSION['id'] = $userData['id'];
                 $_SESSION['admin'] = $userData['admin'];
+                $_SESSION['profile_picture'] = $userData['profile_picture'];
                 $user->setLastConnection();
                 header('Location: /home');
                 exit();

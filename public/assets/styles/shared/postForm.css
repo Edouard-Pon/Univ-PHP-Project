@@ -1,0 +1,68 @@
+#newPostForm {
+    color: white;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color-dark);
+    padding: 20px;
+    border-radius: 25px;
+    border: solid var(--accent-color) 2px;
+    width: 30%;
+    z-index: 1;
+}
+
+#newPostForm h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#newPostForm form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 25px;
+}
+
+.post-title {
+    border: none;
+    border-bottom: solid var(--bg-color-light) 2px;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    outline: none;
+    transition: .3s;
+    width: 40%;
+}
+
+.post-title:focus {
+    border-bottom: solid var(--accent-color) 2px;
+}
+
+#uploadImageBtn {
+    width: 180px;
+    display: flex;
+    align-items: center;
+}
+
+#uploadImage {
+    position: absolute;
+    z-index: -1;
+    display: none;
+}
+
+#newPostForm textarea {
+    resize: none;
+    border: none;
+    border-bottom: solid var(--bg-color-light) 2px;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    outline: none;
+    transition: .3s;
+    width: 100%;
+}
+
+#newPostForm textarea:focus {
+    border-bottom: solid var(--accent-color) 2px;
+}

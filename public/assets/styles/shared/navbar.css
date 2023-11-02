@@ -1,0 +1,45 @@
+:root {
+    --nav-bg-hover-color: #2c3f25;
+}
+
+.navbar {
+    display: grid;
+    position: fixed;
+    gap: 8px;
+    margin-left: 25px;
+    margin-top: 25px;
+    max-width: 100%;
+}
+
+.nav-logo {
+    width: 50px;
+}
+
+.nav-title {
+    margin-left: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color-light);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 2.5vh;
+    transition: .3s;
+    padding-right: 20px;
+}
+
+.navbar a:hover {
+    background-color: var(--nav-bg-hover-color);
+}
+
+.btn {
+    justify-self: center;
+}
+
+.nav-username {
+    margin-left: 15px;
+}

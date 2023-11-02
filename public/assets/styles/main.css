@@ -35,3 +35,17 @@ img, picture, svg, video {
     display: block;
     max-width: 100%;
 }
+
+.category-feed {
+    width: 30%;
+}
+
+.feed {
+    display: grid;
+    grid-gap: 25px;
+    width: 40%;
+}
+
+.navbar-feed {
+    width: 30%;
+}

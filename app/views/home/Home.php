@@ -14,7 +14,6 @@ class Home
         ob_start();
         ?>
 <div class="category-feed">
-    WIP
     <?php if (isset($_SESSION['errorMessage'])) { ?>
     <p id="errorMessage"> <?= $_SESSION['errorMessage'] ?></p>
     <?php unset($_SESSION['errorMessage']); } ?>
@@ -27,9 +26,8 @@ foreach ($posts as $post) {
 }
 ?>
 </div>
-<div class="navbar">
-    <?= $data['username'] ?>
-    <?= (new Navbar())->show() ?>
+<div class="navbar-feed">
+    <?= (new Navbar())->show($data) ?>
 </div>
 <?php
         (new Layout('PasX - Home', ob_get_clean(), 'home'))->show();

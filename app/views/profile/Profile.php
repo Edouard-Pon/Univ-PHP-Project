@@ -15,7 +15,6 @@ class Profile
         echo (new NewPost())->show();
         ?>
         <div class="category-feed">
-            WIP
         </div>
         <div class="feed">
 
@@ -51,9 +50,8 @@ class Profile
             ?>
         </div>
 
-        <div class="navbar">
-            <?= $data['username'] ?>
-            <?= (new Navbar())->show() ?>
+        <div class="navbar-feed">
+            <?= (new Navbar())->show($data) ?>
         </div>
         <?php
         (new Layout('PasX - Profil', ob_get_clean(), 'profile'))->show();

@@ -9,20 +9,6 @@
     justify-content: space-between;
 }
 
-.category-feed {
-    width: 30%;
-}
-
-.feed {
-    display: grid;
-    grid-gap: 25px;
-    width: 40%;
-}
-
-.navbar {
-    width: 30%;
-}
-
 .post-container {
     display: grid;
     border: 2px solid var(--bg-color-light);
@@ -80,4 +66,9 @@
 .delete-form {
     display: flex;
     align-items: center;
+}
+
+.post-container a {
+    text-decoration: none;
+    color: var(--text-color-light);
 }

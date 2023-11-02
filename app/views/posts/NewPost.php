@@ -8,6 +8,7 @@ class NewPost
     {
         ob_start();
 ?>
+<a id="close-post-form" onclick="hideNewPostForm()"></a>
 <div class="popup" id="newPostForm">
     <h1>Create a new post</h1>
     <form method="POST" action="" enctype="multipart/form-data">

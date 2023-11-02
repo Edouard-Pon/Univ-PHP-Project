@@ -1,11 +1,14 @@
 const newPostForm = document.getElementById('newPostForm')
+const closePostForm = document.getElementById('close-post-form')
 
 function showNewPostForm() {
     newPostForm.style.display = 'block'
+    closePostForm.style.display = 'block'
 }
 
 function hideNewPostForm() {
     newPostForm.style.display = 'none'
+    closePostForm.style.display = 'none'
 }
 const tx = document.getElementsByTagName("textarea");
 for (let i = 0; i < tx.length; i++) {

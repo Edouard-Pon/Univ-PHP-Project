@@ -22,7 +22,7 @@ class Login
         <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Entrez votre mot de passe">
 
         <a href="/signup">Créer un compte</a>
-        <input type="submit" name="login" id="submitButton">
+        <input type="submit" name="login">
         <?php if (isset($_SESSION['errorMessage'])) { ?>
         <p id="errorMessage"> <?php echo $_SESSION['errorMessage'] ?></p>
         <?php unset($_SESSION['errorMessage']); } ?>

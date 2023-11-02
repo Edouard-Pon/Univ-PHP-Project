@@ -21,11 +21,13 @@ echo (new NewPost())->show();
 <div class="feed">
 <?= (new Post())->show($post); ?>
 <?= (new NewComment())->show($post['id']) ?>
+<div class="comments-feed">
 <?php
 foreach ($comments as $comment) {
     echo (new Comment())->show($comment);
 }
 ?>
+</div>
 </div>
 
 <div class="navbar-feed">

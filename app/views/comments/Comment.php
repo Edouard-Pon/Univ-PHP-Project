@@ -24,9 +24,14 @@ class Comment
             <button class="btn btn-danger" onclick="location.href = '/profile/delete-comment-WIP'" type="submit">Delete</button>
         <?php } ?>
     </div>
-    <div>
-        <p class="text"><?= $comment['comment_text'] ?></p>
-    </div>
+    <p class="comment-text">
+    <?php
+    $commentTextLines = explode("\n", $comment['comment_text']);
+    foreach ($commentTextLines as $line) {
+        echo $line . '<br>';
+    }
+    ?>
+    </p>
 </div>
 <?php
         return ob_get_clean();

@@ -1,2 +1,31 @@
 @import "home.css";
 @import "shared/comment.css";
+
+.comments-feed {
+    display: grid;
+    border: 2px solid var(--bg-color-light);
+    border-radius: 25px;
+}
+
+.comment {
+    border-bottom: 2px solid var(--bg-color-light);
+    padding: 35px 1.2rem 35px 1.2rem;
+
+}
+
+.comment:last-of-type {
+    border-bottom: none;
+}
+
+.comment:first-of-type {
+    border-top: none;
+}
+
+.comment-text {
+    margin-top: 15px;
+}
+
+.user-info a {
+    text-decoration: none;
+    color: var(--text-color-light);
+}

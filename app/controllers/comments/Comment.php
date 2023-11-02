@@ -26,22 +26,19 @@ class Comment
             return;
         }
 
-        // Validate and sanitize comment data
         $post_id = $commentData['post_id'];
-        $user_id = $post['user_id'];
-        $comment_text = htmlspecialchars($commentData['comment_text']);
+        $username = $commentData['username'];
+        $comment_text = htmlspecialchars($commentData['text']);
         $timestamp = date('Y-m-d H:i:s');
 
         if (!empty($comment_text)) {
-            // Add the comment to the database
             $comment->addComment([
                 'post_id' => $post_id,
-                'user_id' => $user_id,
+                'username' => $username,
                 'comment_text' => $comment_text,
                 'timestamp' => $timestamp
             ]);
 
-            // Redirect back to the post or comments page
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         } else {

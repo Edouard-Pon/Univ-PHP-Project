@@ -2,6 +2,7 @@
 
 namespace app\controllers\posts;
 
+use app\models\Comment as CommentModel;
 use app\models\Post as PostModel;
 use app\views\posts\FullPost as FullPostController;
 use config\DataBase;
@@ -24,13 +25,15 @@ class FullPost
             exit();
         }
         $post = new PostModel($this->PDO);
+        $comments = new CommentModel($this->PDO);
         $dataPost = $post->getPost($route[3]);
+        $dataComments = $comments->getComments($route[3]);
 
         if ($dataPost === null) {
             header('Location: /home');
             exit();
         }
 
-        (new FullPostController())->show($dataPost);
+        (new FullPostController())->show($dataPost, $dataComments);
     }
 }

@@ -14,6 +14,7 @@ use app\controllers\posts\Post as PostController;
 use app\controllers\profile\Profile as ProfileController;
 use app\controllers\tos\TOS as TOSController;
 use app\controllers\posts\FullPost as FullPostController;
+use app\controllers\comments\Comment as CommentController;
 
 session_start();
 
@@ -84,6 +85,11 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save-profile']))
     {
         (new ProfileController())->save($_POST, $_FILES);
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment']))
+    {
+        (new CommentController())->add($_POST);
     }
 
 } catch (Exception) {

@@ -4,12 +4,12 @@ namespace app\views\posts;
 
 use app\views\layouts\Layout;
 use app\views\partials\Navbar;
-use app\views\posts\NewPost;
-use app\views\posts\Post;
+use app\views\comments\Comment;
+use app\views\comments\NewComment;
 
 class FullPost
 {
-public function show($post): void
+public function show($post, $comments): void
 {
 ob_start();
 echo (new NewPost())->show();
@@ -20,13 +20,19 @@ echo (new NewPost())->show();
 
 <div class="feed">
 <?= (new Post())->show($post); ?>
+<?= (new NewComment())->show($post['id']) ?>
+<?php
+foreach ($comments as $comment) {
+    echo (new Comment())->show($comment);
+}
+?>
 </div>
 
 <div class="navbar-feed">
     <?= (new Navbar())->show() ?>
 </div>
 <?php
-    (new Layout('PasX - Post', ob_get_clean(), 'home'))->show();
+    (new Layout('PasX - Post', ob_get_clean(), 'comments'))->show();
 }
 }
 ?>

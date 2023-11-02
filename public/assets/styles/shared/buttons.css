@@ -1,5 +1,6 @@
 .btn {
     border: none;
+    border-radius: 20px;
     font-family: var(--font-family), Serif;
     font-size: 1rem;
     cursor: pointer;
@@ -24,8 +25,7 @@
     background-color: var(--btn-danger-color-light);
 }
 
-.btn-danger:hover,
-.btn-danger:focus {
+.btn-danger:hover {
     box-shadow: inset 0 -2em 0 0 var(--btn-danger-color-dark);
     color: var(--text-color-light);
 }

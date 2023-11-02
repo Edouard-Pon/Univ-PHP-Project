@@ -4,3 +4,36 @@
     border-radius: 50%;
     overflow: hidden;
 }
+
+.comment-form {
+    border: 2px solid var(--bg-color-light);
+    border-radius: 25px;
+    padding: 1.2rem;
+    width: 100%;
+}
+
+.comment-form form {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+
+.comment-form textarea {
+    resize: none;
+    border: none;
+    border-bottom: solid var(--bg-color-light) 2px;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    outline: none;
+    transition: .3s;
+    width: 100%;
+}
+
+.comment-form textarea:focus {
+    border-bottom: solid var(--accent-color) 2px;
+}
+
+.buttons {
+    justify-self: flex-end;
+    align-self: flex-end;
+    padding-left: 13px;
+}

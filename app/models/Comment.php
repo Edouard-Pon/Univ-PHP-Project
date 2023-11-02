@@ -8,7 +8,7 @@ class Comment
 {
     public function __construct(private PDO $connection) {}
 
-    public function getComments($postID = null): ?array
+    public function getComments(int $postID): ?array
     {
         $query = 'SELECT comment_id, post_id, comment_text, comment_author, timestamp FROM comments WHERE post_id = ?';
         $statement = $this->connection->prepare($query);
@@ -56,6 +56,6 @@ class Comment
             return;
         }
 
-        $statement->execute([$data['post_id'], $data['comment_author'], $data['comment_text'], $data['timestamp']]);
+        $statement->execute([$data['post_id'], $data['username'], $data['comment_text'], $data['timestamp']]);
     }
 }

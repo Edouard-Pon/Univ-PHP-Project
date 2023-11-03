@@ -20,7 +20,7 @@ class Post
     public function execute(array $postData, array $fileData): void
     {
         $post = new PostModel($this->PDO);
-        $allowedImageFormats = array("jpg", "jpeg", "png", "gif");
+        $allowedImageFormats = array("jpg", "jpeg", "png", "gif", "mp4");
         $errorMessage = '';
         $fileSizeLimitMB = [
             'image' => 5 * 1048576,
@@ -60,7 +60,7 @@ class Post
             }
 
             if ($data['file_size'] > $fileSizeLimitMB['image']) {
-                $errorMessage .= 'Image size is to big!';
+                $errorMessage .= 'File size is to big!';
             }
 
             if (!empty($errorMessage)) {

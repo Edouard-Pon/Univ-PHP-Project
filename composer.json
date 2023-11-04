@@ -16,6 +16,7 @@
   },
   "require": {
     "ext-pdo": "*",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "phpmailer/phpmailer": "^6.8"
   }
 }

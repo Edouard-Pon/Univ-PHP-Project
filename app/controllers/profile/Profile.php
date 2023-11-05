@@ -169,10 +169,11 @@ class Profile
         } else {
             $user = $user->getUserPublic($username);
             $posts = $posts->getPosts($username);
-            $AllCategories = $category->getCategories();
+            $categoriesNames = $category->getCategories();
+            $categories = $category->getAllCategories();
             $isOwner = false;
             if ($username === $_SESSION['username']) $isOwner = true;
-            (new ProfileView())->show($user, $posts,  $AllCategories, false, $isOwner);
+            (new ProfileView())->show($user, $posts, $categories, $categoriesNames, false, $isOwner);
         }
     }
 }

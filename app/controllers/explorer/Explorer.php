@@ -21,10 +21,9 @@ class Explorer
     public function execute(array $postData = null): void
     {
         $explorer = new ExplorerModel($this->PDO);
-        $query=htmlspecialchars($postData['query']);
-
-        if (($query)!=null) {
-            $results = $explorer->getResults($postData);
+        if (isset($postData['query'])) {
+            $query = htmlspecialchars($postData['query']);
+            $results = $explorer->getResults($query);
             (new ExplorerView())->show($results);
         } else {
             (new ExplorerView())->show();

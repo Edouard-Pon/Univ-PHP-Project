@@ -19,14 +19,12 @@ class Explorer
             // Loop through $searchResults to display the results.
             foreach ($searchResults as $result) {
                 // Display the search results (e.g., titles, usernames, category names).
-                echo $result['post_text'] . '<br>';
-                echo $result['username'] . '<br>';
-                echo $result['category_name'] . '<br>';
+                echo (new SearchResult())->show($result);
             }
         }
         ?>
         <?php
         (new Layout('PasX - Profil', ob_get_clean(), 'profile'))->show();
-        // CHANGE STYLE LATER
     }
 }
+?>

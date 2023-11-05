@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 date_default_timezone_set('Europe/Paris');
+error_reporting(E_ERROR | E_PARSE);
 
 use app\controllers\admin\Admin as AdminController;
 use app\controllers\connections\Login as LoginController;

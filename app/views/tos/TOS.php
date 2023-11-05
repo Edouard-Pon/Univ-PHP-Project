@@ -2,8 +2,10 @@
 
 namespace app\views\tos;
 
+error_reporting(E_ERROR | E_PARSE);
 use app\views\layouts\Layout;
 use app\views\partials\Footer;
+
 
 class TOS
 {

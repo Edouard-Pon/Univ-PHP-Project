@@ -1,6 +1,7 @@
 <?php
 
 namespace app\views\posts;
+error_reporting(E_ERROR | E_PARSE);
 
 class NewPost
 {
@@ -22,12 +23,12 @@ class NewPost
         </div>
         <label><br>Categories (optionnel)
         <select name="categories" id="categories">
-            <option value="">Select a categorie</option>
+            <option value="">Select a category</option>
             <option value="">None</option>
             <?php foreach ($categories as $category) {
                 echo "<option value=" . $category . ">" . $category . "</option>";
             } ?>
-            <option value="new_category">Add New Category</option>
+            <option value="new_category">Add new category</option>
         </select>
         </label>
         <div id="newCategoryInput" style="display: none;">

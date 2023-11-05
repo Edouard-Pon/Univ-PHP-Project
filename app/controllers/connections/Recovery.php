@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers\connections;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\models\User as UserModel;
 use app\models\Email as EmailModel;
 use app\views\connections\Recovery as RecoveryView;

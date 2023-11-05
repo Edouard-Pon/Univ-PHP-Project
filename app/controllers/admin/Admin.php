@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers\admin;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\models\User as UserModel;
 use app\views\admin\Admin as AdminView;
 use config\DataBase;

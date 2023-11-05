@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers\connections;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\models\User as UserModel;
 use app\views\connections\Login as LoginView;
 use config\DataBase as DataBase;

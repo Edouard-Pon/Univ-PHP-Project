@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers\profile;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\models\Post as PostModel;
 use app\models\Category as CategoryModel;
 use app\models\User as UserModel;

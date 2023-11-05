@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\layouts;
-
+error_reporting(E_ERROR | E_PARSE);
 class Layout
 {
     public function __construct(private string $title, private string $content, private string $stylesheet = '') {}

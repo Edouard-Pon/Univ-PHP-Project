@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\errors;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\views\layouts\Layout;
 
 class Errors

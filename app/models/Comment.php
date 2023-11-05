@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+error_reporting(E_ERROR | E_PARSE);
 use PDO;
 
 class Comment

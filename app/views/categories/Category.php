@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\categories;
-
+error_reporting(E_ERROR | E_PARSE);
 class Category
 {
     public function show(array $categories): string

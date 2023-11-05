@@ -1,6 +1,7 @@
 <?php
 
 namespace app\views\admin;
+error_reporting(E_ERROR | E_PARSE);
 
 use app\views\layouts\Layout;
 

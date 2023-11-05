@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers\comments;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\models\Comment as CommentModel;
 use app\models\Post as PostModel;
 use config\DataBase;

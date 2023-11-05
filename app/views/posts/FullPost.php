@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\posts;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\views\categories\Category;
 use app\views\layouts\Layout;
 use app\views\partials\Navbar;

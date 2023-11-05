@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\comments;
-
+error_reporting(E_ERROR | E_PARSE);
 class NewComment
 {
     public function show($postID): string

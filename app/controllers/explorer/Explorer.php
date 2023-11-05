@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers\explorer;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\models\Explorer as ExplorerModel;
 
 use app\views\explorer\Explorer as ExplorerView;

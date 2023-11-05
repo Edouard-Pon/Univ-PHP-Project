@@ -1,7 +1,7 @@
 <?php
 
 namespace app\controllers\connections;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\views\connections\Welcome as WelcomeView;
 
 class Welcome

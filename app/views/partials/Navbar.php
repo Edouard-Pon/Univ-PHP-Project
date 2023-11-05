@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\partials;
-
+error_reporting(E_ERROR | E_PARSE);
 class Navbar
 {
     public function show(): string

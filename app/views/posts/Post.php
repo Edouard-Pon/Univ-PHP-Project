@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\posts;
-
+error_reporting(E_ERROR | E_PARSE);
 class Post
 {
     public function show($post, $categories): string

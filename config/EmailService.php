@@ -1,7 +1,7 @@
 <?php
 
 namespace config;
-
+error_reporting(E_ERROR | E_PARSE);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

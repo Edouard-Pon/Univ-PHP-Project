@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+error_reporting(E_ERROR | E_PARSE);
 use PDO;
 
 class Category
@@ -88,8 +88,6 @@ class Category
 
     public function addCategory(int $postID, string $category): void
     {
-        error_log("POST ID AND CATEGORY: ". $postID . ", " . $category);
-
         $query = 'INSERT INTO categories (post_id, category_name) VALUES (?, ?)';
         $statement = $this->connection->prepare($query);
 

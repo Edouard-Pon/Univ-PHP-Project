@@ -1,7 +1,7 @@
 <?php
 
 namespace app\views\profile;
-
+error_reporting(E_ERROR | E_PARSE);
 use app\views\layouts\Layout;
 use app\views\partials\Navbar;
 use app\views\posts\NewPost;

@@ -97,7 +97,13 @@ class Category
             return;
         }
 
-        $statement->execute([$postID, $category]);
+        if ($category === 'None') return;
+
+        try {
+            $statement->execute([$postID, $category]);
+        } catch (\PDOException $e) {
+            error_log('Error in db, not important!');
+        }
     }
 
     public function deleteCategory($category_name): void

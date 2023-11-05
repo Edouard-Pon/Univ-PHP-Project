@@ -96,4 +96,9 @@ body {
         height: 124.97px;
         background-color: rgb(30, 30, 30);
     }
+
+    .popup {
+        max-width: 100%;
+        width: 80%;
+    }
 }

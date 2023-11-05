@@ -77,9 +77,9 @@ class Post
                     if ((isset($postData['categories'])) && ($postData['categories']==='new_category') && !empty($postData['new_category'])) {
                         $categories = $postData['custom_category'];
                     } else if ((isset($postData['categories'])) && ($postData['categories']==='new_category') && empty($postData['new_category'])){
-                        $categories = ['None'];
+                        $categories = 'None';
                     } else if (empty($postData['categories']) && !($postData['categories']==='new_category')){
-                        $categories = ['None'];
+                        $categories = 'None';
                     } else {
                         $categories = $postData['categories'];
                     }

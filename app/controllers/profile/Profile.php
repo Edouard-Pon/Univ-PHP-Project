@@ -30,8 +30,9 @@ class Profile
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts($_SESSION['username']);
-            $AllCategories = $category->getCategories();
-            (new ProfileView())->show($user, $post, $AllCategories, false, true);
+            $categoriesNames = $category->getCategories();
+            $categories = $category->getAllCategories();
+            (new ProfileView())->show($user, $post, $categories, $categoriesNames, false, true);
         }
     }
 
@@ -47,9 +48,9 @@ class Profile
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts($_SESSION['username']);
-            $AllCategories = $category->getCategories();
-            //Im not sure isOwner = null is a good idea
-            (new ProfileView())->show($user, $post, $AllCategories, true, true);
+            $categoriesNames = $category->getCategories();
+            $categories = $category->getAllCategories();
+            (new ProfileView())->show($user, $post, $categories, $categoriesNames, true, true);
         }
     }
 
@@ -79,7 +80,7 @@ class Profile
                 'file_name' => $file_name,
                 'file_type' => $file_type,
                 'file_size' => $file_size,
-                'username' => $postData['username'],
+                'username' => htmlspecialchars($postData['username']),
                 'filePath' => 'profiles/' . $_SESSION['username'] . '/' . $file_name . '.jpg'
             ];
 

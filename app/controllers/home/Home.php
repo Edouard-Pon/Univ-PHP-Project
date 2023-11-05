@@ -28,10 +28,10 @@ class Home
             header('Location: /');
             exit();
         } else {
-            $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
-            $post = $post->getPosts();
-            $AllCategories = $category->getCategories();
-            (new HomeView())->show($user, $post, $AllCategories);
+            $postData = $post->getPosts();
+            $categories = $category->getAllCategories();
+            $categoriesNames = $category->getCategories();
+            (new HomeView())->show($postData, $categories, $categoriesNames);
         }
     }
 }

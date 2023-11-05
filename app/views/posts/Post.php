@@ -4,52 +4,68 @@ namespace app\views\posts;
 
 class Post
 {
-    public function show($post): string
+    public function show($post, $categories): string
     {
+        $category = null;
+        if (is_array($categories)) {
+            foreach ($categories as $categoryData) {
+                error_log(print_r($categoryData, true));
+                if ($categoryData['post_id'] === $post['id']) {
+                    $category = $categoryData['category_name'];
+                    break;
+                }
+            }
+        } else {
+            $category = $categories;
+        }
+
         $pfp = 'profiles/' . $post['post_author'] . '/' . $post['post_author'] . '.jpg';
         if (!file_exists($pfp)) {
             $pfp = 'profiles/default/default.png';
         }
-        $media = '';
+        $image = false;
         if (file_exists($post['post_path'])) {
-            $fileExtension = pathinfo($post['post_path'], PATHINFO_EXTENSION);
-            if ($fileExtension === 'mp4') {
-                $media = '<video controls class="image-container">';
-                $media .= '<source src="/' . $post['post_path'] . '" type="video/mp4">';
-                $media .= '</video>';
-            } elseif (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) {
-                $imageSize = getimagesize($post['post_path']);
-                $vertical = ($imageSize !== false && $imageSize[1] > $imageSize[0]);
-                $media = '<div class="image-container ' . ($vertical ? 'vertical' : 'horizontal') . '">';
-                $media .= '<img src="/' . $post['post_path'] . '" alt="Media">';
-                $media .= '</div>';
-            }
+            $image = true;
+            $imageSize = getimagesize($post['post_path']);
+            $vertical = ($imageSize !== false && $imageSize[1] > $imageSize[0]);
         }
         ob_start();
-        ?>
-        <div class="post-container">
-            <a class="close" href="/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>"></a>
-            <div class="post-top">
-                <div class="user-info">
-                    <div class="post-pfp">
-                        <img src="/<?= $pfp ?>" alt="Profile picture">
-                    </div>
-                    <a href="/profile/<?= $post['post_author'] ?>">@<?= $post['post_author'] ?></a>
-                </div>
-                <?php if ($post['post_author'] === $_SESSION['username'] || isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
-                    <button class="btn btn-danger" onclick="location.href = '/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>/delete'" type="submit">Delete</button>
-                <?php } ?>
+?>
+<div class="post-container">
+    <a class="close" href="/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>"></a>
+    <div class="post-top">
+        <div class="user-info">
+            <div class="post-pfp">
+                <img src="/<?= $pfp ?>" alt="Profile picture">
             </div>
-            <?php if (!empty($post['post_title'])) { ?>
-                <a class="title" href="/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>"><?= $post['post_title'] ?></a>
-            <?php } ?>
-            <?php if (!empty($post['post_text'])) { ?>
-                <p class="text"><?= $post['post_text'] ?></p>
-            <?php } ?>
-            <?= $media ?>
-            <?php echo "Posted on: ".$post['post_date'];?>
+            <a href="/profile/<?= $post['post_author'] ?>">@<?= $post['post_author'] ?></a>
         </div>
-        <?php
+
+        <?php if ($post['post_author'] === $_SESSION['username'] || isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
+        <button class="btn btn-danger" onclick="location.href = '/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>/delete'" type="submit">Delete</button>
+        <?php } ?>
+    </div>
+    <?php if (!empty($post['post_title'])) { ?>
+    <h2 class="title"><?= $post['post_title'] ?></h2>
+    <?php } ?>
+    <?php if (!empty($post['post_text'])) { ?>
+    <p class="text"><?= $post['post_text'] ?></p>
+    <?php } ?>
+    <?php if ($image) { ?>
+        <div class="image-container <?= $vertical ? 'vertical' : 'horizontal' ?>">
+            <img src="/<?= $post['post_path'] ?>" alt="Image">
+        </div>
+    <?php } ?>
+    <div class="post-footer">
+        <time datetime="<?= $post['post_date'] ?>"><?= date("H:i d.m.Y", strtotime($post['post_date'])) ?></time>
+        <?php if ($category !== null) { ?>
+        <span>#<?= $category ?></span>
+        <?php } ?>
+    </div>
+</div>
+<?php
         return ob_get_clean();
     }
 }
+?>
+

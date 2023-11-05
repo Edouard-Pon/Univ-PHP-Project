@@ -4,7 +4,6 @@ namespace app\controllers\posts;
 
 use app\models\Post as PostModel;
 use app\models\Comment as CommentModel;
-use app\models\Category as CategoryModel;
 use config\DataBase;
 use PDO;
 
@@ -21,8 +20,7 @@ class Post
     public function execute(array $postData, array $fileData): void
     {
         $post = new PostModel($this->PDO);
-        $category = new CategoryModel($this->PDO);
-        $allowedImageFormats = array("jpg", "jpeg", "png", "gif", "mp4");
+        $allowedImageFormats = array("jpg", "jpeg", "png", "gif");
         $errorMessage = '';
         $fileSizeLimitMB = [
             'image' => 5 * 1048576,
@@ -62,7 +60,7 @@ class Post
             }
 
             if ($data['file_size'] > $fileSizeLimitMB['image']) {
-                $errorMessage .= 'File size is to big!';
+                $errorMessage .= 'Image size is to big!';
             }
 
             if (!empty($errorMessage)) {
@@ -70,17 +68,6 @@ class Post
             } else {
                 if (move_uploaded_file($fileData['image']['tmp_name'], $data['dir'] . $data['file_name'])) {
                     $post->addPost($data);
-
-                    //Gets last post_id inserted and categorie(s) from form and adds them to category table
-                    $postId = $this->PDO->lastInsertId('post_id');
-                    if ((isset($postData['categories'])) && ($postData['categories']==='new_category')) {
-                        $categories = $postData['custom_category'];
-                    } else {
-                        $categories = $postData['categories'];
-                    }
-
-                    $category->addCategory($postId, $categories);
-
                     header('Location: ' . $_SERVER['HTTP_REFERER']);
                     exit();
                 } else {
@@ -97,17 +84,6 @@ class Post
             ];
             if (!empty($data['post_title'] || !empty($data['post_text']))) {
                 $post->addPost($data);
-
-                //Gets last post_id inserted and categorie(s) from form and adds them to category table
-                $postId = $this->PDO->lastInsertId('post_id');
-                if ((isset($postData['categories'])) && ($postData['categories']==='new_category')) {
-                    $categories = $postData['custom_category'];
-                } else {
-                    $categories = $postData['categories'];
-                }
-
-                $category->addCategory($postId, $categories);
-
             } else {
                 $_SESSION['errorMessage'] = 'Post content is empty!';
             }
@@ -123,8 +99,6 @@ class Post
 
             $post = new PostModel($this->PDO);
             $comment = new CommentModel($this->PDO);
-            $category = new CategoryModel($this->PDO);
-
             $commentsCount = $comment->getCommentsCount($route[3]);
 
             if ($commentsCount !== 0) {
@@ -137,12 +111,6 @@ class Post
                 if (file_exists($postImage['post_path'])) {
                     unlink($postImage['post_path']);
                 }
-            }
-
-            $categoryCount = $category->getCategoriesCount($route[3]);
-
-            if ($categoryCount !== 0) {
-                $category->deleteCategoriesOfDeletedPost($route[3]);
             }
 
             $post->deletePost((int)$route[3]);

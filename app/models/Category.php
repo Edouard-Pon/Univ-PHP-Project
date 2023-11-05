@@ -53,6 +53,22 @@ class Category
         return $categories ?: null;
     }
 
+    public function getCategoryByPostID($postId): ?string
+    {
+        $query = 'SELECT category_name FROM categories WHERE post_id = ?';
+        $statement = $this->connection->prepare($query);
+
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute([$postId]);
+        $categories = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $categories['category_name'] ?: null;
+    }
+
     public function getPostInCategory($postCategory): ?int
     {
         $query = 'SELECT post_id, category_name FROM comments WHERE category_name = ?';
@@ -86,7 +102,6 @@ class Category
 
 
         $statement->execute([$postID, $category]);
-
     }
 
     public function deleteCategory($category_name): void
@@ -128,5 +143,26 @@ class Category
         }
 
         $statement->execute([$postID]);
+    }
+
+    public function getAllCategories(): ?array
+    {
+        $query = 'SELECT * FROM categories';
+        $statement = $this->connection->prepare($query);
+
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute([]);
+
+        $categories = array();
+
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $categories[] = $row;
+        }
+
+        return $categories ?: null;
     }
 }

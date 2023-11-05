@@ -93,3 +93,8 @@
     z-index: 1;
     cursor: pointer;
 }
+
+.post-footer {
+    font-size: .8rem;
+    z-index: 1;
+}

@@ -27,11 +27,11 @@ class FullPost
         }
         $post = new PostModel($this->PDO);
         $comments = new CommentModel($this->PDO);
-        $categories = new CategoryModel($this->PDO);
+        $category = new CategoryModel($this->PDO);
 
         $dataPost = $post->getPost($route[3]);
-        $PostCategories = $categories->getCategories($route[3]);
-        $AllCategories = $categories->getCategories();
+        $postCategory = $category->getCategoryByPostID($route[3]);
+        $categoriesNames = $category->getCategories();
         $dataComments = $comments->getComments($route[3]);
 
         if ($dataPost === null) {
@@ -39,6 +39,6 @@ class FullPost
             exit();
         }
 
-        (new FullPostController())->show($dataPost, $dataComments, $PostCategories, $AllCategories);
+        (new FullPostController())->show($dataPost, $dataComments, $postCategory, $categoriesNames);
     }
 }

@@ -9,10 +9,10 @@ use app\views\posts\Post;
 
 class Profile
 {
-    public function show($data, $posts, $AllCategories, bool $edit = false, bool $isOwner = false): void
+    public function show($data, $posts, $categories ,$categoriesNames, bool $edit = false, bool $isOwner = false): void
     {
         ob_start();
-        echo (new NewPost())->show($AllCategories);
+        echo (new NewPost())->show($categoriesNames);
         ?>
         <div class="category-feed">
         <?php if (isset($_SESSION['errorMessage'])) { ?>
@@ -49,7 +49,7 @@ class Profile
 
             <?php
             foreach ($posts as $post) {
-                echo (new Post())->show($post);
+                echo (new Post())->show($post, $categories);
             }
             ?>
         </div>

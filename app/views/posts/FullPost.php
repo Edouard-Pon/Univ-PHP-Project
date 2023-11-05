@@ -10,16 +10,16 @@ use app\views\comments\NewComment;
 
 class FullPost
 {
-public function show($post, $comments, $categories, $AllCategories): void
+public function show($post, $comments, $category, $categoriesNames): void
 {
 ob_start();
-echo (new NewPost())->show($AllCategories);
+echo (new NewPost())->show($categoriesNames);
 ?>
 <div class="category-feed">
-    <?php echo (new Category())->show($categories); ?>
+    <?php echo (new Category())->show($categoriesNames); ?>
 </div>
 <div class="feed">
-<?= (new Post())->show($post); ?>
+<?= (new Post())->show($post, $category); ?>
 <?= (new NewComment())->show($post['id']) ?>
 <div class="comments-feed">
 <?php

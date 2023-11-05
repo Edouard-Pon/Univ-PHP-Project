@@ -59,17 +59,17 @@
     display: none;
 }
 
-#username {
+.inputText {
     border: none;
     border-bottom: solid var(--bg-color-light) 2px;
     background-color: var(--bg-color-dark);
     color: var(--text-color-light);
     outline: none;
     transition: .3s;
-    width: 40%;
+    width: 100%;
 }
 
-#username:focus {
+.inputText:focus {
     border-bottom: solid var(--accent-color) 2px;
 }
 
@@ -88,4 +88,32 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+}
+
+.form-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.form-item {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+}
+
+.inputSelect {
+    border: none;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    appearance: none;
+    border-bottom: 2px solid var(--bg-color-light);
+    transition: .3s;
+}
+
+.inputSelect:focus {
+    border-bottom: solid var(--accent-color) 2px;
 }

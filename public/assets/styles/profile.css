@@ -42,6 +42,7 @@ body {
     font-weight: bold;
     margin-right: 50px;
     margin-top: 20px;
+    z-index: 0;
 }
 
 .btn-edit:hover {

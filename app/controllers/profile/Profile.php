@@ -55,6 +55,8 @@ class Profile
 
     public function save(array $postData, array $fileData): void
     {
+        $user = new UserModel($this->PDO);
+        $userData = $user->getUser($_SESSION['username']);
         $allowedImageFormats = array("jpg", "jpeg", "png", "gif");
         $errorMessage = '';
         $fileSizeLimitMB = [
@@ -120,15 +122,38 @@ class Profile
                 imagedestroy($croppedImage);
 
                 if (file_exists($data['filePath'])) {
-                    (new UserModel($this->PDO))->update($data);
-                    header('Location: /profile');
-                    exit();
+                    $user->changeProfilePicture($data['filePath'], $_SESSION['username']);
                 } else {
                     $errorMessage .= 'Sorry, there was an error uploading your file';
                     $_SESSION['errorMessage'] = $errorMessage;
+                    header('Location: /profile');
+                    exit();
                 }
             }
         }
+        if (isset($postData['nickname']) && $postData['nickname'] !== $userData['nickname']) {
+            $user->changeNickname($_SESSION['username'], htmlspecialchars($postData['nickname']));
+        }
+        if (isset($postData['location']) && $postData['location'] !== $userData['location']) {
+            $user->changeLocation($_SESSION['username'], htmlspecialchars($postData['location']));
+        }
+        if (isset($postData['gender']) && $postData['gender'] !== $userData['gender']) {
+            $user->changeGender($_SESSION['username'], htmlspecialchars($postData['gender']));
+        }
+        if (isset($postData['username']) && $postData['username'] !== $_SESSION['username']) {
+            if (!$user->isUsernameExist(htmlspecialchars($postData['username']))) {
+//                $user->changeUsername(htmlspecialchars($postData['username']), $_SESSION['username']);
+//                $_SESSION['username'] = htmlspecialchars($postData['username']);
+                $errorMessage .= 'Username change function is not available yet!';
+                $_SESSION['errorMessage'] = $errorMessage;
+            } else {
+                $errorMessage .= 'The username: "' . htmlspecialchars($postData['username'] . '" is already in use!');
+                $_SESSION['errorMessage'] = $errorMessage;
+            }
+        }
+
+        header('Location: /profile');
+        exit();
     }
 
     public function user(string $username): void

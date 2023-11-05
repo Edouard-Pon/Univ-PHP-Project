@@ -28,22 +28,23 @@ class Post
         ob_start();
         ?>
         <div class="post-container">
+            <a class="close" href="/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>"></a>
             <div class="post-top">
                 <div class="user-info">
                     <div class="post-pfp">
                         <img src="/<?= $pfp ?>" alt="Profile picture">
                     </div>
-                    <a href="/profile/<?= htmlspecialchars($post['post_author']) ?>">@<?= htmlspecialchars($post['post_author']) ?></a>
+                    <a href="/profile/<?= $post['post_author'] ?>">@<?= $post['post_author'] ?></a>
                 </div>
                 <?php if ($post['post_author'] === $_SESSION['username'] || isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
                     <button class="btn btn-danger" onclick="location.href = '/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>/delete'" type="submit">Delete</button>
                 <?php } ?>
             </div>
             <?php if (!empty($post['post_title'])) { ?>
-                <a class="title" href="/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>"><?= htmlspecialchars($post['post_title']) ?></a>
+                <a class="title" href="/profile/<?= $post['post_author'] ?>/post/<?= $post['id'] ?>"><?= $post['post_title'] ?></a>
             <?php } ?>
             <?php if (!empty($post['post_text'])) { ?>
-                <p class="text"><?= htmlspecialchars($post['post_text']) ?></p>
+                <p class="text"><?= $post['post_text'] ?></p>
             <?php } ?>
             <?= $media ?>
             <?php echo "Posted on: ".$post['post_date'];?>

@@ -15,10 +15,13 @@ class Profile
         echo (new NewPost())->show($AllCategories);
         ?>
         <div class="category-feed">
+        <?php if (isset($_SESSION['errorMessage'])) { ?>
+            <p id="errorMessage"> <?= $_SESSION['errorMessage'] ?></p>
+        <?php unset($_SESSION['errorMessage']); } ?>
         </div>
         <div class="feed">
 
-            <?php if ($edit) echo (new Edit())->show() ?>
+            <?php if ($edit) echo (new Edit())->show($data) ?>
 
             <div class="profile">
                 <div>

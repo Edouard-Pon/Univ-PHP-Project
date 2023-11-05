@@ -34,31 +34,31 @@ class Signup
 
             <label for="user_country">Pays:</label>
             <select class="inputSelect" id="user_country" name="location">
-                <option value=""> ---Choisissez un pays---</option>
-                <option value="Fr"> France</option>
-                <option value="Ua"> Ukraine</option>
-                <option value="Li"> Listembourg</option>
-                <option value="Uk"> Royaume-Unis</option>
-                <option value="Lu"> Luxembourg</option>
-                <option value="Zi"> Zimbabwe</option>
-                <option value="Ma"> Mars</option>
-                <option value="Ai"> Aix-En-Provence</option>
-                <option value="Iu"> IUT</option>
+                <option disabled selected>---Choisissez un pays---</option>
+                <option value="France">France</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="Listembourg">Listembourg</option>
+                <option value="Royaume-Unis">Royaume-Unis</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+                <option value="Mars">Mars</option>
+                <option value="Aix-En-Provence">Aix-En-Provence</option>
+                <option value="IUT">IUT</option>
             </select>
             <label for="user_sexe">Sexe:</label>
             <select class="inputSelect" id="user_sexe" name="gender">
-                <option value=""> --Choisissez un sexe--</option>
+                <option disabled selected>--Choisissez un sexe--</option>
                 <option value="M">Homme</option>
                 <option value="F">Femme</option>
-                <option value="Helico_de_combat">Hélicoptère de combat</option>
-                <option value="Adaptateur_Usb">Adaptateur USB</option>
-                <option value="Matraque_Telescopique">Matraque téléscopique</option>
-                <option value="Stroboscope_Lumineux">Stroboscope lumineux</option>
-                <option value="Astronaute_En_Perdition">Astronaute en perdition</option>
-                <option value="Casque_VR">Casque VR</option>
-                <option value="Flaque_De_Couleur">Flaque de couleur</option>
-                <option value="Elexir_De_Rage">Elexir de rage</option>
-                <option value="Géant_Des_Collines">Géant des collines</option>
+                <option value="Hélicoptère de combat">Hélicoptère de combat</option>
+                <option value="Adaptateur USB">Adaptateur USB</option>
+                <option value="Matraque téléscopique">Matraque téléscopique</option>
+                <option value="Stroboscope lumineux">Stroboscope lumineux</option>
+                <option value="Astronaute en perdition">Astronaute en perdition</option>
+                <option value="Casque VR">Casque VR</option>
+                <option value="Flaque de couleur">Flaque de couleur</option>
+                <option value="Elexir de rage">Elexir de rage</option>
+                <option value="Géant des collines">Géant des collines</option>
             </select>
             <?php } ?>
             <a href="/login">Déjà un compte?</a>

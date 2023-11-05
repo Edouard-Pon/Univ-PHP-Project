@@ -122,4 +122,59 @@ class User
         }
         $statement->execute([$data['password'], $data['email']]);
     }
+
+    public function changeUsername(string $username, string $previousUsername): void
+    {
+        $query = 'UPDATE user SET username = ? WHERE username = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute([$username, $previousUsername]);
+    }
+
+    public function changeProfilePicture(string $pfp, string $username): void
+    {
+        $query = 'UPDATE user SET profile_picture = ? WHERE username = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute([$pfp, $username]);
+    }
+
+    public function changeNickname(string $username, string $nickname): void
+    {
+        $query = 'UPDATE user SET nickname = ? WHERE username = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute([$nickname, $username]);
+    }
+
+    public function changeLocation(string $username, string $location): void
+    {
+        $query = 'UPDATE user SET location = ? WHERE username = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute([$location, $username]);
+    }
+
+    public function changeGender(string $username, string $gender): void
+    {
+        $query = 'UPDATE user SET gender = ? WHERE username = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute([$gender, $username]);
+    }
 }

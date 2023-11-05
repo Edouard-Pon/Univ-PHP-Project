@@ -15,11 +15,11 @@ public function show($post, $comments, $categories, $AllCategories): void
 ob_start();
 echo (new NewPost())->show($AllCategories);
 ?>
-<div class="feed">
-<?= (new Post())->show($post); ?>
 <div class="category-feed">
     <?php echo (new Category())->show($categories); ?>
 </div>
+<div class="feed">
+<?= (new Post())->show($post); ?>
 <?= (new NewComment())->show($post['id']) ?>
 <div class="comments-feed">
 <?php

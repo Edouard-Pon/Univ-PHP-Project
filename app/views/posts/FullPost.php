@@ -2,6 +2,7 @@
 
 namespace app\views\posts;
 
+use app\views\categories\Category;
 use app\views\layouts\Layout;
 use app\views\partials\Navbar;
 use app\views\comments\Comment;
@@ -9,17 +10,16 @@ use app\views\comments\NewComment;
 
 class FullPost
 {
-public function show($post, $comments): void
+public function show($post, $comments, $categories, $AllCategories): void
 {
 ob_start();
-echo (new NewPost())->show();
+echo (new NewPost())->show($AllCategories);
 ?>
-<div class="category-feed">
-
-</div>
-
 <div class="feed">
 <?= (new Post())->show($post); ?>
+<div class="category-feed">
+    <?php echo (new Category())->show($categories); ?>
+</div>
 <?= (new NewComment())->show($post['id']) ?>
 <div class="comments-feed">
 <?php

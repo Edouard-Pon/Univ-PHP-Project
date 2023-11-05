@@ -2,6 +2,7 @@
 
 namespace app\controllers\home;
 
+use app\models\Category as CategoryModel;
 use app\models\Post as PostModel;
 use app\models\User as UserModel;
 use app\views\home\Home as HomeView;
@@ -21,6 +22,7 @@ class Home
     {
         $user = new UserModel($this->PDO);
         $post = new PostModel($this->PDO);
+        $category = new CategoryModel($this->PDO);
         if (!isset($_SESSION['password']))
         {
             header('Location: /');
@@ -28,7 +30,8 @@ class Home
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts();
-            (new HomeView())->show($user, $post);
+            $AllCategories = $category->getCategories();
+            (new HomeView())->show($user, $post, $AllCategories);
         }
     }
 }

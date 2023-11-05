@@ -45,7 +45,8 @@ class Post
             <?php if (!empty($post['post_text'])) { ?>
                 <p class="text"><?= htmlspecialchars($post['post_text']) ?></p>
             <?php } ?>
-            <?= $media ?>  <!-- Display the media (image or video) -->
+            <?= $media ?>
+            <?php echo "Posted on: ".$post['post_date'];?>
         </div>
         <?php
         return ob_get_clean();

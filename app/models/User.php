@@ -63,7 +63,7 @@ class User
 
     public function getUserPublic(string $username)
     {
-        $query = 'SELECT username, nickname, gender, location, lastco, profile_picture FROM user WHERE username = ?';
+        $query = 'SELECT username, nickname, gender, location, lastco, firstco, profile_picture FROM user WHERE username = ?';
         $statement = $this->connection->prepare($query);
         if (!$statement) {
             error_log('Failed to prepare statement');

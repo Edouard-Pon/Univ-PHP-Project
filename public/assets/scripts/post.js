@@ -1,6 +1,18 @@
 const newPostForm = document.getElementById('newPostForm')
 const closePostForm = document.getElementById('close-post-form')
 
+//Lets user select "Add new category" makes little box appear to add new category
+document.getElementById("categories").addEventListener("change", function () {
+    var selectedCategory = this.value;
+    var newCategoryInput = document.getElementById("newCategoryInput");
+
+    if (selectedCategory === "new_category") {
+        newCategoryInput.style.display = "block";
+    } else {
+        newCategoryInput.style.display = "none";
+    }
+});
+
 function showNewPostForm() {
     newPostForm.style.display = 'block'
     closePostForm.style.display = 'block'

@@ -9,10 +9,10 @@ use app\views\posts\Post;
 
 class Profile
 {
-    public function show($data, $posts, bool $edit = false, bool $isOwner = false): void
+    public function show($data, $posts, $AllCategories, bool $edit = false, bool $isOwner = false): void
     {
         ob_start();
-        echo (new NewPost())->show();
+        echo (new NewPost())->show($AllCategories);
         ?>
         <div class="category-feed">
         </div>
@@ -23,7 +23,7 @@ class Profile
             <div class="profile">
                 <div>
                     <div class="bg-pfp">
-                        <img src="/profiles/test/testbg.jpeg" alt="Background profile picture">
+                        <img src="/profiles/default/default_banner.png" alt="Background profile picture">
                     </div>
                     <div class="profile-top">
                         <img class="pfp" src="/<?= $data['profile_picture'] ?: 'profiles/default/default.png' ?>" alt="Image">
@@ -39,6 +39,7 @@ class Profile
                 <ul class="other">
                     <li>Gender: <?= $data['gender'] ?></li>
                     <li>Location: <?= $data['location'] ?></li>
+                    <li>First connection: <?= $data['firstco'] ?></li>
                     <li>Last connection: <?= $data['lastco'] ?></li>
                 </ul>
             </div>

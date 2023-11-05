@@ -4,7 +4,7 @@ namespace app\views\posts;
 
 class NewPost
 {
-    public function show(): string
+    public function show($categories): string
     {
         ob_start();
 ?>
@@ -19,6 +19,18 @@ class NewPost
         <div class="buttons">
             <button class="btn btn-danger" type="reset" onclick="hideNewPostForm();">Cancel</button>
             <button class="btn btn-primary" type="submit" name="post">Post</button>
+        </div>
+        <label><br>Categories (optionnel)
+        <select name="categories" id="categories">
+            <option value=""></option>
+            <?php foreach ($categories as $category) {
+                echo "<option value=" . $category . ">" . $category . "</option>";
+            } ?>
+            <option value="new_category">Add New Category</option>
+        </select>
+        </label>
+        <div id="newCategoryInput" style="display: none;">
+            <input type="text" name="custom_category" placeholder="New Category" id="custom_category">
         </div>
     </form>
 </div>

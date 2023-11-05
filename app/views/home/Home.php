@@ -9,7 +9,7 @@ use app\views\posts\Post;
 
 class Home
 {
-    public function show($data, $posts): void
+    public function show($data, $posts, $categories): void
     {
         ob_start();
         ?>
@@ -20,7 +20,7 @@ class Home
 </div>
 <div class="feed">
 <?php
-echo (new NewPost())->show();
+echo (new NewPost())->show($categories);
 foreach ($posts as $post) {
     echo (new Post())->show($post);
 }

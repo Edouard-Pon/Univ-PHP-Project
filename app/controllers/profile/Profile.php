@@ -3,6 +3,7 @@
 namespace app\controllers\profile;
 
 use app\models\Post as PostModel;
+use app\models\Category as CategoryModel;
 use app\models\User as UserModel;
 use app\views\profile\Profile as ProfileView;
 use config\DataBase;
@@ -21,6 +22,7 @@ class Profile
     {
         $user = new UserModel($this->PDO);
         $post = new PostModel($this->PDO);
+        $category = new CategoryModel($this->PDO);
         if (!isset($_SESSION['password']))
         {
             header('Location: /');
@@ -28,7 +30,8 @@ class Profile
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts($_SESSION['username']);
-            (new ProfileView())->show($user, $post, false, true);
+            $AllCategories = $category->getCategories();
+            (new ProfileView())->show($user, $post, $AllCategories, false, true);
         }
     }
 
@@ -36,6 +39,7 @@ class Profile
     {
         $user = new UserModel($this->PDO);
         $post = new PostModel($this->PDO);
+        $category = new CategoryModel($this->PDO);
         if (!isset($_SESSION['password']))
         {
             header('Location: /');
@@ -43,7 +47,9 @@ class Profile
         } else {
             $user = $user->getUser($_SESSION['username'], $_SESSION['password']);
             $post = $post->getPosts($_SESSION['username']);
-            (new ProfileView())->show($user, $post, true);
+            $AllCategories = $category->getCategories();
+            //Im not sure isOwner = null is a good idea
+            (new ProfileView())->show($user, $post, $AllCategories, true, true);
         }
     }
 
@@ -129,6 +135,7 @@ class Profile
     {
         $user = new UserModel($this->PDO);
         $posts = new PostModel($this->PDO);
+        $category = new CategoryModel($this->PDO);
         if (!isset($_SESSION['password']))
         {
             header('Location: /');
@@ -136,9 +143,10 @@ class Profile
         } else {
             $user = $user->getUserPublic($username);
             $posts = $posts->getPosts($username);
+            $AllCategories = $category->getCategories();
             $isOwner = false;
             if ($username === $_SESSION['username']) $isOwner = true;
-            (new ProfileView())->show($user, $posts, false, $isOwner);
+            (new ProfileView())->show($user, $posts,  $AllCategories, false, $isOwner);
         }
     }
 }

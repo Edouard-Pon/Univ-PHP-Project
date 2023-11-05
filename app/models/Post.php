@@ -11,7 +11,7 @@ class Post
     public function getPosts($authorName = null): ?array
     {
         if ($authorName) {
-            $query = 'SELECT post_path, post_title, post_author, post_text, id FROM posts WHERE post_author = ?';
+            $query = 'SELECT * FROM posts WHERE post_author = ? ORDER BY post_date DESC';
             $statement = $this->connection->prepare($query);
             if (!$statement) {
                 error_log('Failed to prepare statement');
@@ -20,7 +20,7 @@ class Post
 
             $statement->execute([$authorName]);
         } else {
-            $query = 'SELECT post_path, post_title, post_author, post_text, id FROM posts';
+            $query = 'SELECT * FROM posts ORDER BY post_date DESC';
             $statement = $this->connection->prepare($query);
             if (!$statement) {
                 error_log('Failed to prepare statement');

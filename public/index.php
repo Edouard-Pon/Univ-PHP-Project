@@ -8,6 +8,7 @@ use app\controllers\connections\Logout as LogoutController;
 use app\controllers\connections\Signup as SignupController;
 use app\controllers\connections\Welcome as WelcomeController;
 use app\controllers\errors\Errors as ErrorsController;
+use app\controllers\explorer\Explorer as ExplorerController;
 use app\controllers\home\Home as HomeController;
 use app\controllers\posts\Post as NewPostController;
 use app\controllers\posts\Post as PostController;
@@ -43,6 +44,9 @@ try {
                 break;
             case 'logout':
                 (new LogoutController())->execute();
+                break;
+            case 'explorer':
+                (new ExplorerController())->execute();
                 break;
             case 'profile':
                 if (!isset($route[1])) {

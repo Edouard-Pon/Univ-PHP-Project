@@ -22,7 +22,8 @@ class NewPost
         </div>
         <label><br>Categories (optionnel)
         <select name="categories" id="categories">
-            <option value=""></option>
+            <option value="">Select a categorie</option>
+            <option value="">None</option>
             <?php foreach ($categories as $category) {
                 echo "<option value=" . $category . ">" . $category . "</option>";
             } ?>

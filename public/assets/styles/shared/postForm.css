@@ -53,3 +53,17 @@
     z-index: 1;
     cursor: pointer;
 }
+#categories{
+    color: var(--text-color-light);
+    background-color: var(--bg-color-dark);
+    border: none;
+    border-bottom: solid 1px;
+    cursor: pointer;
+}
+#custom_category{
+    border: none;
+    border-bottom: solid 1px;
+    color: var(--text-color-light);
+    background-color: var(--bg-color-dark);
+    outline: none;
+}

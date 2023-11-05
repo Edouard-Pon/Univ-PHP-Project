@@ -9,7 +9,7 @@ class Edit
         ob_start();
 ?>
 <a id="close" href="/profile"></a>
-<div class="popup" id="editProfile">
+<div class="popup scroll-container" id="editProfile">
     <h1>Profile Settings</h1>
     <form method="POST" action="/profile" enctype="multipart/form-data">
         <div class="form-row">

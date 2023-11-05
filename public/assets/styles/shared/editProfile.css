@@ -117,3 +117,7 @@
 .inputSelect:focus {
     border-bottom: solid var(--accent-color) 2px;
 }
+
+.scroll-container {
+    overflow: auto;
+}

@@ -75,4 +75,40 @@ class User
 
         return $user ?: null;
     }
+
+    public function isUserEmailExist(string $email): ?bool
+    {
+        $query = 'SELECT email FROM user WHERE email = ?';
+        $statement = $this->connection->prepare($query);
+
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute([$email]);
+
+        $emailData = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (isset($emailData['email']) && $emailData['email'] === $email) return true;
+        return false;
+    }
+
+    public function isUsernameExist(string $username): ?bool
+    {
+        $query = 'SELECT username FROM user WHERE username = ?';
+        $statement = $this->connection->prepare($query);
+
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute([$username]);
+
+        $usernameData = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (isset($usernameData['username']) && $usernameData['username'] === $username) return true;
+        return false;
+    }
 }

@@ -7,26 +7,27 @@ use app\views\partials\Footer;
 
 class Signup
 {
-    public function show(): void
+    public function show(bool $emailVerification = null, string $email = null): void
     {
         ob_start();
 ?>
 <div class="page-content">
     <div class="flex-container">
         <form method="POST" action="">
-            <div class="logo"><img src="assets/images/logoblanc.png" class="image" alt=""></div>
-
-            <label for="username">Pseudo:</label>
-            <input class="inputText" id="username" type="text" name="username" autocomplete="off" placeholder="Entrez votre pseudo">
-
-            <label for="nickname">Surnom:</label>
-            <input class="inputText" id="nickname" type="text" name="nickname" autocomplete="off" placeholder="Entrez votre surnom">
-
-            <label for="password">Mot de passe:</label>
-            <input class="inputText" type="password" name="password" autocomplete="off" placeholder="Entrez votre mot de passe">
+            <div class="logo"><img src="/assets/images/logoblanc.png" class="image" alt=""></div>
 
             <label for="email">Adresse Mail:</label>
-            <input class="inputText" type="email" name="email" placeholder="Entrez votre adresse mail" autocomplete="off">
+            <input class="inputText" id="email" type="email" name="email" <?php if ($email !== null) { echo 'value="' . $email . '"'; echo 'readonly'; } ?> placeholder="Entrez votre adresse mail" autocomplete="off">
+
+            <?php if (!$emailVerification) { ?>
+            <label for="password">Mot de passe:</label>
+            <input class="inputText" id="password" type="password" name="password" autocomplete="off" placeholder="Entrez votre mot de passe">
+
+            <label for="username">Username:</label>
+            <input class="inputText" id="username" type="text" name="username" autocomplete="off" placeholder="Entrez votre pseudo">
+
+            <label for="nickname">Pseudo:</label>
+            <input class="inputText" id="nickname" type="text" name="nickname" autocomplete="off" placeholder="Entrez votre surnom">
 
             <label for="user_phone">Téléphone:</label>
             <input class="inputText" type="tel" name="number" id="user_phone" inputmode="numeric" placeholder="Entrez votre numéro de téléphone" pattern="[0-9]{10}">
@@ -59,6 +60,7 @@ class Signup
                 <option value="Elexir_De_Rage">Elexir de rage</option>
                 <option value="Géant_Des_Collines">Géant des collines</option>
             </select>
+            <?php } ?>
             <a href="/login">Déjà un compte?</a>
             <input type="submit" name="signup">
             <?php if (isset($_SESSION['errorMessage'])) { ?>

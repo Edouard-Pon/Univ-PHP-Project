@@ -20,7 +20,7 @@ use app\controllers\comments\Comment as CommentController;
 session_start();
 
 try {
-    if (isset($_SERVER['REQUEST_URI'])) {
+    if (isset($_SERVER['REQUEST_URI']) && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
         $route = ($_SERVER['REQUEST_URI'] === '/') ? '/' : explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 
         switch ($route[0]) {
@@ -71,33 +71,42 @@ try {
                 }
                 (new ProfileController())->user($route[1]);
                 break;
+            case 'verification':
+                if (!isset($route[1])) {
+                    (new ErrorsController())->not_found_execute();
+                    break;
+                }
+                (new SignupController())->emailVerification($route);
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;
         }
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
-        (new LoginController())->login($_POST);
-    }
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['login'])) {
+            (new LoginController())->login($_POST);
+        }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
-        (new SignupController())->signup($_POST);
-    }
+        if (isset($_POST['signup'])) {
+            (new SignupController())->signup($_POST);
+        }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post']))
-    {
-        (new NewPostController())->execute($_POST, $_FILES);
-    }
+        if (isset($_POST['post']))
+        {
+            (new NewPostController())->execute($_POST, $_FILES);
+        }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save-profile']))
-    {
-        (new ProfileController())->save($_POST, $_FILES);
-    }
+        if (isset($_POST['save-profile']))
+        {
+            (new ProfileController())->save($_POST, $_FILES);
+        }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment']))
-    {
-        (new CommentController())->add($_POST);
+        if (isset($_POST['comment']))
+        {
+            (new CommentController())->add($_POST);
+        }
     }
 
 } catch (Exception) {

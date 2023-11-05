@@ -9,7 +9,6 @@ class Post
         $category = null;
         if (is_array($categories)) {
             foreach ($categories as $categoryData) {
-                error_log(print_r($categoryData, true));
                 if ($categoryData['post_id'] === $post['id']) {
                     $category = $categoryData['category_name'];
                     break;
@@ -58,6 +57,7 @@ class Post
     <?php } ?>
     <div class="post-footer">
         <time datetime="<?= $post['post_date'] ?>"><?= date("H:i d.m.Y", strtotime($post['post_date'])) ?></time>
+        <span>Comments: <?= $post['comments_count'] ?></span>
         <?php if ($category !== null) { ?>
         <span>#<?= $category ?></span>
         <?php } ?>

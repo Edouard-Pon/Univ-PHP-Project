@@ -29,7 +29,7 @@ class Comment
         $post_id = $commentData['post_id'];
         $username = $commentData['username'];
         $comment_text = htmlspecialchars($commentData['text']);
-        $timestamp = date('Y-m-d H:i:s');
+        $timestamp = date('Y-m-d H:i:s', time());
 
         if (!empty($comment_text)) {
             $comment->addComment([
@@ -43,7 +43,9 @@ class Comment
             exit();
         } else {
             $_SESSION['errorMessage'] = 'Comment text is empty!';
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
+        exit();
     }
 
     public function delete(array $route): void

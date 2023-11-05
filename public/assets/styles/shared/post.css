@@ -95,6 +95,8 @@
 }
 
 .post-footer {
+    display: flex;
     font-size: .8rem;
+    gap: 2rem;
     z-index: 1;
 }

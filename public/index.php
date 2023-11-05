@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
+date_default_timezone_set('Europe/Paris');
 
 use app\controllers\admin\Admin as AdminController;
 use app\controllers\connections\Login as LoginController;

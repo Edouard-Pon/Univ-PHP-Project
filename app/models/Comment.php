@@ -55,7 +55,11 @@ class Comment
             return;
         }
 
-        $statement->execute([$data['post_id'], $data['username'], $data['comment_text'], $data['timestamp']]);
+        try {
+            $statement->execute([$data['post_id'], $data['username'], $data['comment_text'], $data['timestamp']]);
+        } catch (\PDOException $e) {
+            error_log($e->getMessage());
+        }
     }
 
     public function deleteCommentByID($id): void

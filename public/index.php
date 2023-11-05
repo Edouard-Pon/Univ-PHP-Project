@@ -22,9 +22,41 @@ use app\controllers\connections\Recovery as RecoveryController;
 session_start();
 
 try {
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['login'])) {
+            (new LoginController())->login($_POST);
+        }
+
+        if (isset($_POST['signup'])) {
+            (new SignupController())->signup($_POST);
+        }
+
+        if (isset($_POST['post']))
+        {
+            (new NewPostController())->execute($_POST, $_FILES);
+        }
+
+        if (isset($_POST['query'])) {
+            (new ExplorerController())->execute($_POST);
+        }
+
+        if (isset($_POST['save-profile']))
+        {
+            (new ProfileController())->save($_POST, $_FILES);
+        }
+
+        if (isset($_POST['comment']))
+        {
+            (new CommentController())->add($_POST);
+        }
+
+        if (isset($_POST['recovery'])) {
+            (new RecoveryController())->changePassword($_POST);
+        }
+    }
+
     if (isset($_SERVER['REQUEST_URI']) && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
         $route = ($_SERVER['REQUEST_URI'] === '/') ? '/' : explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-        error_log('ROUTE (index.php): ' . $route[0]);
 
         switch ($route[0]) {
             case '/':
@@ -48,11 +80,9 @@ try {
             case 'logout':
                 (new LogoutController())->execute();
                 break;
-
             case 'explorer':
                 (new ExplorerController())->execute();
                 break;
-
             case 'profile':
                 if (!isset($route[1])) {
                     (new ProfileController())->execute();
@@ -95,40 +125,6 @@ try {
                 break;
         }
     }
-
-    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['login'])) {
-            (new LoginController())->login($_POST);
-        }
-
-        if (isset($_POST['signup'])) {
-            (new SignupController())->signup($_POST);
-        }
-
-        if (isset($_POST['post']))
-        {
-            (new NewPostController())->execute($_POST, $_FILES);
-        }
-
-        if (isset($_POST['query'])) {
-            (new ExplorerController())->execute($_POST);
-        }
-
-        if (isset($_POST['save-profile']))
-        {
-            (new ProfileController())->save($_POST, $_FILES);
-        }
-
-        if (isset($_POST['comment']))
-        {
-            (new CommentController())->add($_POST);
-        }
-
-        if (isset($_POST['recovery'])) {
-            (new RecoveryController())->changePassword($_POST);
-        }
-    }
-
 } catch (Exception) {
 
 }

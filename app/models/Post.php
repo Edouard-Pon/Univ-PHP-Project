@@ -94,4 +94,20 @@ class Post
 
         return $post ?: null;
     }
+
+    public function getNextID(): ?int
+    {
+        $query = 'SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_NAME = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return null;
+        }
+
+        $statement->execute(['posts']);
+
+        $nextID = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $nextID['AUTO_INCREMENT'] ?: null;
+    }
 }

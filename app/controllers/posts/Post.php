@@ -37,7 +37,7 @@ class Post
 
         if (isset($fileData['image']) && $fileData['image']['error'] === UPLOAD_ERR_OK) {
             $file_type = pathinfo($fileData['image']['name'], PATHINFO_EXTENSION);
-            $file_name = $_SESSION['username'] . count(glob('posts/' . $_SESSION['username'] . '/*')) + 1 . '.' . $file_type;
+            $file_name = $_SESSION['username'] . $post->getNextID() . '.' . $file_type;
             $file_size = $fileData['image']['size'];
 
             $data = [

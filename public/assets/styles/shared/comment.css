@@ -14,7 +14,7 @@
 
 .comment-form form {
     display: grid;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-columns: 20% 40% 40%;
 }
 
 .comment-form textarea {
@@ -36,4 +36,18 @@
     justify-self: flex-end;
     align-self: flex-end;
     padding-left: 13px;
+}
+
+@media screen and (max-width: 960px) {
+    .comment-form textarea {
+        resize: none;
+        border: none;
+        border-bottom: solid var(--bg-color-light) 2px;
+        background-color: var(--bg-color-dark);
+        color: var(--text-color-light);
+        outline: none;
+        transition: .3s;
+        width: 100%;
+    }
+
 }

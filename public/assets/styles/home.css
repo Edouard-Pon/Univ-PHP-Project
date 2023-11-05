@@ -7,3 +7,26 @@
 body {
     display: flex;
 }
+
+.explorer a {
+    text-decoration: none;
+    color: var(--text-color-light);
+    padding: 2rem;
+}
+
+.explorer {
+    border: 2px solid var(--bg-color-light);
+    padding: 2rem;
+}
+
+#search {
+    background-color: black;
+    border: none;
+    color: white;
+    outline: none;
+    border-bottom: 1px solid;
+}
+
+.explorer {
+    margin-top: 2.5rem;
+}

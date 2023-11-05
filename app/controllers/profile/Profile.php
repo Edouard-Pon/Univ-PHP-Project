@@ -2,6 +2,8 @@
 
 namespace app\controllers\profile;
 error_reporting(E_ERROR | E_PARSE);
+
+use app\models\Comment as CommentModel;
 use app\models\Post as PostModel;
 use app\models\Category as CategoryModel;
 use app\models\User as UserModel;
@@ -176,4 +178,24 @@ class Profile
             (new ProfileView())->show($user, $posts, $categories, $categoriesNames, false, $isOwner);
         }
     }
+
+//    public function delete($route): void
+//    {
+//        if (isset($_SESSION['username']) && $_SESSION['username'] === $route[1] && $route[2] === 'delete' ||
+//            isset($_SESSION['admin']) && $_SESSION['admin'] && $route[2] === 'delete') {
+//
+//            $post = new PostModel($this->PDO);
+//            $comment = new CommentModel($this->PDO);
+//
+//            $post->deleteAllUserPosts(htmlspecialchars($route[1]));
+//            $comment->deleteAllUserComments(htmlspecialchars($route[1]));
+//
+//            header('Location: /home');
+//            exit();
+//        } else {
+//            $_SESSION['errorMessage'] = 'You cannot delete this user!';
+//        }
+//        header('Location: /home');
+//        exit();
+//    }
 }

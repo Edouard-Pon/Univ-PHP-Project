@@ -20,6 +20,7 @@ class Profile
         <?php unset($_SESSION['errorMessage']); } ?>
         </div>
         <div class="feed">
+            <button class="btn btn-primary btn-navbar-phone" onclick="showNavBar()">Navigation</button>
 
             <?php if ($edit) echo (new Edit())->show($data) ?>
 
@@ -54,9 +55,10 @@ class Profile
             ?>
         </div>
 
-        <div class="navbar-feed">
+        <div class="navbar-feed" id="navBar">
             <?= (new Navbar())->show() ?>
         </div>
+
         <?php
         (new Layout('PasX - Profil', ob_get_clean(), 'profile'))->show();
     }

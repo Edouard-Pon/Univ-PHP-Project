@@ -31,6 +31,7 @@ class Navbar
     </a>
     <button class="btn btn-primary" onclick="showNewPostForm()">Post</button>
     <button class="btn btn-danger" onclick="location.href = '/logout'">Logout</button>
+    <button class="btn btn-primary" id="closeNavbar" onclick="hideNavBar()">Close</button>
 </nav>
 <?php
         return ob_get_clean();

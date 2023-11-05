@@ -100,3 +100,49 @@
     gap: 2rem;
     z-index: 1;
 }
+
+.btn-navbar-phone {
+    display: none;
+}
+
+#closeNavbar {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .user-info {
+       width: 100%;
+    }
+
+    .post-footer {
+        gap: .5rem;
+    }
+
+    .navbar-feed {
+        display: none;
+        color: var(--text-color-light);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--bg-color-dark);
+        padding: 20px;
+        border-radius: 25px;
+        border: solid var(--accent-color) 2px;
+        width: 80%;
+        height: 80%;
+        z-index: 1;
+        align-items: center;
+    }
+
+    .btn-navbar-phone {
+        margin-top: 1.2rem;
+        display: block;
+    }
+
+    #closeNavbar {
+        display: block;
+        margin-top: 3rem;
+    }
+
+}

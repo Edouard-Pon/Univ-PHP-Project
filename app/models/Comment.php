@@ -85,4 +85,20 @@ class Comment
 
         $statement->execute([$postID]);
     }
+
+    public function deleteAllUserComments($username): void
+    {
+        $query = 'DELETE FROM comments WHERE comment_author = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+
+        try {
+            $statement->execute([$username]);
+        } catch (\PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+        }
+    }
 }

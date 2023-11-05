@@ -19,6 +19,7 @@ echo (new NewPost())->show($categoriesNames);
     <?php echo (new Category())->show($categoriesNames); ?>
 </div>
 <div class="feed">
+<button class="btn btn-primary btn-navbar-phone" onclick="showNavBar()">Navigation</button>
 <?= (new Post())->show($post, $category); ?>
 <?= (new NewComment())->show($post['id']) ?>
 <div class="comments-feed">
@@ -29,8 +30,7 @@ foreach ($comments as $comment) {
 ?>
 </div>
 </div>
-
-<div class="navbar-feed">
+<div class="navbar-feed" id="navBar">
     <?= (new Navbar())->show() ?>
 </div>
 <?php

@@ -110,4 +110,20 @@ class Post
 
         return $nextID['AUTO_INCREMENT'] ?: null;
     }
+
+    public function deleteAllUserPosts($username): void
+    {
+        $query = 'DELETE FROM posts WHERE post_author = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+
+        try {
+            $statement->execute([$username]);
+        } catch (\PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+        }
+    }
 }

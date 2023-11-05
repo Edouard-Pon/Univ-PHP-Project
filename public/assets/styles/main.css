@@ -49,3 +49,17 @@ img, picture, svg, video {
 .navbar-feed {
     width: 30%;
 }
+
+@media screen and (max-width: 960px) {
+    .category-feed {
+        display: none;
+    }
+
+    .feed {
+        width: 100%;
+    }
+
+    .navbar-feed {
+        display: none;
+    }
+}

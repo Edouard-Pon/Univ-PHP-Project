@@ -32,3 +32,14 @@ function OnInput() {
     this.style.height = 0;
     this.style.height = (this.scrollHeight) + "px";
 }
+
+const navBar = document.getElementById('navBar')
+
+
+function showNavBar() {
+    navBar.style.display = "flex";
+}
+
+function hideNavBar() {
+    navBar.style.display = "none";
+}

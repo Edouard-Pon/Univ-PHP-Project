@@ -8,13 +8,13 @@ class SearchResult
     {
         ob_start();
 ?>
-<div>
+<div class="explorer">
     <a href="/profile/<?= $searchResults['post_author'] ?>/post/<?= $searchResults['id'] ?>"><?= $searchResults['post_text'] ?></a>
 </div>
-<div>
+<div class="explorer">
     <a href="/profile/<?= $searchResults['username'] ?>">@<?= $searchResults['username'] ?></a>
 </div>
-<div>
+<div class="explorer">
     <a href="/category/<?= $searchResults['category_name'] ?>"><?= $searchResults['category_name'] ?></a>
 </div>
 <?php

@@ -19,6 +19,7 @@ class Home
     <?php unset($_SESSION['errorMessage']); } ?>
 </div>
 <div class="feed">
+<button class="btn btn-primary btn-navbar-phone" onclick="showNavBar()">Navigation</button>
 <?php
 echo (new NewPost())->show($categoriesNames);
 foreach ($posts as $post) {
@@ -26,7 +27,7 @@ foreach ($posts as $post) {
 }
 ?>
 </div>
-<div class="navbar-feed">
+<div class="navbar-feed" id="navBar">
     <?= (new Navbar())->show() ?>
 </div>
 <?php

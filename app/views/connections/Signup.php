@@ -62,7 +62,7 @@ class Signup
             </select>
             <?php } ?>
             <a href="/login">Déjà un compte?</a>
-            <input type="submit" name="signup">
+            <input type="submit" name="signup" value="Signup">
             <?php if (isset($_SESSION['errorMessage'])) { ?>
             <p id="errorMessage"> <?php echo $_SESSION['errorMessage'] ?></p>
             <?php unset($_SESSION['errorMessage']); } ?>

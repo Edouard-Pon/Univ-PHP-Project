@@ -16,6 +16,7 @@ use app\controllers\profile\Profile as ProfileController;
 use app\controllers\tos\TOS as TOSController;
 use app\controllers\posts\FullPost as FullPostController;
 use app\controllers\comments\Comment as CommentController;
+use app\controllers\connections\Recovery as RecoveryController;
 
 session_start();
 
@@ -78,6 +79,13 @@ try {
                 }
                 (new SignupController())->emailVerification($route);
                 break;
+            case 'recovery':
+                if (!isset($route[1])) {
+                    (new RecoveryController())->execute();
+                    break;
+                }
+                (new RecoveryController())->emailVerification($route);
+                break;
             default:
                 (new ErrorsController())->not_found_execute();
                 break;
@@ -106,6 +114,10 @@ try {
         if (isset($_POST['comment']))
         {
             (new CommentController())->add($_POST);
+        }
+
+        if (isset($_POST['recovery'])) {
+            (new RecoveryController())->changePassword($_POST);
         }
     }
 

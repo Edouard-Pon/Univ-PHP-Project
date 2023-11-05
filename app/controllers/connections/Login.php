@@ -29,28 +29,40 @@ class Login
             exit();
         }
         $username = htmlspecialchars($postData['username']);
-        $password = sha1($postData['password']);
+        $password = htmlspecialchars($postData['password']);
         $user = new UserModel($this->PDO);
         if (!empty($username) && !empty($password))
         {
-            $userData = $user->getUser($username, $password);
+            $userData = $user->getUser($username);
             if ($userData !== null)
             {
-                $_SESSION['username'] = $userData['username'];
-                $_SESSION['password'] = $userData['password'];
-                $_SESSION['id'] = $userData['id'];
-                $_SESSION['admin'] = $userData['admin'];
-                $_SESSION['profile_picture'] = $userData['profile_picture'];
-                $user->setLastConnection();
-                header('Location: /home');
-                exit();
+                if (password_verify($password, $userData['password']))
+                {
+                    $_SESSION['username'] = $userData['username'];
+                    $_SESSION['password'] = $userData['password'];
+                    $_SESSION['id'] = $userData['id'];
+                    $_SESSION['admin'] = $userData['admin'];
+                    $_SESSION['profile_picture'] = $userData['profile_picture'];
+                    $user->setLastConnection();
+                    header('Location: /home');
+                    exit();
+                } else {
+                    $errorMessage = 'Votre mot de passe est incorrect...';
+                    $_SESSION['errorMessage'] = $errorMessage;
+                    header('Location: /login');
+                    exit();
+                }
             } else {
-                $errorMessage = 'Votre mot de passe ou nom d\'utilisateur est incorrect...';
+                $errorMessage = 'Votre nom d\'utilisateur est incorrect...';
                 $_SESSION['errorMessage'] = $errorMessage;
+                header('Location: /login');
+                exit();
             }
         } else {
             $errorMessage = 'Veuillez compléter tous les champs...';
             $_SESSION['errorMessage'] = $errorMessage;
+            header('Location: /login');
+            exit();
         }
     }
 }

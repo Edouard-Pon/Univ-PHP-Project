@@ -8,16 +8,16 @@ class User
 {
     public function __construct(private PDO $connection) {}
 
-    public function getUser(string $username, string $password): ?array
+    public function getUser(string $username): ?array
     {
-        $query = 'SELECT * FROM user WHERE username = ? AND password = ?';
+        $query = 'SELECT * FROM user WHERE username = ?';
         $statement = $this->connection->prepare($query);
         if (!$statement) {
             error_log('Failed to prepare statement');
             return null;
         }
 
-        $statement->execute([$username, $password]);
+        $statement->execute([$username]);
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
         return $user ?: null;
@@ -110,5 +110,16 @@ class User
 
         if (isset($usernameData['username']) && $usernameData['username'] === $username) return true;
         return false;
+    }
+
+    public function changePassword(array $data): void
+    {
+        $query = 'UPDATE user SET password = ? WHERE email = ?';
+        $statement = $this->connection->prepare($query);
+        if (!$statement) {
+            error_log('Failed to prepare statement');
+            return;
+        }
+        $statement->execute([$data['password'], $data['email']]);
     }
 }

@@ -44,18 +44,19 @@ class Signup
             $isExpired = $this->isVerificationLinkExpired($emailData['request_date']);
         }
 
-        if (isset($postData['username'])) {
+        if (isset($postData['username']) && !$isAccountExist) {
             $isAccountExist = $user->isUsernameExist(strtolower(htmlspecialchars($postData['username'])));
             $isUsernameTaken = $isAccountExist;
         }
 
         if (!$isAccountExist && isset($emailData['verified']) && !$emailData['verified'] && isset($postData['password']) && !$isExpired) {
-            $emailVerification->setVerified(htmlspecialchars($emailData['email']), true, $emailData['url']);
+//            $emailVerification->setVerified(htmlspecialchars($emailData['email']), true, $emailData['url']);
+            $emailVerification->deleteEmail($emailData['email']);
 
             $data = [
                 'username' => strtolower(htmlspecialchars($postData['username'])),
                 'nickname' => htmlspecialchars($postData['nickname']),
-                'password' => sha1($postData['password']),
+                'password' => password_hash(htmlspecialchars($postData['password']), PASSWORD_DEFAULT),
                 'email' => htmlspecialchars($postData['email']),
                 'number' => htmlspecialchars($postData['number']),
                 'location' => htmlspecialchars($postData['location']),
@@ -103,14 +104,14 @@ class Signup
         if (!$isAccountExist && !isset($emailData['email'])) {
             $verificationURL = $this->generateVerificationURL();
             $emailVerification->setEmail(htmlspecialchars($postData['email']), false, $verificationURL);
-            $user = htmlspecialchars($postData['email']);
+            $userEmail = htmlspecialchars($postData['email']);
 
             $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
             $host = $_SERVER['HTTP_HOST'];
 
             $subject = 'Verify your email';
             $message = 'Please visit the following link to verify your email address: ' . $protocol . $host . '/verification/' . $verificationURL . '. If you received this verification email in error, please ignore it!';
-            if ((new EmailService())->sendEmail($user, $subject, $message)) {
+            if ((new EmailService())->sendEmail($userEmail, $subject, $message)) {
                 $errorMessage = 'Please check your email to complete the registration process!';
             } else {
                 $errorMessage = 'Please check your email to access the registration page!';

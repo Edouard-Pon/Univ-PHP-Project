@@ -2,8 +2,7 @@
 
 namespace app\controllers\explorer;
 
-use app\models\Post as PostModel;
-use app\models\Category as CategoryModel;
+use app\models\Explorer as ExplorerModel;
 
 use app\views\explorer\Explorer as ExplorerView;
 use config\DataBase;
@@ -19,15 +18,16 @@ class Explorer
         $this->PDO = DataBase::getConnection();
     }
 
-    public function execute(): void
+    public function execute(array $postData = null): void
     {
-        $post = new PostModel($this->PDO);
-        $category = new CategoryModel($this->PDO);
+        $explorer = new ExplorerModel($this->PDO);
+        $query=htmlspecialchars($postData['query']);
 
-        $post = $post->getPosts();
-        $AllCategories = $category->getCategories();
-
-        (new ExplorerView())->show($post, $AllCategories);
+        if (($query)!=null) {
+            $results = $explorer->getResults($postData);
+            (new ExplorerView())->show($results);
+        } else {
+            (new ExplorerView())->show();
+        }
     }
-
 }

@@ -95,11 +95,9 @@ class Category
 
         if (!$statement) {
             $errorInfo = $this->connection->errorInfo();
-            // Handle the error or log it
             error_log('Database error: ' . implode(' | ', $errorInfo));
             return;
         }
-
 
         $statement->execute([$postID, $category]);
     }

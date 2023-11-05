@@ -19,7 +19,6 @@ class Comment
     public function add(array $commentData): void
     {
         $comment = new CommentModel($this->PDO);
-        $post = new PostModel($this->PDO);
 
         if (empty($_SESSION['username'])) {
             $_SESSION['errorMessage'] = 'User session is not valid!';

@@ -27,7 +27,7 @@ class Profile
             <div class="profile">
                 <div>
                     <div class="bg-pfp">
-                        <img src="/profiles/default/default_banner.png" alt="Background profile picture">
+                        <img src="/<?= $data['bg_picture'] ?: 'profiles/default/default_banner.png' ?>" alt="Background profile picture">
                     </div>
                     <div class="profile-top">
                         <img class="pfp" src="/<?= $data['profile_picture'] ?: 'profiles/default/default.png' ?>" alt="Image">

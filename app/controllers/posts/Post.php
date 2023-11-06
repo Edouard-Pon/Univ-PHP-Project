@@ -47,7 +47,7 @@ class Post
                 'file_size' => $file_size,
                 'post_title' => htmlspecialchars($postData['title']),
                 'post_text' => htmlspecialchars($postData['text']),
-                'post_date' => date('Y-m-d h:i:s a', time()),
+                'post_date' => date('Y-m-d H:i:s', time()),
                 'post_author' => htmlspecialchars($_SESSION['username'])
             ];
 
@@ -97,7 +97,7 @@ class Post
             $data = [
                 'post_title' => htmlspecialchars($postData['title']),
                 'post_text' => htmlspecialchars($postData['text']),
-                'post_date' => date('Y-m-d h:i:s a', time()),
+                'post_date' => date('Y-m-d H:i:s', time()),
                 'post_author' => htmlspecialchars($_SESSION['username'])
             ];
             error_log($data['post_date']);

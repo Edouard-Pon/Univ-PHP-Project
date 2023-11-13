@@ -69,9 +69,10 @@ class Category
         return $categories['category_name'] ?: null;
     }
 
-    public function getPostInCategory($postCategory): ?int
+    public function getPostsInCategory($postCategory): ?array
     {
-        $query = 'SELECT post_id, category_name FROM comments WHERE category_name = ?';
+        $query = 'SELECT * FROM categories WHERE category_name = ?';
+
         $statement = $this->connection->prepare($query);
 
         if (!$statement) {
@@ -81,9 +82,9 @@ class Category
 
         $statement->execute([$postCategory]);
 
-        $comments = $statement->fetch(PDO::FETCH_ASSOC);
+        $postIDS = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        return $comments['count(*)'] ?: 0;
+        return $postIDS ?: null;
     }
 
     public function addCategory(int $postID, string $category): void

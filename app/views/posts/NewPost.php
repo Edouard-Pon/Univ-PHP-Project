@@ -25,10 +25,11 @@ class NewPost
         <select name="categories" id="categories">
             <option value="">Select a category</option>
             <option value="">None</option>
-            <?php foreach ($categories as $category) {
+            <?php foreach ($categories as $category)
                 echo "<option value=" . $category . ">" . $category . "</option>";
-            } ?>
-            <option value="new_category">Add new category</option>
+            if (isset($_SESSION['admin']) && $_SESSION['admin'])
+                echo '<option value="new_category">Add new category</option>'
+            ?>
         </select>
         </label>
         <div id="newCategoryInput" style="display: none;">

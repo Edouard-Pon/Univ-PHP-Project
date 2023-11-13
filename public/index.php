@@ -15,6 +15,7 @@ use app\controllers\home\Home as HomeController;
 use app\controllers\posts\Post as NewPostController;
 use app\controllers\posts\Post as PostController;
 use app\controllers\profile\Profile as ProfileController;
+use app\controllers\category\Categories as CategoryController;
 use app\controllers\tos\TOS as TOSController;
 use app\controllers\posts\FullPost as FullPostController;
 use app\controllers\comments\Comment as CommentController;
@@ -83,6 +84,9 @@ try {
                 break;
             case 'explorer':
                 (new ExplorerController())->execute();
+                break;
+            case 'category':
+                (new CategoryController())->execute($route[1]);
                 break;
             case 'profile':
                 if (!isset($route[1])) {

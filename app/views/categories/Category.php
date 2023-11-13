@@ -12,8 +12,7 @@ class Category
             <?php
                 echo "Categories: <br>";
                 foreach ($categories as $category) {
-                    echo $category . "<br>";
-
+                    echo '<div><a href="/category/' . $category . '">#' . $category . '</a></div>';
             }
             ?>
         </p>

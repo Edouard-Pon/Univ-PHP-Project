@@ -59,7 +59,7 @@ class Post
         <time datetime="<?= $post['post_date'] ?>"><?= date("H:i d.m.Y", strtotime($post['post_date'])) ?></time>
         <span>Comments: <?= $post['comments_count'] ?></span>
         <?php if ($category !== null) { ?>
-        <span>#<?= $category ?></span>
+        <span><a href="/category/<?= $category ?>">#<?= $category ?></a></span>
         <?php } ?>
     </div>
 </div>

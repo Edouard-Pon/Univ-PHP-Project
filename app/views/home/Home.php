@@ -6,6 +6,7 @@ use app\views\layouts\Layout;
 use app\views\partials\Navbar;
 use app\views\posts\NewPost;
 use app\views\posts\Post;
+use app\views\categories\Category;
 
 class Home
 {
@@ -14,7 +15,9 @@ class Home
         ob_start();
         ?>
 <div class="category-feed">
-    <?php if (isset($_SESSION['errorMessage'])) { ?>
+    <?php
+    echo (new Category())->show($categoriesNames);
+    if (isset($_SESSION['errorMessage'])) { ?>
     <p id="errorMessage"> <?= $_SESSION['errorMessage'] ?></p>
     <?php unset($_SESSION['errorMessage']); } ?>
 </div>

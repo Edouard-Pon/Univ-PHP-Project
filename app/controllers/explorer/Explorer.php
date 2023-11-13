@@ -3,6 +3,7 @@
 namespace app\controllers\explorer;
 error_reporting(E_ERROR | E_PARSE);
 use app\models\Explorer as ExplorerModel;
+use app\models\Category as CategoryModel;
 
 use app\views\explorer\Explorer as ExplorerView;
 use config\DataBase;
@@ -21,12 +22,15 @@ class Explorer
     public function execute(array $postData = null): void
     {
         $explorer = new ExplorerModel($this->PDO);
+        $categories = new CategoryModel($this->PDO);
         if (isset($postData['query'])) {
             $query = htmlspecialchars($postData['query']);
             $results = $explorer->getResults($query);
-            (new ExplorerView())->show($results);
+            $allCategories = $categories->getAllCategories();
+            (new ExplorerView())->show($results,$allCategories);
         } else {
-            (new ExplorerView())->show();
+            $allCategories = $categories->getAllCategories();
+            (new ExplorerView())->show($allCategories,null);
         }
     }
 }

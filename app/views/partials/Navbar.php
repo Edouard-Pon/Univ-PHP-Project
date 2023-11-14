@@ -25,9 +25,9 @@ class Navbar
         <img class="nav-logo" src="/assets/images/explorerX.png" alt="Image Rechercher">
         <span class="nav-title">Explorer</span>
     </a>
-    <a href="/profile">
-        <img class="nav-logo" src="/assets/images/profilX.png" alt="Image Profil">
-        <span class="nav-title">Profil</span>
+    <a href="/category">
+        <img class="nav-logo" src="/assets/images/bookshelf.jpg" alt="Image Categories">
+        <span class="nav-title">Categories</span>
     </a>
     <button class="btn btn-primary" onclick="showNewPostForm()">Post</button>
     <button class="btn btn-danger" onclick="location.href = '/logout'">Logout</button>

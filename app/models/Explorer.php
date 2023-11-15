@@ -14,7 +14,7 @@ class Explorer
     {
         $postQuery = "SELECT * FROM posts WHERE post_text LIKE :criteria";
         $userQuery = "SELECT * FROM user WHERE username LIKE :criteria";
-        $categoryQuery = "SELECT * FROM categories WHERE category_name LIKE :criteria";
+        $categoryQuery = "SELECT DISTINCT category_name FROM categories WHERE category_name LIKE :criteria";
 
         try {
             $postResults = $this->connection->prepare($postQuery);

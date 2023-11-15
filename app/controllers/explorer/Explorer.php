@@ -27,10 +27,12 @@ class Explorer
             $query = htmlspecialchars($postData['query']);
             $results = $explorer->getResults($query);
             $allCategories = $categories->getAllCategories();
-            (new ExplorerView())->show($results,$allCategories);
+            $categoriesNames = $categories->getCategories();
+            (new ExplorerView())->show($results,$categoriesNames,$allCategories);
         } else {
             $allCategories = $categories->getAllCategories();
-            (new ExplorerView())->show($allCategories,null);
+            $categoriesNames = $categories->getCategories();
+            (new ExplorerView())->show($allCategories,$categoriesNames,null);
         }
     }
 }

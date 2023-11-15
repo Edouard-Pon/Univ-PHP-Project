@@ -27,7 +27,7 @@ class SearchResult
             if (!empty($searchResults['users'])){
             foreach ($searchResults['users'] as $result): ?>
                 <?php
-                $pfp = 'profiles/' . $result['post_author'] . '/' . $result['post_author'] . '.jpg';
+                $pfp = 'profiles/' . $result['username'] . '/' . $result['username'] . '.jpg';
                 if (!file_exists($pfp)) {
                     $pfp = 'profiles/default/default.png';
                 }

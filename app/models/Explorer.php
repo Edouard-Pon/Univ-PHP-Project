@@ -13,7 +13,7 @@ class Explorer
     public function getResults($criteria): ?array
     {
         $postQuery = "SELECT * FROM posts WHERE post_text LIKE :criteria";
-        $userQuery = "SELECT * FROM user WHERE username LIKE :criteria";
+        $userQuery = "SELECT username FROM user WHERE username LIKE :criteria";
         $categoryQuery = "SELECT DISTINCT category_name FROM categories WHERE category_name LIKE :criteria";
 
         try {

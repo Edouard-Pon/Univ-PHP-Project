@@ -30,13 +30,13 @@ class Profile
                         <img src="/<?= $data['bg_picture'] ?: 'profiles/default/default_banner.png' ?>" alt="Background profile picture">
                     </div>
                     <div class="profile-top">
-                        <?php if (isset($data['verified'])) echo '<img class="verified" src="/assets/images/verified.png" alt="verified">';?>
                         <img class="pfp" src="/<?= $data['profile_picture'] ?: 'profiles/default/default.png' ?>" alt="Image">
                         <?php if ($isOwner) { ?>
                         <a class="btn btn-primary btn-edit" href="/profile/edit">Edit Profile</a>
                         <?php } ?>
                     </div>
                 </div>
+                <?php if (isset($data['verified'])) echo '<img class="verified" src="/assets/images/verified.png" alt="verified">';?>
                 <ul class="name">
                     <li class="nickname"><?= $data['nickname'] ?></li>
                     <li class="username">@<?= $data['username'] ?></li>
